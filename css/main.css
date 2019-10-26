@@ -4,75 +4,10 @@ html, * {
   font-weight: normal;
   font-size: 20px;
   text-rendering: optimizeLegibility !important;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
   margin: 0px;
   padding: 0px;
-}
-
-body {
-  /*******************Global*****************/
-  /*Container*/
-  /*Text*/
-  /*Button*/
-  /*Utilities*/
-  /*******************Main*****************/
-  /*Header*/
-}
-
-body .container {
-  max-width: 1440px;
-  height: 100%;
-  margin: 0 auto 0 auto;
-  padding: 0 24px 0 24px;
-  overflow: hidden;
-}
-
-body section {
-  padding: 5em 0 !important;
-}
-
-body .text-light {
-  font-weight: 100 !important;
-}
-
-body .text-bold {
-  font-weight: 500 !important;
-}
-
-body h1 {
-  font-size: 200%;
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
-  color: #000000;
-  margin-bottom: 5em;
-}
-
-body h1::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 5px;
-  background: #B42B42;
-  margin: auto;
-  border-radius: 40px;
-  margin-bottom: 20px;
-}
-
-body .btn {
-  padding: 10px 20px;
-  border: none;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-}
-
-body .btn-border {
-  background: transparent !important;
-  border: 1px solid !important;
-}
-
-body .round {
-  border-radius: 40px;
 }
 
 body header {
@@ -309,5 +244,136 @@ body #skills h3 {
   font-weight: 300;
   font-size: 150%;
   text-align: center;
+  margin-bottom: 2em;
+}
+
+body #skills .top-skills .progress-90 .pie {
+  clip: rect(auto, auto, auto, auto);
+}
+
+body #skills .top-skills .progress-90 .pie .half-circle {
+  border-color: #19B2F6;
+}
+
+body #skills .top-skills .progress-90 .pie .left-side {
+  -webkit-transform: rotate(324deg);
+          transform: rotate(324deg);
+}
+
+body #skills .top-skills .progress-90 .pie .right-side {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+body #skills .top-skills .progress-70 .pie {
+  clip: rect(auto, auto, auto, auto);
+}
+
+body #skills .top-skills .progress-70 .pie .half-circle {
+  border-color: #19B2F6;
+}
+
+body #skills .top-skills .progress-70 .pie .left-side {
+  -webkit-transform: rotate(252deg);
+          transform: rotate(252deg);
+}
+
+body #skills .top-skills .progress-70 .pie .right-side {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+body #skills .top-skills .progress-85 .pie {
+  clip: rect(auto, auto, auto, auto);
+}
+
+body #skills .top-skills .progress-85 .pie .half-circle {
+  border-color: #19B2F6;
+}
+
+body #skills .top-skills .progress-85 .pie .left-side {
+  -webkit-transform: rotate(306deg);
+          transform: rotate(306deg);
+}
+
+body #skills .top-skills .progress-85 .pie .right-side {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+body #skills .top-skills .progress-65 .pie {
+  clip: rect(auto, auto, auto, auto);
+}
+
+body #skills .top-skills .progress-65 .pie .half-circle {
+  border-color: #19B2F6;
+}
+
+body #skills .top-skills .progress-65 .pie .left-side {
+  -webkit-transform: rotate(234deg);
+          transform: rotate(234deg);
+}
+
+body #skills .top-skills .progress-65 .pie .right-side {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+body #skills .top-skills .label {
+  color: #333;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1em;
+  display: block;
+  text-align: center;
+}
+
+body #skills .other-skills {
+  margin-top: 5em;
+}
+
+body #skills .other-skills .mt-0 {
+  margin-top: 0 !important;
+}
+
+body #skills .other-skills .bar {
+  margin: 1em 0;
+}
+
+body #skills .other-skills .label {
+  font-weight: normal;
+  text-transform: capitalize;
+  color: #333;
+  margin-right: .5em;
+  width: 100px;
+  text-align: center;
+}
+
+body #skills .other-skills .progress-80 {
+  width: 80%;
+}
+
+body #skills .other-skills .progress-90 {
+  width: 90%;
+}
+
+body #skills .other-skills .progress-70 {
+  width: 70%;
+}
+
+body #skills .other-skills .progress-60 {
+  width: 60%;
+}
+
+body #skills .other-skills .progress-50 {
+  width: 50%;
+}
+
+body #skills .other-skills .progress-40 {
+  width: 40%;
+}
+
+body #skills .other-skills .progress-30 {
+  width: 30%;
 }
 /*# sourceMappingURL=main.css.map */

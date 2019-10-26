@@ -1,29 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,700&display=swap');
 
+// ___________________________ CONSTANTS __________________________________
+
+// **** VARIABLES ****
+$defaultPieSize: 8em;
+$pieFontSize: $defaultPieSize / 4;
+$softBorderRadius: 40px;
+$transitionDelay: .5s;
+$progress-bar-width: 400px;
 $colors : (
     primary: #19B2F6,
     secondary: #B42B42,
     dark: #333,
     lightGray: #E9E8E8,
-    gray: #8E8E8E,
+    gray: #C8C8C8,
     darkGray: #707070,
     black: #000000,
     white: #ffffff,
     linkedin: #2867B2,
-    stackOverflow: #f48024
+    stackOverflow: #f48024,
+    inspect: rgb(0, 255, 255),
+    bg: rgb(199, 20, 124)
 );
-$softBorderRadius: 40px;
-$transitionDelay: .5s;
 
+
+
+// **** FUNCTIONS ****
 @function color($color-name) {
     @return map-get($colors, $color-name)
 };
+
+@mixin size($width, $height) {
+    height: $height;
+    width: $width;
+};
+
+@mixin draw-progress($progress, $color) {
+    .pie {
+        .half-circle {
+            border-color: $color;
+        }
+
+        .left-side {
+            transform: rotate($progress * 3.6deg);
+        }
+
+        @if $progress <= 50 {
+            .right-side {
+            display: none;
+            }
+        } @else {
+            clip: rect(auto, auto, auto, auto);
+
+            .right-side {
+            transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+// ___________________________ CONSTANTS __________________________________
+
+
+
 
 html, * {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 20px;
     text-rendering: optimizeLegibility !important;
+    box-sizing: border-box !important;
 
     margin: 0px;
     padding: 0px;
@@ -31,73 +77,6 @@ html, * {
 
 body {
 
-    /*******************Global*****************/
-
-    /*Container*/
-    .container {
-        max-width: 1440px;
-        height: 100%;
-        margin: 0 auto 0 auto;
-        padding: 0 24px 0 24px;
-        overflow: hidden;
-    }
-
-    section {
-        padding: 5em 0 !important; 
-    }
-
-    /*Text*/
-    .text-light {
-        font-weight: 100 !important;
-    }
-
-    .text-bold {
-        font-weight: 500 !important;
-    }
-
-    h1 {
-        font-size: 200%;
-        font-weight: 400;
-        text-align: center;
-        text-transform: uppercase;
-        color: color(black);
-        margin-bottom: 5em;
-
-        &::before {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 5px;
-            background: color(secondary);
-            margin: auto;
-            border-radius: $softBorderRadius;
-            margin-bottom: 20px;
-        }
-    }
-
-    /*Button*/
-    .btn {
-        padding: 10px 20px;
-        border: none;
-        text-align: center;
-        cursor: pointer;
-        outline: none;
-    }
-
-    .btn-border{
-        background: transparent !important;
-        border: 1px solid !important;
-    }
-
-    /*Utilities*/
-    .round {
-        border-radius: $softBorderRadius;
-    }
-
-  
-    /*******************Main*****************/
-
-    /*Header*/
     header {
         height: 100vh;
 
@@ -303,6 +282,75 @@ body {
             font-weight: 300;
             font-size: 150%;
             text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .top-skills {
+            .progress-90 {
+                @include draw-progress(90, color(primary));
+            }
+            .progress-70 {
+                @include draw-progress(70, color(primary));
+            }
+            .progress-85 {
+                @include draw-progress(85, color(primary));
+            }
+            .progress-65 {
+                @include draw-progress(65, color(primary));
+            }
+
+            .label {
+                color: color(dark);
+                text-transform: capitalize;
+                font-weight: bold;
+                font-size: $pieFontSize / 2;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        .other-skills {
+            margin-top: 5em;
+
+            .mt-0 {
+                margin-top: 0 !important;
+            }
+
+            .bar {
+                margin: 1em 0;
+            }
+
+            .label {
+                font-weight: normal;
+                text-transform: capitalize;
+                color: color(dark);
+                margin-right: .5em;
+                width: 100px;
+                text-align: center;
+            }
+
+            .progress-80 {
+                width: 80%;
+            }
+            .progress-90 {
+                width: 90%;
+            }
+            .progress-70 {
+                width: 70%;
+            }
+            .progress-60 {
+                width: 60%;
+            }
+            .progress-50 {
+                width: 50%;
+            }
+            .progress-40 {
+                width: 40%;
+            }
+            .progress-30 {
+                width: 30%;
+            }
+
         }
     }
 }

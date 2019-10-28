@@ -156,7 +156,6 @@ h1::before {
 }
 
 .progress-bar {
-  width: 400px;
   background: #C8C8C8;
   border-radius: 40px;
   position: relative;
@@ -215,7 +214,7 @@ h1::before {
       flex-wrap: wrap !important;
 }
 
-.center {
+.f-center {
   -webkit-box-pack: center !important;
       -ms-flex-pack: center !important;
           justify-content: center !important;
@@ -224,9 +223,15 @@ h1::before {
           align-items: center !important;
 }
 
-.s-center {
+.center {
   -ms-flex-item-align: center !important;
       -ms-grid-row-align: center !important;
       align-self: center !important;
+}
+
+.grow {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 /*# sourceMappingURL=style.css.map */

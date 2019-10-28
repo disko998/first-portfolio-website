@@ -1,4 +1,241 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,700&display=swap");
+.i {
+  border: 1px solid cyan !important;
+}
+
+.i-2 {
+  border: 1px solid #000000 !important;
+}
+
+.i-3 {
+  border: 1px solid #B42B42 !important;
+}
+
+.b {
+  background: #c7147c !important;
+}
+
+.b-2 {
+  background: #2867B2 !important;
+}
+
+.b-3 {
+  background: #C8C8C8 !important;
+}
+
+.container {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto 0 auto;
+  padding: 0 24px 0 24px;
+  overflow: hidden;
+}
+
+section {
+  padding: 5em 0 !important;
+}
+
+.text-light {
+  font-weight: 100 !important;
+}
+
+.text-bold {
+  font-weight: 500 !important;
+}
+
+.text-up {
+  text-transform: uppercase !important;
+}
+
+.text-cap {
+  text-transform: capitalize !important;
+}
+
+h1 {
+  font-size: 200%;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 5em;
+}
+
+h1::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  background: #B42B42;
+  margin: auto;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-border {
+  background: transparent !important;
+  border: 1px solid !important;
+}
+
+.pie-wrapper {
+  height: 8em;
+  width: 8em;
+  margin: 15px;
+  position: relative;
+}
+
+.pie-wrapper .pie {
+  height: 100%;
+  width: 100%;
+  clip: rect(0, 8em, 8em, 4em);
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.pie-wrapper .pie .half-circle {
+  height: 100%;
+  width: 100%;
+  border: 0.8em solid #19B2F6;
+  border-radius: 50%;
+  clip: rect(0, 4em, 8em, 0);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.pie-wrapper .pie-label {
+  background: #ffffff;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pie-wrapper .pie-label .value {
+  font-size: 2em;
+  font-weight: 300;
+  color: #333;
+  text-align: center;
+}
+
+.pie-wrapper .pie-label .smaller {
+  color: #333;
+  font-size: .45em;
+  padding-bottom: 20px;
+  vertical-align: super;
+}
+
+.pie-wrapper .shadow {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 0.8em solid #C8C8C8;
+  border-radius: 50%;
+}
+
+.progress-bar {
+  background: #C8C8C8;
+  border-radius: 40px;
+  position: relative;
+}
+
+.progress-bar .value {
+  position: absolute;
+  right: 5px;
+  font-weight: 300;
+  color: #333;
+}
+
+.progress {
+  border-radius: 40px;
+  width: 85%;
+  background: #19B2F6;
+  height: 100%;
+  position: absolute;
+}
+
+.round {
+  border-radius: 40px;
+}
+
+.p-1 {
+  padding: 1em;
+}
+
+.f-row {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+}
+
+.f-col {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.space-around {
+  -ms-flex-pack: distribute !important;
+      justify-content: space-around !important;
+}
+
+.f-wrap {
+  -ms-flex-wrap: wrap !important;
+      flex-wrap: wrap !important;
+}
+
+.f-center {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.center {
+  -ms-flex-item-align: center !important;
+      -ms-grid-row-align: center !important;
+      align-self: center !important;
+}
+
+.grow {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
 html, * {
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
@@ -332,21 +569,40 @@ body #skills .other-skills {
   margin-top: 5em;
 }
 
-body #skills .other-skills .mt-0 {
-  margin-top: 0 !important;
+body #skills .other-skills .content {
+  width: 100%;
 }
 
-body #skills .other-skills .bar {
+body #skills .other-skills .content .skills-container {
+  min-width: 400px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body #skills .other-skills .content .skills-container .bar {
   margin: 1em 0;
+  width: 100%;
 }
 
-body #skills .other-skills .label {
+body #skills .other-skills .content .skills-container .label {
   font-weight: normal;
   text-transform: capitalize;
   color: #333;
   margin-right: .5em;
-  width: 100px;
-  text-align: center;
+  min-width: 100px;
+  text-align: left;
+  overflow: hidden;
+}
+
+body #skills .other-skills .content .skills-container .progress-bar {
+  width: 100%;
 }
 
 body #skills .other-skills .progress-80 {
@@ -375,5 +631,46 @@ body #skills .other-skills .progress-40 {
 
 body #skills .other-skills .progress-30 {
   width: 30%;
+}
+
+body #overview {
+  background: #19B2F6;
+  border-top-left-radius: 40px;
+  padding: 0 !important;
+  -webkit-transform: skewY(-2deg);
+          transform: skewY(-2deg);
+}
+
+body #overview::before {
+  content: '';
+  width: 60px;
+  height: 60px;
+  background: #19B2F6;
+  position: absolute;
+  top: -59px;
+  right: 0;
+  z-index: -2;
+}
+
+body #overview::after {
+  content: '';
+  width: 120px;
+  height: 120px;
+  background: #ffffff;
+  position: absolute;
+  right: 0;
+  top: -120px;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+body #overview .container {
+  padding: 5em 0;
+  -webkit-transform: skewY(2deg);
+          transform: skewY(2deg);
+}
+
+body #overview img {
+  height: 100px;
 }
 /*# sourceMappingURL=main.css.map */

@@ -2,12 +2,16 @@
 
 // ___________________________ CONSTANTS __________________________________
 
-// **** VARIABLES ****
+// **** Variables ****
 $defaultPieSize: 8em;
 $pieFontSize: $defaultPieSize / 4;
 $softBorderRadius: 40px;
 $transitionDelay: .5s;
 $progress-bar-width: 400px;
+$skewDeg: 2deg;
+$angleSize: 60px;
+
+// **** Colors ****
 $colors : (
     primary: #19B2F6,
     secondary: #B42B42,
@@ -24,8 +28,7 @@ $colors : (
 );
 
 
-
-// **** FUNCTIONS ****
+// **** Functions ****
 @function color($color-name) {
     @return map-get($colors, $color-name)
 };
@@ -35,11 +38,36 @@ $colors : (
     width: $width;
 };
 
+@mixin draw-progress($progress, $color) {
+    .pie {
+        .half-circle {
+            border-color: $color;
+        }
+
+        .left-side {
+            transform: rotate($progress * 3.6deg);
+        }
+
+        @if $progress <= 50 {
+            .right-side {
+            display: none;
+            }
+        } @else {
+            clip: rect(auto, auto, auto, auto);
+
+            .right-side {
+            transform: rotate(180deg);
+            }
+        }
+    }
+}
+
 // ___________________________ CONSTANTS __________________________________
 
 
-// ************ STYLES *************
 
+
+// **** Styles ****
 // ########## Inspect #########
 .i {
     border: 1px solid color(inspect) !important;
@@ -191,7 +219,6 @@ h1 {
 }
 
 .progress-bar {
-    width: 400px;
     background: color(gray);
     border-radius: $softBorderRadius;
     position: relative;
@@ -240,12 +267,15 @@ h1 {
     flex-wrap: wrap !important;
 }
 
-.center {
+.f-center {
     justify-content: center !important;
     align-items: center !important;
 }
 
-.s-center {
+.center {
     align-self: center !important;
 }
 
+.grow {
+    flex-grow: 1;
+}

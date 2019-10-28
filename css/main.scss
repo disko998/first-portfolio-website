@@ -1,68 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,700&display=swap');
-
-// ___________________________ CONSTANTS __________________________________
-
-// **** VARIABLES ****
-$defaultPieSize: 8em;
-$pieFontSize: $defaultPieSize / 4;
-$softBorderRadius: 40px;
-$transitionDelay: .5s;
-$progress-bar-width: 400px;
-$colors : (
-    primary: #19B2F6,
-    secondary: #B42B42,
-    dark: #333,
-    lightGray: #E9E8E8,
-    gray: #C8C8C8,
-    darkGray: #707070,
-    black: #000000,
-    white: #ffffff,
-    linkedin: #2867B2,
-    stackOverflow: #f48024,
-    inspect: rgb(0, 255, 255),
-    bg: rgb(199, 20, 124)
-);
-
-
-
-// **** FUNCTIONS ****
-@function color($color-name) {
-    @return map-get($colors, $color-name)
-};
-
-@mixin size($width, $height) {
-    height: $height;
-    width: $width;
-};
-
-@mixin draw-progress($progress, $color) {
-    .pie {
-        .half-circle {
-            border-color: $color;
-        }
-
-        .left-side {
-            transform: rotate($progress * 3.6deg);
-        }
-
-        @if $progress <= 50 {
-            .right-side {
-            display: none;
-            }
-        } @else {
-            clip: rect(auto, auto, auto, auto);
-
-            .right-side {
-            transform: rotate(180deg);
-            }
-        }
-    }
-}
-
-// ___________________________ CONSTANTS __________________________________
-
-
-
+@import 'global/style';
 
 html, * {
     font-family: 'Roboto', sans-serif;
@@ -312,21 +249,33 @@ body {
         .other-skills {
             margin-top: 5em;
 
-            .mt-0 {
-                margin-top: 0 !important;
-            }
+            .content {
+                width: 100%;
+                .skills-container {
+                    min-width: 400px;
+                    flex-grow: 1;
+                    justify-content: flex-start;
+                    align-items: center;
+        
+                    .bar {
+                        margin: 1em 0;
+                        width: 100%;
+                    }
+        
+                    .label {
+                        font-weight: normal;
+                        text-transform: capitalize;
+                        color: color(dark);
+                        margin-right: .5em;
+                        min-width: 100px;
+                        text-align: left;
+                        overflow: hidden;
+                    }
 
-            .bar {
-                margin: 1em 0;
-            }
-
-            .label {
-                font-weight: normal;
-                text-transform: capitalize;
-                color: color(dark);
-                margin-right: .5em;
-                width: 100px;
-                text-align: center;
+                    .progress-bar {
+                        width: 100%;
+                    }
+                }
             }
 
             .progress-80 {
@@ -351,6 +300,45 @@ body {
                 width: 30%;
             }
 
+        }
+    }
+
+    #overview {
+        background: color(primary);
+        border-top-left-radius: $softBorderRadius;
+        padding: 0 !important;
+        transform: skewY(-$skewDeg);
+
+        &::before {
+            content: '';
+            width: $angleSize;
+            height: $angleSize;
+            background: color(primary);
+            position: absolute;
+            top: -$angleSize + 1;
+            right: 0;
+            z-index: -2;
+        }
+
+        &::after {
+            content: '';
+            width: $angleSize * 2;
+            height: $angleSize * 2;
+            background: color(white);
+            position: absolute;
+            right: 0;
+            top: -$angleSize * 2;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .container {
+            padding: 5em 0;
+            transform: skewY($skewDeg);
+        }
+
+        img {
+            height: 100px;
         }
     }
 }

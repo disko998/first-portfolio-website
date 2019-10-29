@@ -263,9 +263,13 @@ body header .bg-blue .bg-dark {
           clip-path: polygon(0 0, 60% 0, 50% 100%, 0% 100%);
 }
 
+body header .container {
+  position: relative;
+}
+
 body header .navbar {
   width: 100%;
-  position: relative;
+  position: absolute;
   top: 0;
   overflow: auto;
 }

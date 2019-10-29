@@ -73,7 +73,6 @@ h1::before {
 }
 
 .btn {
-  padding: 10px 20px;
   border: none;
   text-align: center;
   cursor: pointer;
@@ -245,6 +244,7 @@ html, * {
 
 body header {
   height: 100vh;
+  position: relative;
 }
 
 body header .bg-blue {
@@ -263,23 +263,50 @@ body header .bg-blue .bg-dark {
           clip-path: polygon(0 0, 60% 0, 50% 100%, 0% 100%);
 }
 
-body header .container {
+@media only screen and (max-width: 1156px) {
+  body header .bg-blue .bg-dark {
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
+  }
+}
+
+body header .content {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   position: relative;
 }
 
-body header .navbar {
-  width: 100%;
+@media only screen and (max-width: 1156px) {
+  body header .content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+body header .content .navbar {
   position: absolute;
   top: 0;
+  right: 0;
+  left: 0;
   overflow: auto;
 }
 
-body header .navbar nav {
+body header .content .navbar nav {
   float: right;
   margin-top: 2em;
 }
 
-body header .navbar nav ul {
+body header .content .navbar nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -296,12 +323,12 @@ body header .navbar nav ul {
   list-style: none;
 }
 
-body header .navbar nav ul li {
+body header .content .navbar nav ul li {
   padding: 10px;
   margin: 0 15px;
 }
 
-body header .navbar nav ul li a {
+body header .content .navbar nav ul li a {
   text-decoration: none;
   color: #ffffff;
   font-weight: 300;
@@ -310,19 +337,8 @@ body header .navbar nav ul li a {
   transition: opacity 0.5s;
 }
 
-body header .navbar nav ul li a:hover {
+body header .content .navbar nav ul li a:hover {
   opacity: 0.5;
-}
-
-body header .content {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 body header .content .dev-info .overview {
@@ -331,16 +347,22 @@ body header .content .dev-info .overview {
   font-weight: 100;
 }
 
+@media only screen and (max-width: 1156px) {
+  body header .content .dev-info .overview {
+    font-size: 300%;
+  }
+}
+
 body header .content .dev-info .overview .name {
   font-size: 100%;
   font-weight: 300;
 }
 
 body header .content .dev-info .btn {
+  padding: 10px 20px;
   min-height: 65px;
   min-width: 220px;
-  margin: 1em 0em;
-  margin-right: 1em;
+  margin: 1em 1em 1em 0;
   background: #B42B42;
   -webkit-transition: border-radius 0.5s;
   transition: border-radius 0.5s;
@@ -389,8 +411,33 @@ body header .socials {
           transform: translateY(-50%);
 }
 
+@media only screen and (max-width: 1156px) {
+  body header .socials {
+    top: unset;
+    right: unset;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
 body header .socials ul {
   list-style-type: none;
+}
+
+@media only screen and (max-width: 1156px) {
+  body header .socials ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
 }
 
 body header .socials ul li {
@@ -401,6 +448,12 @@ body header .socials ul li {
   transition: -webkit-transform 0.5s;
   transition: transform 0.5s;
   transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+@media only screen and (max-width: 1156px) {
+  body header .socials ul li {
+    margin-right: 2em;
+  }
 }
 
 body header .socials ul li:hover {

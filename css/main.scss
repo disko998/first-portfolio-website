@@ -16,6 +16,7 @@ body {
 
     header {
         height: 100vh;
+        position: relative;
 
         .bg-blue {
             background: color(primary);
@@ -29,49 +30,10 @@ body {
                 height: 100vh;
                 background: color(dark);
                 clip-path: polygon(0 0, 60% 0, 50% 100%, 0% 100%);
-             }
-        }
-
-        .container {
-            position: relative;
-        }
-    
-        .navbar {
-            width: 100%;
-            position: absolute;
-            top: 0;
-            overflow: auto;
-    
-            nav {
-                float: right;
-                margin-top: 2em;
-    
-                ul {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    justify-content: flex-start;
-                    align-items: center;
-                    list-style: none;
-
-                    li {
-                        padding: 10px;
-                        margin: 0 15px;
-
-                        a {
-                            text-decoration: none;
-                            color: color(white);
-                            font-weight: 300;
-                            opacity: 1;
-                            transition: opacity $transitionDelay;
-    
-                            &:hover {
-                                opacity: 0.5;
-                                
-                            }
-                        }  
-                    }
+                @include respond-to(big-tablet) {
+                    clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
                 }
-            }
+             }
         }
 
         .content {
@@ -79,12 +41,59 @@ body {
             height: 100%;
             display: flex;
             align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            @include respond-to(big-tablet) {
+                justify-content: center;
+            }
+
+            .navbar {
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                overflow: auto;
+        
+                nav {
+                    float: right;
+                    margin-top: 2em;
+        
+                    ul {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: flex-start;
+                        align-items: center;
+                        list-style: none;
+    
+                        li {
+                            padding: 10px;
+                            margin: 0 15px;
+    
+                            a {
+                                text-decoration: none;
+                                color: color(white);
+                                font-weight: 300;
+                                opacity: 1;
+                                transition: opacity $transitionDelay;
+        
+                                &:hover {
+                                    opacity: 0.5;
+                                    
+                                }
+                            }  
+                        }
+                    }
+                }
+            }
 
             .dev-info {
                 .overview {
                     font-size: 400%;
                     color: color(white);
                     font-weight: 100;
+                    @include respond-to(big-tablet) {
+                        font-size: 300%;
+                    }
 
                     .name {
                         font-size: 100%;
@@ -93,10 +102,10 @@ body {
                 }
      
                 .btn {
+                    padding: 10px 20px;
                     min-height: 65px;
                     min-width: 220px;
-                    margin: 1em 0em;
-                    margin-right: 1em;
+                    margin: 1em 1em 1em 0;
                     background: color(secondary);
                     transition: border-radius $transitionDelay;
                     color: color(white);
@@ -141,14 +150,29 @@ body {
             top: 50%;
             z-index: 20;
             transform: translateY(-50%);
+            @include respond-to(big-tablet) {
+                top: unset;
+                right: unset;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+            }
 
             ul {
                 list-style-type: none;
+                @include respond-to(big-tablet) {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-self: center;
+                }
 
                 li {
                     margin: 1em 0;
                     transform: scale(1);
                     transition:  transform $transitionDelay;
+                    @include respond-to(big-tablet) {
+                        margin-right: 2em;
+                    }
 
                     &:hover {
                         transform: scale(1.5);
@@ -200,7 +224,7 @@ body {
             box-shadow: 0px 0px 2px 1px color(gray);
             overflow: visible;
             margin: 1em auto;
-            @include respond-to(desktop){
+            @include respond-to(big-tablet){
                 flex-wrap: wrap;
                 padding: 1em;
             }
@@ -224,7 +248,7 @@ body {
                 display: inline-block;
                 max-width: 1024px;
                 text-align: justify;
-                @include respond-to(desktop){
+                @include respond-to(big-tablet){
                     margin-left: 0;
                     margin-top: 3em;
                     text-align: center;

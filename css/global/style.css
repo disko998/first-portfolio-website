@@ -27,7 +27,7 @@
   max-width: 1440px;
   height: 100%;
   margin: 0 auto 0 auto;
-  padding: 0 24px 0 24px;
+  padding: 0 24px;
   overflow: hidden;
 }
 
@@ -57,7 +57,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   color: #000000;
-  margin-bottom: 5em;
+  margin-bottom: 3em;
 }
 
 h1::before {
@@ -178,10 +178,6 @@ h1::before {
 
 .round {
   border-radius: 40px;
-}
-
-.p-1 {
-  padding: 1em;
 }
 
 .f-row {

@@ -186,29 +186,48 @@ body {
     }
 
     #summary {
-        background: color(lightGray);
-
+        padding-bottom: 0 !important;
         .summary {
-            display: flex;
-            justify-content: center;
             align-items: center;
+            width: fit-content;
+            padding: 2em;
+            background: color(white);
+            border-radius: $softBorderRadius;
+            box-shadow: 0px 0px 2px 1px color(gray);
+            overflow: visible;
+            margin: 1em auto;
+            @include respond-to(desktop){
+                flex-wrap: wrap;
+                padding: 1em;
+            }
 
             .avatar {
                 border-radius: 50%;
                 height: 120px;
                 width: 120px;
                 display: inline-block;
+                box-shadow: 0px 0px 20px 5px color(lightGray);
             }
 
             p {
-                font-weight: 400;
+                font-weight: 300;
+                font-style: italic;
+                color: color(darkgray);
                 font-size: 90%;
-                line-height: 1.3;
+                line-height: 1.5;
                 letter-spacing: 1px;
                 margin-left: 3em;
                 display: inline-block;
                 max-width: 1024px;
                 text-align: justify;
+                @include respond-to(desktop){
+                    margin-left: 0;
+                    margin-top: 3em;
+                    text-align: center;
+                }
+                @include respond-to(phone){
+                    font-size: 80%;
+                }
             }
         }
     }
@@ -251,15 +270,26 @@ body {
 
             .content {
                 width: 100%;
+                justify-content: space-around;
                 .skills-container {
-                    min-width: 400px;
+                    min-width: $progress-bar-min-width;
+                    max-width: $progress-bar-max-width;
                     flex-grow: 1;
                     justify-content: flex-start;
                     align-items: center;
+                    flex-wrap: wrap;
+                    padding: 1em;
+
+                    @include respond-to(small-tablet){
+                        min-width: 100%;
+                    }
         
-                    .bar {
-                        margin: 1em 0;
+                    .item {
+                        margin: .7em 0;
                         width: 100%;
+                        @include respond-to(small-tablet){
+                           flex-wrap: wrap;
+                        }
                     }
         
                     .label {
@@ -270,10 +300,20 @@ body {
                         min-width: 100px;
                         text-align: left;
                         overflow: hidden;
+
+                        @include respond-to(small-tablet){
+                            margin-right: 0;
+                            margin-bottom: .5em;
+                         }
                     }
 
                     .progress-bar {
                         width: 100%;
+                        display: flex;
+                        align-items: center;
+                        @include respond-to(small-tablet){
+                            height: 20px;
+                         }
                     }
                 }
             }
@@ -305,7 +345,7 @@ body {
 
     #overview {
         background: color(primary);
-        border-top-left-radius: $softBorderRadius;
+        border-top-left-radius: $strong-border-radius;
         padding: 0 !important;
         transform: skewY(-$skewDeg);
 
@@ -337,8 +377,25 @@ body {
             transform: skewY($skewDeg);
         }
 
-        img {
-            height: 100px;
+        .content {
+            @include respond-to(tablet) {
+                flex-wrap: wrap;
+            };
+            .card {
+                margin: 2em;
+                padding: 1em;
+
+                img {
+                   @include size(auto, 100px);
+                }
+
+                p {
+                    text-align: center;
+                    color: color(white);
+                    font-weight: 300;
+                    margin-top: 2em;
+                }
+            }
         }
     }
 }

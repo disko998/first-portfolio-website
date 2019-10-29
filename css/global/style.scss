@@ -3,13 +3,22 @@
 // ___________________________ CONSTANTS __________________________________
 
 // **** Variables ****
-$defaultPieSize: 8em;
-$pieFontSize: $defaultPieSize / 4;
-$softBorderRadius: 40px;
+$break-phone: 450px;
+$break-small: 600px;
+$break-medium: 847px;
+$break-large: 1156px;
+
+$strong-border-radius: 40px;
+$softBorderRadius: 10px;
 $transitionDelay: .5s;
-$progress-bar-width: 400px;
 $skewDeg: 2deg;
 $angleSize: 60px;
+
+$container-max-width: 1440px;
+$progress-bar-min-width: 400px;
+$progress-bar-max-width: 700px;
+$defaultPieSize: 8em;
+$pieFontSize: $defaultPieSize / 4;
 
 // **** Colors ****
 $colors : (
@@ -33,6 +42,7 @@ $colors : (
     @return map-get($colors, $color-name)
 };
 
+// **** Mixin ****
 @mixin size($width, $height) {
     height: $height;
     width: $width;
@@ -59,6 +69,24 @@ $colors : (
             transform: rotate(180deg);
             }
         }
+    }
+}
+
+@mixin respond-to($media) {
+    @if $media == phone {
+        @media only screen and (max-width: $break-phone) {@content;}
+    }
+
+    @else if $media == small-tablet {
+        @media only screen and (max-width: $break-small) {@content;}
+    }
+
+    @else if $media == tablet {
+        @media only screen and (max-width: $break-medium) {@content;}
+    }
+
+    @else if $media == desktop {
+        @media only screen and (max-width: $break-large) {@content;}
     }
 }
 
@@ -93,12 +121,12 @@ $colors : (
     background: color(gray) !important;
 }
 
-// ########## Container #########
+// ########## Containers #########
 .container {
-    max-width: 1440px;
+    max-width: $container-max-width;
     height: 100%;
     margin: 0 auto 0 auto;
-    padding: 0 24px 0 24px;
+    padding: 0 24px;
     overflow: hidden;
 }
 
@@ -129,7 +157,7 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     color: color(black);
-    margin-bottom: 5em;
+    margin-bottom: 3em;
 
     &::before {
         content: '';
@@ -138,7 +166,7 @@ h1 {
         height: 5px;
         background: color(secondary);
         margin: auto;
-        border-radius: $softBorderRadius;
+        border-radius: $strong-border-radius;
         margin-bottom: 20px;
     }
 }
@@ -220,7 +248,7 @@ h1 {
 
 .progress-bar {
     background: color(gray);
-    border-radius: $softBorderRadius;
+    border-radius: $strong-border-radius;
     position: relative;
 
     .value {
@@ -232,7 +260,7 @@ h1 {
 }
 
 .progress {
-    border-radius: $softBorderRadius;
+    border-radius: $strong-border-radius;
     width: 85%;
     background: color(primary);
     height: 100%;
@@ -241,11 +269,7 @@ h1 {
 
 // ########## Utilities #########
 .round {
-    border-radius: $softBorderRadius;
-}
-
-.p-1 {
-    padding: 1em;
+    border-radius: $strong-border-radius;
 }
 
 // Flex

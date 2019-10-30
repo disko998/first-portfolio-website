@@ -263,11 +263,125 @@ body header .bg-blue .bg-dark {
           clip-path: polygon(0 0, 60% 0, 50% 100%, 0% 100%);
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (max-width: 1146px) {
   body header .bg-blue .bg-dark {
     -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
             clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
   }
+}
+
+body header .navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 99;
+}
+
+body header .navbar nav {
+  float: right;
+  margin-top: 2em;
+}
+
+body header .navbar nav .btn-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 847px) {
+  body header .navbar nav .btn-menu {
+    display: block;
+  }
+}
+
+body header .navbar nav .btn-menu span {
+  color: #ffffff;
+}
+
+body header .navbar nav .btn-menu span i {
+  font-size: 150%;
+}
+
+body header .navbar nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+@media only screen and (max-width: 847px) {
+  body header .navbar nav ul {
+    display: none;
+  }
+}
+
+body header .navbar nav ul li {
+  padding: 10px;
+  margin: 0 15px;
+}
+
+body header .navbar nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 300;
+  opacity: 1;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+body header .navbar nav ul li a:hover {
+  opacity: 0.5;
+}
+
+body header .navbar .responsive {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body header .navbar .responsive .btn-menu {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+body header .navbar .responsive ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+body header .navbar .responsive ul li {
+  width: 100%;
+  margin: 0;
+}
+
+body header .navbar .responsive ul li a {
+  width: 100%;
 }
 
 body header .content {
@@ -285,7 +399,7 @@ body header .content {
   position: relative;
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (max-width: 1146px) {
   body header .content {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -293,63 +407,33 @@ body header .content {
   }
 }
 
-body header .content .navbar {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  overflow: auto;
-}
-
-body header .content .navbar nav {
-  float: right;
-  margin-top: 2em;
-}
-
-body header .content .navbar nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  list-style: none;
-}
-
-body header .content .navbar nav ul li {
-  padding: 10px;
-  margin: 0 15px;
-}
-
-body header .content .navbar nav ul li a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 300;
-  opacity: 1;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-}
-
-body header .content .navbar nav ul li a:hover {
-  opacity: 0.5;
-}
-
 body header .content .dev-info .overview {
-  font-size: 400%;
+  font-size: 300%;
   color: #ffffff;
   font-weight: 100;
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (min-width: 1300px) {
   body header .content .dev-info .overview {
-    font-size: 300%;
+    font-size: 400%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body header .content .dev-info .overview {
+    font-size: 250%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body header .content .dev-info .overview {
+    font-size: 200%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  body header .content .dev-info .overview {
+    font-size: 150%;
   }
 }
 
@@ -360,13 +444,19 @@ body header .content .dev-info .overview .name {
 
 body header .content .dev-info .btn {
   padding: 10px 20px;
-  min-height: 65px;
+  min-height: 60px;
   min-width: 220px;
   margin: 1em 1em 1em 0;
   background: #B42B42;
   -webkit-transition: border-radius 0.5s;
   transition: border-radius 0.5s;
   color: #ffffff;
+}
+
+@media only screen and (max-width: 600px) {
+  body header .content .dev-info .btn {
+    display: none;
+  }
 }
 
 body header .content .dev-info .btn:hover span {
@@ -411,14 +501,13 @@ body header .socials {
           transform: translateY(-50%);
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (max-width: 1146px) {
   body header .socials {
     top: unset;
-    right: unset;
+    right: 0;
     bottom: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    -webkit-transform: none;
+            transform: none;
   }
 }
 
@@ -426,7 +515,7 @@ body header .socials ul {
   list-style-type: none;
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (max-width: 1146px) {
   body header .socials ul {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -450,9 +539,15 @@ body header .socials ul li {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (max-width: 1146px) {
   body header .socials ul li {
     margin-right: 2em;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  body header .socials ul li {
+    margin-right: 1.5em;
   }
 }
 
@@ -495,6 +590,12 @@ body header .socials ul li a i {
   font-size: 200%;
 }
 
+@media only screen and (max-width: 350px) {
+  body header .socials ul li a i {
+    font-size: 150%;
+  }
+}
+
 body #summary {
   padding-bottom: 0 !important;
 }
@@ -515,7 +616,7 @@ body #summary .summary {
   margin: 1em auto;
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (max-width: 847px) {
   body #summary .summary {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -545,7 +646,7 @@ body #summary .summary p {
   text-align: justify;
 }
 
-@media only screen and (max-width: 1156px) {
+@media only screen and (max-width: 847px) {
   body #summary .summary p {
     margin-left: 0;
     margin-top: 3em;
@@ -553,7 +654,7 @@ body #summary .summary p {
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
   body #summary .summary p {
     font-size: 80%;
   }
@@ -675,7 +776,7 @@ body #skills .other-skills .content .skills-container {
   padding: 1em;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   body #skills .other-skills .content .skills-container {
     min-width: 100%;
   }
@@ -686,7 +787,7 @@ body #skills .other-skills .content .skills-container .item {
   width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   body #skills .other-skills .content .skills-container .item {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -703,7 +804,7 @@ body #skills .other-skills .content .skills-container .label {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   body #skills .other-skills .content .skills-container .label {
     margin-right: 0;
     margin-bottom: .5em;
@@ -720,7 +821,7 @@ body #skills .other-skills .content .skills-container .progress-bar {
           align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
   body #skills .other-skills .content .skills-container .progress-bar {
     height: 20px;
   }

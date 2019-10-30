@@ -14,21 +14,29 @@
         <div class="bg-blue">
             <div class="bg-dark"></div>
         </div>
+
+        <div class="navbar">
+            <div class="container">
+                <nav id="mainNav" class="i">
+                    <a href="javascript:void(0);" onclick="toggleMenu()" class="btn-menu">
+                        <span>
+                            <i class="fas fa-bars"></i>
+                        </span>
+                    </a>
+                    <ul>
+                        <li class="i"><a href="#">About</a></li>
+                        <li><a href="#">Skills</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     
        <div class="container">
             <div class="content">
-                <div class="navbar">
-                    <nav>
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Skills</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
                 <div class="dev-info">
-                    <p class="overview">Hi,</br>I'm <span class="name">Stefan Diskic</span>,</br>web developer</p>
+                    <p class="overview">Hi,</br>I'm <span class="name">Stefan Diskic</span>,</br>front end developer</p>
                     <button class="btn round text-light">
                         <p>About me</p>
                         <span>
@@ -349,4 +357,11 @@
 
     <div style="height: 120px; position: relative; margin-top: -2%; background: white;"></div>
 </body>
+
+<script>
+    function toggleMenu() {
+        var nav = document.getElementById("mainNav");
+        nav.classList.toggle('responsive')
+    }
+</script>
 </html>

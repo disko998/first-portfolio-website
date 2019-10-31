@@ -32,7 +32,7 @@
   overflow: hidden;
 }
 
-section {
+section, footer {
   padding: 5em 0 !important;
 }
 
@@ -58,7 +58,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   color: #000000;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 h1::before {
@@ -73,6 +73,7 @@ h1::before {
 }
 
 .btn {
+  padding: 10px 20px;
   border: none;
   text-align: center;
   cursor: pointer;
@@ -82,6 +83,20 @@ h1::before {
 .btn-border {
   background: transparent !important;
   border: 1px solid !important;
+}
+
+input, textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #707070;
+  height: 50px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  overflow: hidden;
+  height: auto;
 }
 
 .pie-wrapper {
@@ -229,6 +244,12 @@ h1::before {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 }
 
 html, * {
@@ -914,5 +935,260 @@ body #overview .content .card p {
   color: #ffffff;
   font-weight: 300;
   margin-top: 2em;
+}
+
+body #projects {
+  position: relative;
+  margin-top: -2%;
+  background: #ffffff;
+}
+
+body #projects a {
+  margin: 2em 1em;
+}
+
+body #projects a .project {
+  height: 250px;
+  width: 250px;
+  border: 1px solid #C8C8C8;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: -webkit-transform 0.5s, -webkit-box-shadow 0.5s;
+  transition: -webkit-transform 0.5s, -webkit-box-shadow 0.5s;
+  transition: transform 0.5s, box-shadow 0.5s;
+  transition: transform 0.5s, box-shadow 0.5s, -webkit-transform 0.5s, -webkit-box-shadow 0.5s;
+}
+
+@media only screen and (max-width: 847px) {
+  body #projects a .project {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body #projects a .project {
+    height: auto;
+    width: 100%;
+  }
+}
+
+body #projects a .project:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0px 10px 10px 1px #C8C8C8;
+          box-shadow: 0px 10px 10px 1px #C8C8C8;
+}
+
+body #projects a .project:hover .overlay {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  height: 100%;
+  visibility: visible;
+}
+
+body #projects a .project:hover .overlay p {
+  opacity: 1;
+}
+
+body #projects a .project .overlay {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  visibility: hidden;
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  background: rgba(25, 178, 246, 0.5);
+  height: 0%;
+  -webkit-transition: height 0.5s ease-in-out;
+  transition: height 0.5s ease-in-out;
+}
+
+body #projects a .project .overlay p {
+  font-size: 120%;
+  color: #ffffff;
+  text-align: center;
+  padding: 1em;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+  body #projects a .project .overlay p {
+    font-size: 200%;
+  }
+}
+
+body #projects a .project img {
+  width: 100%;
+}
+
+body #footer {
+  width: 100%;
+  padding: 0 !important;
+}
+
+body #footer footer {
+  width: 50%;
+  background: #333;
+  color: #C8C8C8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 847px) {
+  body #footer footer {
+    width: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+
+body #footer footer h2 {
+  text-transform: uppercase;
+  font-size: 200%;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 847px) {
+  body #footer footer h2 {
+    display: none;
+  }
+}
+
+body #footer footer ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: auto;
+  margin: 5em 0;
+}
+
+body #footer footer ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: .3em 0;
+}
+
+body #footer footer ul li i {
+  min-width: 30px;
+}
+
+body #footer footer p {
+  font-size: 70%;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+body #footer #contact {
+  background: #E9E8E8;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 847px) {
+  body #footer #contact {
+    width: 100%;
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+}
+
+body #footer #contact h1 {
+  color: #333;
+  display: none;
+}
+
+@media only screen and (max-width: 847px) {
+  body #footer #contact h1 {
+    display: block;
+  }
+}
+
+body #footer #contact form {
+  max-width: 500px;
+  width: 70%;
+}
+
+@media only screen and (max-width: 600px) {
+  body #footer #contact form {
+    width: 90%;
+  }
+}
+
+body #footer #contact form input, body #footer #contact form textarea {
+  width: 100%;
+  margin: 1em 0;
+}
+
+body #footer #contact form button {
+  margin-top: 1em;
+  background: #B42B42;
+  color: #ffffff;
+  border-radius: 10px;
+  width: 150px;
+  height: 45px;
+  text-transform: uppercase;
+  font-size: 90%;
+  letter-spacing: 1.1px;
 }
 /*# sourceMappingURL=main.css.map */

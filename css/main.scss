@@ -489,4 +489,179 @@ body {
             }
         }
     }
+
+    #projects {
+        position: relative;
+        margin-top: -2%;
+        background: color(white);
+
+        a {
+            margin: 2em 1em;
+
+            .project {
+                @include size($project-size, $project-size);
+                border: 1px solid color(gray);
+                border-radius: $softBorderRadius;
+                overflow: hidden;
+                position: relative;
+                transform: scale(1);
+                box-shadow: none;
+                transition: transition(transform), transition(box-shadow);
+                @include respond-to(tablet) {
+                    @include size($project-size - 100, $project-size - 100);
+                }
+                @include respond-to(small-tablet) {
+                    @include size(100%, auto);
+                }
+
+                &:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0px 10px 10px 1px color(gray);
+    
+                    .overlay {
+                        display: flex !important;
+                        height: 100%;
+                        visibility: visible;
+
+                        p {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                .overlay {
+                    display: flex !important;
+                    visibility: hidden;
+                    position: absolute;
+                    z-index: 10;
+                    width: 100%;
+                    background: rgbaColor(primary, .5);
+                    height: 0%;
+                    @include transition(height);
+    
+                    p {
+                        font-size: 120%;
+                        color: color(white);
+                        text-align: center;
+                        padding: 1em;
+                        opacity: 0;
+                        @include transition(opacity);
+
+                        @include respond-to(small-tablet) {
+                            font-size: 200%;
+                        }
+                    }
+                }
+    
+                img {
+                    width: 100%;
+                }
+    
+            }
+        }
+
+    }
+
+    #footer {
+        width: 100%;
+        padding: 0 !important;
+
+        footer {
+            width: 50%;
+            background: color(dark);
+            color: color(gray);
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: space-around;
+            align-items: center; 
+            @include respond-to(tablet) {
+                width: 100%;
+                order: 1;
+            }
+
+           h2 {
+               text-transform: uppercase;
+               font-size: 200%;
+               text-align: center;
+               font-weight: bold;
+
+               @include respond-to(tablet) {
+                display: none;
+                }
+           }
+
+           @include create-list(col) {
+               justify-content: center;
+               align-items: flex-start;
+               margin: auto;
+               margin: 5em 0;
+
+               li {
+                   display: flex;
+                   flex-flow: row nowrap;
+                   align-items: center;
+                   justify-content: center;
+                   margin: .3em 0;
+
+                   i {
+                       min-width: 30px;
+                   }
+               }
+           }
+
+           p {
+            font-size: 70%;
+            font-weight: 300;
+            letter-spacing: 1px; 
+            }
+        }
+
+        #contact {
+            background: color(lightGray);
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @include respond-to(tablet) {
+                width: 100%;
+                order: 0;
+            }
+
+            h1 {
+                color: color(dark);
+                display: none;
+
+                @include respond-to(tablet) {
+                    display: block;
+                }
+            }
+            
+            form {
+                max-width: 500px;
+                width: 70%;
+
+                @include respond-to(small-tablet) {
+                    width: 90%;
+                }
+
+                input, textarea {
+                    width: 100%;
+                    margin: 1em 0;
+                }
+
+                button {
+                    margin-top: 1em;
+                    background: color(secondary);
+                    color: color(white);
+                    border-radius: 10px;
+                    width: 150px;
+                    height: 45px;
+                    text-transform: uppercase;
+                    font-size: 90%;
+                    letter-spacing: 1.1px;
+                }
+            }
+        }
+    }
 }

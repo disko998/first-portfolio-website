@@ -31,7 +31,7 @@
   overflow: hidden;
 }
 
-section {
+section, footer {
   padding: 5em 0 !important;
 }
 
@@ -57,7 +57,7 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   color: #000000;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 h1::before {
@@ -72,6 +72,7 @@ h1::before {
 }
 
 .btn {
+  padding: 10px 20px;
   border: none;
   text-align: center;
   cursor: pointer;
@@ -81,6 +82,20 @@ h1::before {
 .btn-border {
   background: transparent !important;
   border: 1px solid !important;
+}
+
+input, textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #707070;
+  height: 50px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  overflow: hidden;
+  height: auto;
 }
 
 .pie-wrapper {
@@ -228,5 +243,11 @@ h1::before {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+.d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 }
 /*# sourceMappingURL=style.css.map */

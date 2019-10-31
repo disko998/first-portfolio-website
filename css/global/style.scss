@@ -13,9 +13,11 @@ $min-desktop: 1300px;
 $strong-border-radius: 40px;
 $softBorderRadius: 10px;
 $transitionDelay: .5s;
+$transition-delay-long: 1s;
 $skewDeg: 2deg;
 $angleSize: 60px;
 
+$project-size: 250px;
 $container-max-width: 1440px;
 $progress-bar-min-width: 400px;
 $progress-bar-max-width: 700px;
@@ -44,10 +46,27 @@ $colors : (
     @return map-get($colors, $color-name)
 };
 
+@function rgbaColor($color-name, $opacity) {
+    @if $color-name == primary {
+        @return rgba(25, 178, 246, $opacity)
+    }
+};
+
+@function transition($properties...) {
+    @each $prop in $properties {
+      @return $prop $transitionDelay;
+    }
+  }
+
 // **** Mixin ****
 @mixin size($width, $height) {
     height: $height;
     width: $width;
+};
+
+@mixin transition($property) {
+    transition: $property $transitionDelay ease-in-out;
+
 };
 
 @mixin draw-progress($progress, $color) {
@@ -100,6 +119,29 @@ $colors : (
     }
 }
 
+@mixin create-list($type) {
+    @if $type == col {
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-flow: column nowrap;
+            width: fit-content;;
+            overflow: hidden;
+            @content;
+        }
+    }
+
+    @else if $type == row {
+        ul {
+            list-style-type: none;
+            display: flex;
+            overflow: hidden;
+            flex-flow: row nowrap;
+            @content;
+        }
+    }
+}
+
 // ___________________________ CONSTANTS __________________________________
 
 
@@ -140,7 +182,7 @@ $colors : (
     overflow: hidden;
 }
 
-section {
+section, footer {
     padding: 5em 0 !important; 
 }
 
@@ -167,7 +209,7 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     color: color(black);
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 
     &::before {
         content: '';
@@ -181,8 +223,9 @@ h1 {
     }
 }
 
-// ########## Buttons #########
+// ########## Inputs #########
 .btn {
+    padding: 10px 20px;
     border: none;
     text-align: center;
     cursor: pointer;
@@ -192,6 +235,20 @@ h1 {
 .btn-border{
     background: transparent !important;
     border: 1px solid !important;
+}
+
+input, textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid color(darkGray);
+    height: 50px;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    height: auto;
 }
 
 // ########## Graphs #########
@@ -311,4 +368,8 @@ h1 {
 
 .grow {
     flex-grow: 1;
+}
+
+.d-flex {
+    display: flex !important;
 }

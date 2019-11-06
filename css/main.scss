@@ -567,6 +567,7 @@ body {
         padding: 0 !important;
 
         footer {
+            padding: 0 24px;
             width: 50%;
             background: color(dark);
             color: color(gray);
@@ -577,6 +578,14 @@ body {
             @include respond-to(tablet) {
                 width: 100%;
                 order: 1;
+                flex-flow: row nowrap;
+
+                ul {
+                    margin: 0 !important;
+                }
+            }
+            @include respond-to(phone) {
+                flex-flow: column nowrap
             }
 
            h2 {
@@ -612,11 +621,18 @@ body {
            p {
             font-size: 70%;
             font-weight: 300;
-            letter-spacing: 1px; 
+            letter-spacing: 1px;
+            }
+
+            .copy-rights {
+                @include respond-to(phone){
+                    margin-top: 5em;
+                }
             }
         }
 
         #contact {
+            padding: 0 24px;
             background: color(lightGray);
             width: 50%;
             display: flex;

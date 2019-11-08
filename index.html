@@ -7,33 +7,33 @@
     <link rel="stylesheet" href="./css/global/style.css">
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/84978856d2.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <title>Stefan Diskic Portfolio</title>
 </head>
 <body>
+
     <header>
         <div class="bg-blue">
             <div class="bg-dark"></div>
         </div>
 
-        <div class="navbar">
+        <nav id="navbar">
             <div class="container">
-                <nav id="mainNav">
-                    <a href="javascript:void(0);" onclick="toggleMenu()" class="btn-menu">
-                        <span>
-                            <i class="fas fa-bars"></i>
-                        </span>
-                    </a>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Skills</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </nav>
+                <div class="menu-icon">
+                    <span>
+                        <i class="fas fa-bars"></i>
+                    </span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#summary">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#footer">Contact</a></li>
+                </ul>
             </div>
-        </div>
+        </nav>
     
-       <div class="container">
+        <div class="container">
             <div class="content">
                 <div class="dev-info">
                     <p class="overview">Hi,</br>I'm <span class="name">Stefan Diskic</span>,</br>front end developer</p>
@@ -51,7 +51,7 @@
                     </button>
                 </div>
             </div>
-       </div>
+        </div>
 
        <div class="socials">
            <ul>
@@ -465,12 +465,25 @@
             </section>
         </div>
     </section>
-</body>
 
-<script>
-    function toggleMenu() {
-        var nav = document.getElementById("mainNav");
-        nav.classList.toggle('responsive')
-    }
-</script>
+    <script>
+        // toggle class
+        $(document).ready(function(){
+            $('.menu-icon').on('click', function(){
+                $('nav ul').toggleClass('expanded')
+            })
+        })
+
+        // on scroll
+        $(window).on('scroll', function() {
+            if ($(window).scrollTop()) {
+                $('nav').addClass('scroll')
+            } else {
+                $('nav').removeClass('scroll')
+            }
+        })
+
+    </script>
+</body>
+    
 </html>

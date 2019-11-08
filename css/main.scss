@@ -2,6 +2,7 @@
 @import 'global/style';
 
 html, * {
+    scroll-behavior: smooth;
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 20px;
@@ -36,89 +37,95 @@ body {
              }
         }
 
-        .navbar {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
+        nav {
+            position: fixed;
+            width: 100%;
             overflow: hidden;
             z-index: 99;
-    
-            nav {
-                float: right;
-                margin-top: 2em;
-                
-                .btn-menu {
-                    display: none;
-                    @include respond-to(tablet) {
-                        display: block;
-                    }
-                    span {
-                        color: color(white);
+            padding: 2em 0;
+            transition: all $transitionDelay ease-in;
+            @include respond-to(tablet) {
+                background: rgbaColor(dark, 0.7)
+            }
 
-                        i {
-                            font-size: 150%;
-                        }
-                    }
-
+            .menu-icon {
+                cursor: pointer;
+                display: none;
+                @include respond-to(tablet) {
+                    display: block;
+                    float: right;
                 }
     
-                ul {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    justify-content: flex-start;
-                    align-items: center;
-                    list-style: none;
+                span {
+                    color: color(white);
 
-                    @include respond-to(tablet) {
-                        display: none;
+                    i {
+                        font-size: 150%;
                     }
+                }
 
-                    li {
-                        padding: 10px;
-                        margin: 0 15px;
+            }
 
-                        a {
-                            text-decoration: none;
-                            color: color(white);
-                            font-weight: 300;
-                            opacity: 1;
-                            transition: opacity $transitionDelay;
-    
-                            &:hover {
-                                opacity: 0.5;
-                                
-                            }
-                        }  
-                    }
+            .nav-links {
+                float: right;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                align-items: center;
+                list-style: none;
+                @include respond-to(tablet) {
+                    display: none;
+                }
+
+                li {
+                    margin: 0 .5em;
+                    padding: .4em;
+
+                    a {
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        color: color(white);
+                        font-weight: 400;
+                        letter-spacing: 2px;
+                        font-size: 80%;
+                        opacity: 1;
+                        transition: opacity $transitionDelay;
+
+                        &:hover {
+                            opacity: 0.5;
+                        }
+                    }  
                 }
             }
 
-            .responsive {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-
-                .btn-menu {
-                    align-self: flex-end;
-                }
-
-                ul {
+            @include respond-to(tablet) {
+                .nav-links.expanded {
+                    width: 100%;
                     display: flex;
                     flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-
+    
                     li {
                         width: 100%;
                         margin: 0;
-
+                        padding: 0;
+    
                         a {
+                            padding: 1em .5em;
+                            display: block;
                             width: 100%;
+                            text-align: justify;
+                            
                         }
                     }
-                }
+                }  
             }
+
+
+        }
+
+        nav.scroll{
+            background: rgbaColor(dark, 0.9);
+            padding: .5em 0;
         }
 
         .content {
@@ -562,12 +569,12 @@ body {
 
     }
 
-    #footer {
+    #footer { 
         width: 100%;
         padding: 0 !important;
 
         footer {
-            padding: 0 24px;
+            padding: 5em 24px !important;
             width: 50%;
             background: color(dark);
             color: color(gray);
@@ -604,6 +611,7 @@ body {
                align-items: flex-start;
                margin: auto;
                margin: 5em 0;
+               padding: 1em;
 
                li {
                    display: flex;
@@ -614,6 +622,8 @@ body {
 
                    i {
                        min-width: 30px;
+                       text-align: center;
+                       margin-right: .5em;
                    }
                }
            }
@@ -632,7 +642,7 @@ body {
         }
 
         #contact {
-            padding: 0 24px;
+            padding: 5em 24px !important;
             background: color(lightGray);
             width: 50%;
             display: flex;
@@ -672,7 +682,7 @@ body {
                     color: color(white);
                     border-radius: 10px;
                     width: 150px;
-                    height: 45px;
+                    height: 50px;
                     text-transform: uppercase;
                     font-size: 90%;
                     letter-spacing: 1.1px;

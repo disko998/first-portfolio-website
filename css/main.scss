@@ -44,9 +44,6 @@ body {
             z-index: 99;
             padding: 2em 0;
             transition: all $transitionDelay ease-in;
-            @include respond-to(tablet) {
-                background: rgbaColor(dark, 0.7)
-            }
 
             .menu-icon {
                 cursor: pointer;
@@ -73,9 +70,6 @@ body {
                 justify-content: flex-start;
                 align-items: center;
                 list-style: none;
-                @include respond-to(tablet) {
-                    display: none;
-                }
 
                 li {
                     margin: 0 .5em;
@@ -96,14 +90,12 @@ body {
                         }
                     }  
                 }
-            }
 
-            @include respond-to(tablet) {
-                .nav-links.expanded {
+                @include respond-to(tablet) {
+                    display: none;
                     width: 100%;
-                    display: flex;
                     flex-direction: column;
-    
+        
                     li {
                         width: 100%;
                         margin: 0;
@@ -114,18 +106,15 @@ body {
                             display: block;
                             width: 100%;
                             text-align: justify;
-                            
                         }
-                    }
-                }  
+                    } 
+                } 
             }
-
-
         }
 
         nav.scroll{
             background: rgbaColor(dark, 0.9);
-            padding: .5em 0;
+            padding: 1em 0;
         }
 
         .content {

@@ -302,12 +302,6 @@ body header nav {
   transition: all 0.5s ease-in;
 }
 
-@media only screen and (max-width: 847px) {
-  body header nav {
-    background: rgba(51, 51, 51, 0.7);
-  }
-}
-
 body header nav .menu-icon {
   cursor: pointer;
   display: none;
@@ -346,12 +340,6 @@ body header nav .nav-links {
   list-style: none;
 }
 
-@media only screen and (max-width: 847px) {
-  body header nav .nav-links {
-    display: none;
-  }
-}
-
 body header nav .nav-links li {
   margin: 0 .5em;
   padding: .4em;
@@ -374,22 +362,20 @@ body header nav .nav-links li a:hover {
 }
 
 @media only screen and (max-width: 847px) {
-  body header nav .nav-links.expanded {
+  body header nav .nav-links {
+    display: none;
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  body header nav .nav-links.expanded li {
+  body header nav .nav-links li {
     width: 100%;
     margin: 0;
     padding: 0;
   }
-  body header nav .nav-links.expanded li a {
+  body header nav .nav-links li a {
     padding: 1em .5em;
     display: block;
     width: 100%;
@@ -399,7 +385,7 @@ body header nav .nav-links li a:hover {
 
 body header nav.scroll {
   background: rgba(51, 51, 51, 0.9);
-  padding: .5em 0;
+  padding: 1em 0;
 }
 
 body header .content {

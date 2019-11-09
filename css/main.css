@@ -385,7 +385,7 @@ body header nav .nav-links li a:hover {
 
 body header nav.scroll {
   background: rgba(51, 51, 51, 0.9);
-  padding: 1em 0;
+  padding: .5em 0;
 }
 
 body header .content {
@@ -411,50 +411,51 @@ body header .content {
   }
 }
 
-body header .content .dev-info .overview {
+body header .content .dev-info .title {
   font-size: 300%;
   color: #ffffff;
   font-weight: 100;
 }
 
 @media only screen and (min-width: 1300px) {
-  body header .content .dev-info .overview {
+  body header .content .dev-info .title {
     font-size: 400%;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  body header .content .dev-info .overview {
+  body header .content .dev-info .title {
     font-size: 250%;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  body header .content .dev-info .overview {
+  body header .content .dev-info .title {
     font-size: 200%;
   }
 }
 
 @media only screen and (max-width: 350px) {
-  body header .content .dev-info .overview {
+  body header .content .dev-info .title {
     font-size: 150%;
   }
 }
 
-body header .content .dev-info .overview .name {
+body header .content .dev-info .title .name {
   font-size: 100%;
   font-weight: 300;
 }
 
 body header .content .dev-info .btn {
-  padding: 10px 20px;
-  min-height: 60px;
-  min-width: 220px;
+  display: inline-block;
+  min-width: 200px;
+  padding: .7em 1.5em;
   margin: 1em 1em 1em 0;
   background: #B42B42;
   -webkit-transition: border-radius 0.5s;
   transition: border-radius 0.5s;
   color: #ffffff;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -1175,6 +1176,13 @@ body #footer #contact h1 {
 }
 
 body #footer #contact form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   max-width: 500px;
   width: 70%;
 }
@@ -1190,15 +1198,47 @@ body #footer #contact form input, body #footer #contact form textarea {
   margin: 1em 0;
 }
 
-body #footer #contact form button {
+body #footer #contact form .error::-webkit-input-placeholder {
+  color: #B42B42;
+}
+
+body #footer #contact form .error:-ms-input-placeholder {
+  color: #B42B42;
+}
+
+body #footer #contact form .error::-ms-input-placeholder {
+  color: #B42B42;
+}
+
+body #footer #contact form .error::placeholder {
+  color: #B42B42;
+}
+
+body #footer #contact form .send {
   margin-top: 1em;
   background: #B42B42;
   color: #ffffff;
   border-radius: 10px;
-  width: 150px;
   height: 50px;
   text-transform: uppercase;
   font-size: 90%;
   letter-spacing: 1.1px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+body #footer #contact form .send.success {
+  background-color: #4CAF50;
+  text-transform: none;
+}
+
+body #footer #contact form .send.error {
+  background-color: #B42B42;
+  text-transform: none;
+}
+
+body #footer #contact form .send.warning {
+  background-color: #ff9800;
+  text-transform: none;
 }
 /*# sourceMappingURL=main.css.map */

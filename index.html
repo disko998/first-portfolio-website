@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/global/style.css">
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://kit.fontawesome.com/84978856d2.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <title>Stefan Diskic Portfolio</title>
 </head>
 <body>
@@ -36,19 +35,21 @@
         <div class="container">
             <div class="content">
                 <div class="dev-info">
-                    <p class="overview">Hi,</br>I'm <span class="name">Stefan Diskic</span>,</br>front end developer</p>
-                    <button class="btn round text-light">
-                        <p>About me</p>
-                        <span>
-                            <i class="fas fa-caret-down"></i>
-                        </span>
-                    </button>
-                    <button class="btn btn-border round">
-                        <p>Download CV</p>
-                        <span>
-                            <i class="fas fa-download"></i>
-                        </span>
-                    </button>
+                    <p class="title">Hi,</br>I'm <span class="name">Stefan Diskic</span>,</br>front end developer</p>
+                    <div>
+                        <a href="#summary" class="btn round text-light">
+                            <p>About me</p>
+                            <span>
+                                <i class="fas fa-caret-down"></i>
+                            </span>
+                        </a>
+                        <a class="btn btn-border round">
+                            <p>Download CV</p>
+                            <span>
+                                <i class="fas fa-download"></i>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -451,50 +452,27 @@
 
             <section id="contact">
                 <h1>Get in touch</h1>
-                <form action="#" method="POST" class="f-col">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email">
+                <form action="#" method="POST" id="contact-form">
+                    <input name="name" id="name" type="text" placeholder="Full Name">
+                    <input name="email" id="email" type="email" placeholder="Email">
                     <textarea name="message" id="message"  placeholder="Your Message"></textarea>
-                    <button class="btn">
+                    <button class="btn send">
                         Send
-                        <span>
-                            <i class="fas fa-paper-plane"></i>
-                        </span>
                     </button>
                 </form>
             </section>
         </div>
     </section>
 
-    <script>
-        // toggle class
-        $(document).ready(function(){
-            $('.menu-icon').on('click', function(){
-                $(".nav-links").slideToggle('medium', function() {
-                    if ($(this).is(':visible'))
-                        $(this).css('display','flex');
-                });
-            })
+    <!--JQuery js-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-            window.addEventListener('resize', function(size){
-                if (window.innerWidth > 847) {
-                    $(".nav-links").css('display', 'flex')
-                } else {
-                    $(".nav-links").css('display', 'none')
-                }
-            })
-        })
+    <!--Global js-->
+    <script src="./js/interface.js"></script>
 
-        // on scroll
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop()) {
-                $('nav').addClass('scroll')
-            } else {
-                $('nav').removeClass('scroll')
-            }
-        })
-
-    </script>
+    <!--Email js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script src="./js/email.js"></script>
 </body>
     
 </html>

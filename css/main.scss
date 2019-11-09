@@ -114,7 +114,7 @@ body {
 
         nav.scroll{
             background: rgbaColor(dark, 0.9);
-            padding: 1em 0;
+            padding: .5em 0;
         }
 
         .content {
@@ -129,7 +129,7 @@ body {
             }
 
             .dev-info {
-                .overview {
+                .title {
                     font-size: 300%;
                     color: color(white);
                     font-weight: 100;
@@ -153,13 +153,15 @@ body {
                 }
      
                 .btn {
-                    padding: 10px 20px;
-                    min-height: 60px;
-                    min-width: 220px;
+                    display: inline-block;
+                    min-width: 200px;
+                    padding: .7em 1.5em;
                     margin: 1em 1em 1em 0;
                     background: color(secondary);
                     transition: border-radius $transitionDelay;
                     color: color(white);
+                    text-decoration: none;
+
                     @include respond-to(small-tablet) {
                         display: none;
                     }
@@ -653,6 +655,8 @@ body {
             }
             
             form {
+                display: flex;
+                flex-direction: column;
                 max-width: 500px;
                 width: 70%;
 
@@ -665,17 +669,27 @@ body {
                     margin: 1em 0;
                 }
 
-                button {
+                .error {
+                    &::placeholder {
+                        color: color(secondary);
+                    }
+                }
+            
+                .send {
                     margin-top: 1em;
                     background: color(secondary);
                     color: color(white);
                     border-radius: 10px;
-                    width: 150px;
                     height: 50px;
                     text-transform: uppercase;
                     font-size: 90%;
                     letter-spacing: 1.1px;
+                    transition: all $transitionDelay;
                 }
+
+                .send.success {background-color: color(success);text-transform: none;}
+                .send.error {background-color: color(secondary);text-transform: none;}
+                .send.warning {background-color: color(warning);text-transform: none;}
             }
         }
     }

@@ -1219,7 +1219,7 @@ body #footer #contact form .send {
   background: #B42B42;
   color: #ffffff;
   border-radius: 10px;
-  height: 50px;
+  padding: 1em 0;
   text-transform: uppercase;
   font-size: 90%;
   letter-spacing: 1.1px;

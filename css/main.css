@@ -665,6 +665,11 @@ body #summary .summary p {
   }
 }
 
+body #summary .summary p a {
+  text-decoration: none;
+  color: #19B2F6;
+}
+
 body #skills h3 {
   text-transform: uppercase;
   font-weight: 300;
@@ -691,56 +696,56 @@ body #skills .top-skills .progress-90 .pie .right-side {
           transform: rotate(180deg);
 }
 
-body #skills .top-skills .progress-70 .pie {
+body #skills .top-skills .progress-75 .pie {
   clip: rect(auto, auto, auto, auto);
 }
 
-body #skills .top-skills .progress-70 .pie .half-circle {
+body #skills .top-skills .progress-75 .pie .half-circle {
   border-color: #19B2F6;
 }
 
-body #skills .top-skills .progress-70 .pie .left-side {
-  -webkit-transform: rotate(252deg);
-          transform: rotate(252deg);
+body #skills .top-skills .progress-75 .pie .left-side {
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
 }
 
-body #skills .top-skills .progress-70 .pie .right-side {
+body #skills .top-skills .progress-75 .pie .right-side {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
-body #skills .top-skills .progress-85 .pie {
+body #skills .top-skills .progress-80 .pie {
   clip: rect(auto, auto, auto, auto);
 }
 
-body #skills .top-skills .progress-85 .pie .half-circle {
+body #skills .top-skills .progress-80 .pie .half-circle {
   border-color: #19B2F6;
 }
 
-body #skills .top-skills .progress-85 .pie .left-side {
-  -webkit-transform: rotate(306deg);
-          transform: rotate(306deg);
+body #skills .top-skills .progress-80 .pie .left-side {
+  -webkit-transform: rotate(288deg);
+          transform: rotate(288deg);
 }
 
-body #skills .top-skills .progress-85 .pie .right-side {
+body #skills .top-skills .progress-80 .pie .right-side {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
 
-body #skills .top-skills .progress-65 .pie {
+body #skills .top-skills .progress-60 .pie {
   clip: rect(auto, auto, auto, auto);
 }
 
-body #skills .top-skills .progress-65 .pie .half-circle {
+body #skills .top-skills .progress-60 .pie .half-circle {
   border-color: #19B2F6;
 }
 
-body #skills .top-skills .progress-65 .pie .left-side {
-  -webkit-transform: rotate(234deg);
-          transform: rotate(234deg);
+body #skills .top-skills .progress-60 .pie .left-side {
+  -webkit-transform: rotate(216deg);
+          transform: rotate(216deg);
 }
 
-body #skills .top-skills .progress-65 .pie .right-side {
+body #skills .top-skills .progress-60 .pie .right-side {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
@@ -832,6 +837,10 @@ body #skills .other-skills .content .skills-container .progress-bar {
   }
 }
 
+body #skills .other-skills .progress-100 {
+  width: 100%;
+}
+
 body #skills .other-skills .progress-80 {
   width: 80%;
 }
@@ -858,6 +867,10 @@ body #skills .other-skills .progress-40 {
 
 body #skills .other-skills .progress-30 {
   width: 30%;
+}
+
+body #skills .other-skills .progress-20 {
+  width: 20%;
 }
 
 body #overview {
@@ -929,6 +942,13 @@ body #projects {
 
 body #projects a {
   margin: 2em 1em;
+}
+
+@media only screen and (max-width: 600px) {
+  body #projects a {
+    height: auto;
+    width: 100%;
+  }
 }
 
 body #projects a .project {

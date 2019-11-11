@@ -317,6 +317,11 @@ body {
                 @include respond-to(phone){
                     font-size: 80%;
                 }
+
+                a {
+                    text-decoration: none;
+                    color: color(primary);
+                }
             }
         }
     }
@@ -334,14 +339,14 @@ body {
             .progress-90 {
                 @include draw-progress(90, color(primary));
             }
-            .progress-70 {
-                @include draw-progress(70, color(primary));
+            .progress-75 {
+                @include draw-progress(75, color(primary));
             }
-            .progress-85 {
-                @include draw-progress(85, color(primary));
+            .progress-80 {
+                @include draw-progress(80, color(primary));
             }
-            .progress-65 {
-                @include draw-progress(65, color(primary));
+            .progress-60 {
+                @include draw-progress(60, color(primary));
             }
 
             .label {
@@ -407,6 +412,9 @@ body {
                 }
             }
 
+            .progress-100 {
+                width: 100%;
+            }
             .progress-80 {
                 width: 80%;
             }
@@ -427,6 +435,9 @@ body {
             }
             .progress-30 {
                 width: 30%;
+            }
+            .progress-20 {
+                width: 20%;
             }
 
         }
@@ -495,6 +506,9 @@ body {
 
         a {
             margin: 2em 1em;
+            @include respond-to(small-tablet) {
+                @include size(100%, auto);
+            }
 
             .project {
                 @include size($project-size, $project-size);

@@ -33,7 +33,7 @@
 }
 
 section, footer {
-  padding: 5em 0 !important;
+  padding: 8em 0 !important;
 }
 
 .text-light {
@@ -1055,8 +1055,10 @@ body #footer {
   padding: 0 !important;
 }
 
-body #footer footer {
-  padding: 5em 24px !important;
+body #footer .content footer {
+  height: 100%;
+  padding-right: 24px !important;
+  padding-left: 24px !important;
   width: 50%;
   background: #333;
   color: #C8C8C8;
@@ -1067,31 +1069,28 @@ body #footer footer {
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-@media only screen and (max-width: 847px) {
-  body #footer footer {
+@media only screen and (max-width: 1146px) {
+  body #footer .content footer {
     width: 100%;
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
   }
-  body #footer footer ul {
-    margin: 0 !important;
+  body #footer .content footer ul {
+    margin-top: 0 !important;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  body #footer footer {
+  body #footer .content footer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-flow: column nowrap;
@@ -1099,20 +1098,20 @@ body #footer footer {
   }
 }
 
-body #footer footer h2 {
+body #footer .content footer h2 {
   text-transform: uppercase;
   font-size: 200%;
   text-align: center;
   font-weight: bold;
 }
 
-@media only screen and (max-width: 847px) {
-  body #footer footer h2 {
+@media only screen and (max-width: 1146px) {
+  body #footer .content footer h2 {
     display: none;
   }
 }
 
-body #footer footer ul {
+body #footer .content footer ul {
   list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1136,7 +1135,7 @@ body #footer footer ul {
   padding: 1em;
 }
 
-body #footer footer ul li {
+body #footer .content footer ul li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1153,26 +1152,27 @@ body #footer footer ul li {
   margin: .3em 0;
 }
 
-body #footer footer ul li i {
+body #footer .content footer ul li i {
   min-width: 30px;
   text-align: center;
   margin-right: .5em;
 }
 
-body #footer footer p {
+body #footer .content footer p {
   font-size: 70%;
   font-weight: 300;
   letter-spacing: 1px;
 }
 
 @media only screen and (max-width: 500px) {
-  body #footer footer .copy-rights {
+  body #footer .content footer .copy-rights {
     margin-top: 5em;
   }
 }
 
-body #footer #contact {
-  padding: 5em 24px !important;
+body #footer .content #contact {
+  padding-right: 24px !important;
+  padding-left: 24px !important;
   background: #E9E8E8;
   width: 50%;
   display: -webkit-box;
@@ -1190,8 +1190,8 @@ body #footer #contact {
           align-items: center;
 }
 
-@media only screen and (max-width: 847px) {
-  body #footer #contact {
+@media only screen and (max-width: 1146px) {
+  body #footer .content #contact {
     width: 100%;
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
@@ -1199,18 +1199,18 @@ body #footer #contact {
   }
 }
 
-body #footer #contact h1 {
+body #footer .content #contact h1 {
   color: #333;
   display: none;
 }
 
-@media only screen and (max-width: 847px) {
-  body #footer #contact h1 {
+@media only screen and (max-width: 1146px) {
+  body #footer .content #contact h1 {
     display: block;
   }
 }
 
-body #footer #contact form {
+body #footer .content #contact form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1223,33 +1223,33 @@ body #footer #contact form {
 }
 
 @media only screen and (max-width: 600px) {
-  body #footer #contact form {
+  body #footer .content #contact form {
     width: 90%;
   }
 }
 
-body #footer #contact form input, body #footer #contact form textarea {
+body #footer .content #contact form input, body #footer .content #contact form textarea {
   width: 100%;
   margin: 1em 0;
 }
 
-body #footer #contact form .error::-webkit-input-placeholder {
+body #footer .content #contact form .error::-webkit-input-placeholder {
   color: #B42B42;
 }
 
-body #footer #contact form .error:-ms-input-placeholder {
+body #footer .content #contact form .error:-ms-input-placeholder {
   color: #B42B42;
 }
 
-body #footer #contact form .error::-ms-input-placeholder {
+body #footer .content #contact form .error::-ms-input-placeholder {
   color: #B42B42;
 }
 
-body #footer #contact form .error::placeholder {
+body #footer .content #contact form .error::placeholder {
   color: #B42B42;
 }
 
-body #footer #contact form .send {
+body #footer .content #contact form .send {
   margin-top: 1em;
   background: #B42B42;
   color: #ffffff;
@@ -1262,17 +1262,17 @@ body #footer #contact form .send {
   transition: all 0.5s;
 }
 
-body #footer #contact form .send.success {
+body #footer .content #contact form .send.success {
   background-color: #4CAF50;
   text-transform: none;
 }
 
-body #footer #contact form .send.error {
+body #footer .content #contact form .send.error {
   background-color: #B42B42;
   text-transform: none;
 }
 
-body #footer #contact form .send.warning {
+body #footer .content #contact form .send.warning {
   background-color: #ff9800;
   text-transform: none;
 }

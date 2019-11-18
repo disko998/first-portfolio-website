@@ -874,7 +874,8 @@ body #skills .other-skills .progress-20 {
 }
 
 body #overview {
-  background: #19B2F6;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(25, 178, 246, 0.6)), to(#19B2F6));
+  background: linear-gradient(to right, rgba(25, 178, 246, 0.6), #19B2F6);
   border-top-left-radius: 40px;
   padding: 0 !important;
   -webkit-transform: skewY(-2deg);
@@ -910,7 +911,7 @@ body #overview .container {
           transform: skewY(2deg);
 }
 
-@media only screen and (max-width: 847px) {
+@media only screen and (max-width: 1146px) {
   body #overview .content {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -923,8 +924,22 @@ body #overview .content .card {
 }
 
 body #overview .content .card img {
-  height: 100px;
+  height: 150px;
   width: auto;
+}
+
+@media only screen and (max-width: 1146px) {
+  body #overview .content .card img {
+    height: 200px;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  body #overview .content .card img {
+    height: 100px;
+    width: auto;
+  }
 }
 
 body #overview .content .card p {

@@ -444,7 +444,7 @@ body {
     }
 
     #overview {
-        background: color(primary);
+        background: linear-gradient(to right,rgbaColor(primary, .6), color(primary));
         border-top-left-radius: $strong-border-radius;
         padding: 0 !important;
         transform: skewY(-$skewDeg);
@@ -478,7 +478,7 @@ body {
         }
 
         .content {
-            @include respond-to(tablet) {
+            @include respond-to(big-tablet) {
                 flex-wrap: wrap;
             };
             .card {
@@ -486,7 +486,13 @@ body {
                 padding: 1em;
 
                 img {
-                   @include size(auto, 100px);
+                   @include size(auto, 150px);
+                   @include respond-to(big-tablet) {
+                        @include size(auto, 200px);
+                    };
+                    @include respond-to(phone) {
+                        @include size(auto, 100px);
+                    };
                 }
 
                 p {

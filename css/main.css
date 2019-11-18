@@ -25,7 +25,7 @@
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1600px;
   height: 100%;
   margin: 0 auto 0 auto;
   padding: 0 24px;
@@ -269,29 +269,6 @@ body header {
   position: relative;
 }
 
-body header .bg-blue {
-  background: #19B2F6;
-  z-index: -1;
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-}
-
-body header .bg-blue .bg-dark {
-  width: 100%;
-  height: 100vh;
-  background: #333;
-  -webkit-clip-path: polygon(0 0, 60% 0, 50% 100%, 0% 100%);
-          clip-path: polygon(0 0, 60% 0, 50% 100%, 0% 100%);
-}
-
-@media only screen and (max-width: 1146px) {
-  body header .bg-blue .bg-dark {
-    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
-            clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
-  }
-}
-
 body header nav {
   position: fixed;
   width: 100%;
@@ -315,7 +292,7 @@ body header nav .menu-icon {
 }
 
 body header nav .menu-icon span {
-  color: #ffffff;
+  color: #333;
 }
 
 body header nav .menu-icon span i {
@@ -348,10 +325,10 @@ body header nav .nav-links li {
 body header nav .nav-links li a {
   text-transform: uppercase;
   text-decoration: none;
-  color: #ffffff;
-  font-weight: 400;
+  color: #333;
+  font-weight: 300;
   letter-spacing: 2px;
-  font-size: 80%;
+  font-size: 90%;
   opacity: 1;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
@@ -369,6 +346,7 @@ body header nav .nav-links li a:hover {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    padding-top: 1em;
   }
   body header nav .nav-links li {
     width: 100%;
@@ -383,9 +361,73 @@ body header nav .nav-links li a:hover {
   }
 }
 
+body header nav .socials {
+  float: left;
+}
+
+body header nav .socials ul {
+  z-index: 999;
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+body header nav .socials ul li {
+  margin: 0 1em;
+}
+
+@media only screen and (max-width: 500px) {
+  body header nav .socials ul li {
+    margin: 0 .5em;
+  }
+}
+
+body header nav .socials ul li a {
+  color: #333;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+body header nav .socials ul li a:hover.github {
+  color: #707070;
+}
+
+body header nav .socials ul li a:hover.linkedin {
+  color: #2867B2;
+}
+
+body header nav .socials ul li a:hover.stack-overflow {
+  color: #f48024;
+}
+
+body header nav .socials ul li a i {
+  font-size: 150%;
+}
+
 body header nav.scroll {
   background: rgba(51, 51, 51, 0.9);
   padding: .5em 0;
+}
+
+body header nav.scroll .nav-links a {
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 847px) {
+  body header nav.scroll .menu-icon span {
+    color: #ffffff;
+  }
+}
+
+body header nav.scroll .socials li a {
+  color: #ffffff;
 }
 
 body header .content {
@@ -397,23 +439,16 @@ body header .content {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  align-items: center;
   position: relative;
-}
-
-@media only screen and (max-width: 1146px) {
-  body header .content {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
 }
 
 body header .content .dev-info .title {
   font-size: 300%;
-  color: #ffffff;
+  color: #333;
   font-weight: 100;
 }
 
@@ -442,20 +477,18 @@ body header .content .dev-info .title {
 }
 
 body header .content .dev-info .title .name {
-  font-size: 100%;
-  font-weight: 300;
+  font-size: 110%;
+  font-weight: 100;
 }
 
 body header .content .dev-info .btn {
-  display: inline-block;
-  min-width: 200px;
-  padding: .7em 1.5em;
-  margin: 1em 1em 1em 0;
-  background: #B42B42;
-  -webkit-transition: border-radius 0.5s;
-  transition: border-radius 0.5s;
-  color: #ffffff;
   text-decoration: none;
+  min-width: 200px;
+  height: 73.55px;
+  margin: 1em 1em 1em 0;
+  color: #ffffff;
+  background: #19B2F6;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -476,14 +509,17 @@ body header .content .dev-info .btn:hover {
   border-radius: 10px;
 }
 
-body header .content .dev-info .btn span {
-  opacity: 0;
-  display: inline-block;
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+body header .content .dev-info .btn .label {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
 }
 
-body header .content .dev-info .btn p {
+body header .content .dev-info .btn .label p {
   font-size: 120% !important;
   font-weight: 300;
   display: inline-block;
@@ -492,117 +528,29 @@ body header .content .dev-info .btn p {
   transition: margin-right 0.5s;
 }
 
+body header .content .dev-info .btn .label span {
+  opacity: 0;
+  display: inline-block;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
 body header .content .dev-info .btn-border {
-  border-color: #B42B42;
-  color: #B42B42;
+  border-color: #19B2F6;
+  color: #19B2F6;
 }
 
-body header .socials {
-  position: absolute;
-  right: 2em;
-  top: 50%;
-  z-index: 20;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+body header .content .developer {
+  max-width: 40%;
 }
 
-@media only screen and (max-width: 1146px) {
-  body header .socials {
-    top: unset;
-    right: 0;
-    bottom: 0;
-    -webkit-transform: none;
-            transform: none;
-  }
-}
-
-body header .socials ul {
-  list-style-type: none;
-}
-
-@media only screen and (max-width: 1146px) {
-  body header .socials ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row nowrap;
-            flex-flow: row nowrap;
-    -ms-flex-item-align: center;
-        align-self: center;
-  }
-}
-
-body header .socials ul li {
-  margin: 1em 0;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
-}
-
-@media only screen and (max-width: 1146px) {
-  body header .socials ul li {
-    margin-right: 2em;
-  }
-}
-
-@media only screen and (max-width: 350px) {
-  body header .socials ul li {
-    margin-right: 1.5em;
-  }
-}
-
-body header .socials ul li:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-}
-
-body header .socials ul li a .github {
-  color: #ffffff;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s;
-}
-
-body header .socials ul li a .github:hover {
-  color: #333;
-}
-
-body header .socials ul li a .linkedin {
-  color: #ffffff;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s;
-}
-
-body header .socials ul li a .linkedin:hover {
-  color: #2867B2;
-}
-
-body header .socials ul li a .stack-overflow {
-  color: #ffffff;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s;
-}
-
-body header .socials ul li a .stack-overflow:hover {
-  color: #f48024;
-}
-
-body header .socials ul li a i {
-  font-size: 200%;
-}
-
-@media only screen and (max-width: 350px) {
-  body header .socials ul li a i {
-    font-size: 150%;
-  }
+body header .content .developer img {
+  max-width: 100%;
+  height: auto;
 }
 
 body #summary {
-  padding-bottom: 0 !important;
+  background: #E9E8E8;
 }
 
 body #summary .summary {

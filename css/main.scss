@@ -18,25 +18,7 @@ body {
     header {
         height: 100vh;
         position: relative;
-
-        .bg-blue {
-            background: color(primary);
-            z-index: -1;
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-    
-            .bg-dark {
-                width: 100%;
-                height: 100vh;
-                background: color(dark);
-                clip-path: polygon(0 0, 60% 0, 50% 100%, 0% 100%);
-                @include respond-to(big-tablet) {
-                    clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
-                }
-             }
-        }
-
+        
         nav {
             position: fixed;
             width: 100%;
@@ -54,7 +36,7 @@ body {
                 }
     
                 span {
-                    color: color(white);
+                    color: color(dark);
 
                     i {
                         font-size: 150%;
@@ -78,10 +60,10 @@ body {
                     a {
                         text-transform: uppercase;
                         text-decoration: none;
-                        color: color(white);
-                        font-weight: 400;
+                        color: color(dark);
+                        font-weight: 300;
                         letter-spacing: 2px;
-                        font-size: 80%;
+                        font-size: 90%;
                         opacity: 1;
                         transition: opacity $transitionDelay;
 
@@ -95,6 +77,7 @@ body {
                     display: none;
                     width: 100%;
                     flex-direction: column;
+                    padding-top: 1em;
         
                     li {
                         width: 100%;
@@ -110,11 +93,75 @@ body {
                     } 
                 } 
             }
+     
+            .socials {
+                float: left;
+
+                ul {
+                    z-index: 999;
+                    list-style-type: none;
+                    display: flex;
+                    flex-flow: row nowrap;
+                    align-self: center;
+
+                    li {
+                        margin: 0 1em;
+                        @include respond-to(phone) {
+                            margin: 0 .5em;
+                        }
+
+                        a {
+                            color: color(dark);
+                            transition: color $transitionDelay;
+
+                            &:hover {
+                                &.github {
+                                    color: color(darkgray);
+                                }
+
+                                &.linkedin {
+                                    color: color(linkedin);
+                                }
+
+                                &.stack-overflow {
+                                    color: color(stackOverflow);
+                                }
+                            }                        
+
+                            i {
+                                font-size: 150%;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         nav.scroll{
             background: rgbaColor(dark, 0.9);
             padding: .5em 0;
+
+            .nav-links {
+                a {
+                    color: color(white)
+                }
+            }
+
+            .menu-icon {
+               span {
+                    @include respond-to(tablet) {
+                        color: color(white);
+                    }
+               }
+            }
+
+            .socials {
+                li {
+                    a {
+                        color: color(white)
+                    }
+                }
+            }
         }
 
         .content {
@@ -122,17 +169,16 @@ body {
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: flex-start;
+            justify-content: space-between;
+            align-items: center;
             position: relative;
-            @include respond-to(big-tablet) {
-                justify-content: center;
-            }
 
             .dev-info {
                 .title {
                     font-size: 300%;
-                    color: color(white);
+                    color: color(dark);
                     font-weight: 100;
+
                     @include respond-to(desktop) {
                         font-size: 400%;
                     }
@@ -147,20 +193,19 @@ body {
                     }
 
                     .name {
-                        font-size: 100%;
-                        font-weight: 300;
+                        font-size: 110%;
+                        font-weight: 100;
                     }
                 }
      
                 .btn {
-                    display: inline-block;
-                    min-width: 200px;
-                    padding: .7em 1.5em;
-                    margin: 1em 1em 1em 0;
-                    background: color(secondary);
-                    transition: border-radius $transitionDelay;
-                    color: color(white);
                     text-decoration: none;
+                    min-width: 200px;
+                    height: 73.55px;
+                    margin: 1em 1em 1em 0;
+                    color: color(white);
+                    background: color(primary);
+                    border-radius: 10px;  
 
                     @include respond-to(small-tablet) {
                         display: none;
@@ -178,104 +223,46 @@ body {
                         border-radius: 10px;
                     }
 
-                    span {
-                        opacity: 0;
-                        display: inline-block;
-                        transition: opacity $transitionDelay;
-                    }
+                    .label {                    
+                        width: fit-content;
+                        height: fit-content;
+                        text-align: center;
 
-                    p {
-                        font-size: 120% !important;
-                        font-weight: 300;
-                        display: inline-block;
-                        margin-right: -20px;
-                        transition: margin-right $transitionDelay;
+                        p {
+                            font-size: 120% !important;
+                            font-weight: 300;
+                            display: inline-block;
+                            margin-right: -20px;
+                            transition: margin-right $transitionDelay;
+                        }
+
+                        span {
+                            opacity: 0;
+                            display: inline-block;
+                            transition: opacity $transitionDelay;
+                        }
                     }
                 }
 
                 .btn-border {
-                    border-color: color(secondary);
-                    color: color(secondary);
-                }
-            }
-        }
-
-        .socials {
-            position: absolute;
-            right: 2em;
-            top: 50%;
-            z-index: 20;
-            transform: translateY(-50%);
-            @include respond-to(big-tablet) {
-                top: unset;
-                right: 0;
-                bottom: 0;
-                transform: none;
+                    border-color: color(primary);
+                    color: color(primary);
+                }     
             }
 
-            ul {
-                list-style-type: none;
-                @include respond-to(big-tablet) {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    align-self: center;
-                }
-
-                li {
-                    margin: 1em 0;
-                    transform: scale(1);
-                    transition:  transform $transitionDelay;
-                    @include respond-to(big-tablet) {
-                        margin-right: 2em;
-                    }
-                    @include respond-to(small-phone) {
-                        margin-right: 1.5em;
-                    }
-
-                    &:hover {
-                        transform: scale(1.5);
-                    }
-
-                    a {
-                        .github {
-                            color: color(white);
-                            transition: color $transitionDelay;
-                            
-                            &:hover {
-                                color: color(dark);
-                            }
-                        }
-                        
-                        .linkedin {
-                            color: color(white);
-                            transition: color $transitionDelay;
-                            &:hover {
-                                color: color(linkedin);
-                            }
-                        }
-                    
-                        .stack-overflow {
-                            color: color(white);
-                            transition: color $transitionDelay;
-                            &:hover {
-                                color: color(stackOverflow);
-                            }
-                        }
-
-                        i {
-                            font-size: 200%;
-                            @include respond-to(small-phone) {
-                                font-size: 150%;
-                            }
-                        }
-                    }
+            .developer {
+                max-width: 40%;
+                img {
+                    max-width: 100%;
+                    height: auto;
                 }
             }
         }
     }
 
     #summary {
-        padding-bottom: 0 !important;
+        background: color(lightGray);
+
         .summary {
             align-items: center;
             width: fit-content;

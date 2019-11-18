@@ -25,7 +25,7 @@
 }
 
 .container {
-  max-width: 1600px;
+  max-width: 1440px;
   height: 100%;
   margin: 0 auto 0 auto;
   padding: 0 24px;
@@ -57,7 +57,7 @@ h1 {
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
-  color: #000000;
+  color: #333;
   margin-bottom: 2em;
 }
 
@@ -128,7 +128,7 @@ textarea {
 }
 
 .pie-wrapper .pie-label {
-  background: #ffffff;
+  background: #fff;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -267,6 +267,7 @@ html, * {
 body header {
   height: 100vh;
   position: relative;
+  background: #fff;
 }
 
 body header nav {
@@ -417,17 +418,17 @@ body header nav.scroll {
 }
 
 body header nav.scroll .nav-links a {
-  color: #ffffff;
+  color: #fff;
 }
 
 @media only screen and (max-width: 847px) {
   body header nav.scroll .menu-icon span {
-    color: #ffffff;
+    color: #fff;
   }
 }
 
 body header nav.scroll .socials li a {
-  color: #ffffff;
+  color: #fff;
 }
 
 body header .content {
@@ -447,32 +448,20 @@ body header .content {
 }
 
 body header .content .dev-info .title {
-  font-size: 300%;
+  font-size: 4vw;
   color: #333;
   font-weight: 100;
 }
 
+@media only screen and (max-width: 847px) {
+  body header .content .dev-info .title {
+    font-size: 5vw;
+  }
+}
+
 @media only screen and (min-width: 1300px) {
   body header .content .dev-info .title {
-    font-size: 400%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  body header .content .dev-info .title {
-    font-size: 250%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  body header .content .dev-info .title {
-    font-size: 200%;
-  }
-}
-
-@media only screen and (max-width: 350px) {
-  body header .content .dev-info .title {
-    font-size: 150%;
+    font-size: 300%;
   }
 }
 
@@ -481,35 +470,33 @@ body header .content .dev-info .title .name {
   font-weight: 100;
 }
 
-body header .content .dev-info .btn {
+body header .content .dev-info div {
+  display: none !important;
+}
+
+body header .content .dev-info div .btn {
   text-decoration: none;
-  min-width: 200px;
-  height: 73.55px;
+  width: 40%;
+  height: 70px;
   margin: 1em 1em 1em 0;
-  color: #ffffff;
+  color: #fff;
   background: #19B2F6;
   border-radius: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-  body header .content .dev-info .btn {
-    display: none;
-  }
-}
-
-body header .content .dev-info .btn:hover span {
+body header .content .dev-info div .btn:hover span {
   opacity: 1;
 }
 
-body header .content .dev-info .btn:hover p {
+body header .content .dev-info div .btn:hover p {
   margin-right: 10px;
 }
 
-body header .content .dev-info .btn:hover {
+body header .content .dev-info div .btn:hover {
   border-radius: 10px;
 }
 
-body header .content .dev-info .btn .label {
+body header .content .dev-info div .btn .label {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -519,16 +506,14 @@ body header .content .dev-info .btn .label {
   text-align: center;
 }
 
-body header .content .dev-info .btn .label p {
-  font-size: 120% !important;
+body header .content .dev-info div .btn .label p {
   font-weight: 300;
   display: inline-block;
-  margin-right: -20px;
   -webkit-transition: margin-right 0.5s;
   transition: margin-right 0.5s;
 }
 
-body header .content .dev-info .btn .label span {
+body header .content .dev-info div .btn .label span {
   opacity: 0;
   display: inline-block;
   -webkit-transition: opacity 0.5s;
@@ -544,8 +529,14 @@ body header .content .developer {
   max-width: 40%;
 }
 
+@media only screen and (max-width: 500px) {
+  body header .content .developer {
+    display: none;
+  }
+}
+
 body header .content .developer img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -561,7 +552,7 @@ body #summary .summary {
   width: -moz-fit-content;
   width: fit-content;
   padding: 2em;
-  background: #ffffff;
+  background: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 0px 2px 1px #C8C8C8;
           box-shadow: 0px 0px 2px 1px #C8C8C8;
@@ -825,7 +816,6 @@ body #overview {
   background: -webkit-gradient(linear, left top, right top, from(rgba(25, 178, 246, 0.6)), to(#19B2F6));
   background: linear-gradient(to right, rgba(25, 178, 246, 0.6), #19B2F6);
   border-top-left-radius: 40px;
-  padding: 0 !important;
   -webkit-transform: skewY(-2deg);
           transform: skewY(-2deg);
 }
@@ -845,7 +835,7 @@ body #overview::after {
   content: '';
   width: 120px;
   height: 120px;
-  background: #ffffff;
+  background: #fff;
   position: absolute;
   right: 0;
   top: -120px;
@@ -854,7 +844,6 @@ body #overview::after {
 }
 
 body #overview .container {
-  padding: 5em 0;
   -webkit-transform: skewY(2deg);
           transform: skewY(2deg);
 }
@@ -892,7 +881,7 @@ body #overview .content .card img {
 
 body #overview .content .card p {
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   font-weight: 300;
   margin-top: 2em;
 }
@@ -900,7 +889,7 @@ body #overview .content .card p {
 body #projects {
   position: relative;
   margin-top: -2%;
-  background: #ffffff;
+  background: #fff;
 }
 
 body #projects a {
@@ -980,7 +969,7 @@ body #projects a .project .overlay {
 
 body #projects a .project .overlay p {
   font-size: 120%;
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   padding: 1em;
   opacity: 0;
@@ -1100,6 +1089,20 @@ body #footer .content footer ul li {
   margin: .3em 0;
 }
 
+body #footer .content footer ul li a {
+  text-decoration: none;
+  color: #C8C8C8;
+  font-size: 70%;
+  font-weight: 300;
+  letter-spacing: 1px;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+}
+
+body #footer .content footer ul li a:hover {
+  color: #fff;
+}
+
 body #footer .content footer ul li i {
   min-width: 30px;
   text-align: center;
@@ -1200,7 +1203,7 @@ body #footer .content #contact form .error::placeholder {
 body #footer .content #contact form .send {
   margin-top: 1em;
   background: #B42B42;
-  color: #ffffff;
+  color: #fff;
   border-radius: 10px;
   padding: 1em 0;
   text-transform: uppercase;

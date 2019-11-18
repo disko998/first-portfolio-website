@@ -14,10 +14,10 @@ html, * {
 }
 
 body {
-
     header {
         height: 100vh;
         position: relative;
+        background: color(white);
         
         nav {
             position: fixed;
@@ -175,21 +175,15 @@ body {
 
             .dev-info {
                 .title {
-                    font-size: 300%;
+                    font-size: 4vw;
                     color: color(dark);
                     font-weight: 100;
 
+                    @include respond-to(tablet){
+                        font-size: 5vw;
+                    }
                     @include respond-to(desktop) {
-                        font-size: 400%;
-                    }
-                    @include respond-to(small-tablet) {
-                        font-size: 250%;
-                    }
-                    @include respond-to(phone) {
-                        font-size: 200%;
-                    }
-                    @include respond-to(small-phone) {
-                        font-size: 150%;
+                        font-size: 300%;
                     }
 
                     .name {
@@ -198,48 +192,46 @@ body {
                     }
                 }
      
-                .btn {
-                    text-decoration: none;
-                    min-width: 200px;
-                    height: 73.55px;
-                    margin: 1em 1em 1em 0;
-                    color: color(white);
-                    background: color(primary);
-                    border-radius: 10px;  
+                div {
+                    display: none !important;
 
-                    @include respond-to(small-tablet) {
-                        display: none;
-                    }
-
-                    &:hover span {
-                        opacity: 1;
-                    }
-
-                    &:hover p {
-                        margin-right: 10px;
-                    }
-
-                    &:hover {
-                        border-radius: 10px;
-                    }
-
-                    .label {                    
-                        width: fit-content;
-                        height: fit-content;
-                        text-align: center;
-
-                        p {
-                            font-size: 120% !important;
-                            font-weight: 300;
-                            display: inline-block;
-                            margin-right: -20px;
-                            transition: margin-right $transitionDelay;
+                    .btn {
+                        text-decoration: none;
+                        width: 40%;
+                        height: 70px;
+                        margin: 1em 1em 1em 0;
+                        color: color(white);
+                        background: color(primary);
+                        border-radius: 10px;  
+    
+                        &:hover span {
+                            opacity: 1;
                         }
-
-                        span {
-                            opacity: 0;
-                            display: inline-block;
-                            transition: opacity $transitionDelay;
+    
+                        &:hover p {
+                            margin-right: 10px;
+                        }
+    
+                        &:hover {
+                            border-radius: 10px;
+                        }
+    
+                        .label {                    
+                            width: fit-content;
+                            height: fit-content;
+                            text-align: center;
+    
+                            p {
+                                font-weight: 300;
+                                display: inline-block;
+                                transition: margin-right $transitionDelay;
+                            }
+    
+                            span {
+                                opacity: 0;
+                                display: inline-block;
+                                transition: opacity $transitionDelay;
+                            }
                         }
                     }
                 }
@@ -252,8 +244,12 @@ body {
 
             .developer {
                 max-width: 40%;
+                @include respond-to(phone) {
+                    display: none;
+                }
+
                 img {
-                    max-width: 100%;
+                    width: 100%;
                     height: auto;
                 }
             }
@@ -433,7 +429,6 @@ body {
     #overview {
         background: linear-gradient(to right,rgbaColor(primary, .6), color(primary));
         border-top-left-radius: $strong-border-radius;
-        padding: 0 !important;
         transform: skewY(-$skewDeg);
 
         &::before {
@@ -460,7 +455,6 @@ body {
         }
 
         .container {
-            padding: 5em 0;
             transform: skewY($skewDeg);
         }
 
@@ -603,7 +597,7 @@ body {
                    font-weight: bold;
     
                    @include respond-to(big-tablet) {
-                    display: none;
+                        display: none;
                     }
                }
     
@@ -620,6 +614,19 @@ body {
                        align-items: center;
                        justify-content: center;
                        margin: .3em 0;
+
+                       a {
+                            text-decoration: none;
+                            color: color(gray);
+                            font-size: 70%;
+                            font-weight: 300;
+                            letter-spacing: 1px;
+                            transition: color $transitionDelay;
+
+                            &:hover {
+                                color: color(white);
+                            }
+                       }
     
                        i {
                            min-width: 30px;

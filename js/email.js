@@ -7,7 +7,7 @@ myform.submit(function(event){
     event.preventDefault();
 
     if (!checkInputs(this)) {
-        showAlert('warning', 'You can\'t leave empty fields')
+        showAlert('warning', 'You can\'t leave empty fields!')
         return
     }
 

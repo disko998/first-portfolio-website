@@ -20,29 +20,34 @@ body {
         background: color(white);
         
         nav {
+            align-items: center;
             position: fixed;
             width: 100%;
             overflow: hidden;
-            z-index: 99;
+            z-index: 100;
             padding: 2em 0;
-            transition: all $transitionDelay ease-in;
+            background: color(white);
+            transition: background $transitionDelay, padding $transitionDelay ease-in;
 
             .menu-icon {
+                float: right;
                 cursor: pointer;
                 display: none;
+                opacity: 1;
+                transition: opacity $transitionDelay;
+
+                &:hover {
+                    opacity: .5;
+                }
+
                 @include respond-to(tablet) {
-                    display: block;
-                    float: right;
+                    display: block;              
                 }
     
-                span {
+                i {
                     color: color(dark);
-
-                    i {
-                        font-size: 150%;
-                    }
-                }
-
+                    font-size: $iconSize;
+                }           
             }
 
             .nav-links {
@@ -53,31 +58,11 @@ body {
                 align-items: center;
                 list-style: none;
 
-                li {
-                    margin: 0 .5em;
-                    padding: .4em;
-
-                    a {
-                        text-transform: uppercase;
-                        text-decoration: none;
-                        color: color(dark);
-                        font-weight: 300;
-                        letter-spacing: 2px;
-                        font-size: 90%;
-                        opacity: 1;
-                        transition: opacity $transitionDelay;
-
-                        &:hover {
-                            opacity: 0.5;
-                        }
-                    }  
-                }
-
                 @include respond-to(tablet) {
-                    display: none;
-                    width: 100%;
                     flex-direction: column;
+                    width: 100%;
                     padding-top: 1em;
+                    display: none;
         
                     li {
                         width: 100%;
@@ -92,6 +77,25 @@ body {
                         }
                     } 
                 } 
+
+                li {
+                    padding: .2em .7em;
+
+                    a {
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        color: color(dark);
+                        font-weight: 300;
+                        letter-spacing: 2px;
+                        font-size: 90%;
+                        opacity: 1;
+                        transition: opacity $transitionDelay;
+
+                        &:hover {
+                            opacity: .5;
+                        }
+                    }  
+                }
             }
      
             .socials {
@@ -105,28 +109,31 @@ body {
                     align-self: center;
 
                     li {
-                        margin: 0 1em;
-                        @include respond-to(phone) {
+                        margin: 0 .8em;
+                        @include respond-to(small-phone) {
                             margin: 0 .5em;
                         }
 
                         a {
                             color: color(dark);
-                            transition: color $transitionDelay;
+                            opacity: 1;
+                            transition: opacity $transitionDelay;
 
                             &:hover {
-                                &.github {
-                                    color: color(darkgray);
-                                }
+                                opacity: .5;
+                            }
+                            
+                            &.github {
+                                color: color(dark);
+                            }
 
-                                &.linkedin {
-                                    color: color(linkedin);
-                                }
+                            &.linkedin {
+                                color: color(linkedin);
+                            }
 
-                                &.stack-overflow {
-                                    color: color(stackOverflow);
-                                }
-                            }                        
+                            &.stack-overflow {
+                                color: color(stackOverflow);
+                            }
 
                             i {
                                 font-size: 150%;
@@ -138,8 +145,8 @@ body {
         }
 
         nav.scroll{
-            background: rgbaColor(dark, 0.9);
-            padding: .5em 0;
+            background: rgbaColor(dark, 1);
+            padding: .8em 0;
 
             .nav-links {
                 a {
@@ -148,7 +155,7 @@ body {
             }
 
             .menu-icon {
-               span {
+               i {
                     @include respond-to(tablet) {
                         color: color(white);
                     }
@@ -157,7 +164,13 @@ body {
 
             .socials {
                 li {
-                    a {
+                    .github {
+                        color: color(white);
+                    }
+                    .linkedin {
+                        color: color(white)
+                    }
+                    .stack-overflow {
                         color: color(white)
                     }
                 }
@@ -172,18 +185,21 @@ body {
             justify-content: space-between;
             align-items: center;
             position: relative;
+            @include respond-to(tablet){
+                justify-content: center;
+            }
 
             .dev-info {
                 .title {
-                    font-size: 4vw;
+                    font-size: 6vw;
                     color: color(dark);
                     font-weight: 100;
 
                     @include respond-to(tablet){
-                        font-size: 5vw;
+                        font-size: 9vw;
                     }
                     @include respond-to(desktop) {
-                        font-size: 300%;
+                        font-size: 400%;
                     }
 
                     .name {
@@ -191,48 +207,21 @@ body {
                         font-weight: 100;
                     }
                 }
-     
-                div {
-                    display: none !important;
+          
+                .button-ripple {
+                    text-decoration: none;
+                    width: 40%;
+                    max-width: 200px;
+                    min-width: 50px;
+                    height: 70px;
+                    margin: 1em 2em 1em 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
 
-                    .btn {
-                        text-decoration: none;
-                        width: 40%;
-                        height: 70px;
-                        margin: 1em 1em 1em 0;
-                        color: color(white);
-                        background: color(primary);
-                        border-radius: 10px;  
-    
-                        &:hover span {
-                            opacity: 1;
-                        }
-    
-                        &:hover p {
-                            margin-right: 10px;
-                        }
-    
-                        &:hover {
-                            border-radius: 10px;
-                        }
-    
-                        .label {                    
-                            width: fit-content;
-                            height: fit-content;
-                            text-align: center;
-    
-                            p {
-                                font-weight: 300;
-                                display: inline-block;
-                                transition: margin-right $transitionDelay;
-                            }
-    
-                            span {
-                                opacity: 0;
-                                display: inline-block;
-                                transition: opacity $transitionDelay;
-                            }
-                        }
+                    @include respond-to(phone) {
+                        width: 50%;
+                        height: 50px;
                     }
                 }
 
@@ -244,7 +233,7 @@ body {
 
             .developer {
                 max-width: 40%;
-                @include respond-to(phone) {
+                @include respond-to(tablet) {
                     display: none;
                 }
 
@@ -288,22 +277,19 @@ body {
                 font-size: 90%;
                 line-height: 1.5;
                 letter-spacing: 1px;
-                margin-left: 3em;
                 display: inline-block;
                 max-width: 1024px;
-                text-align: justify;
-                @include respond-to(tablet){
-                    margin-left: 0;
-                    margin-top: 3em;
-                    text-align: center;
-                }
-                @include respond-to(phone){
-                    font-size: 80%;
-                }
+                text-align: left;
 
                 a {
                     text-decoration: none;
                     color: color(primary);
+                    font-style: normal;
+                    font-weight: 300;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
@@ -319,11 +305,17 @@ body {
         }
 
         .top-skills {
+            .progress-100 {
+                @include draw-progress(100, color(primary));
+            }
             .progress-90 {
                 @include draw-progress(90, color(primary));
             }
             .progress-75 {
                 @include draw-progress(75, color(primary));
+            }
+            .progress-85 {
+                @include draw-progress(85, color(primary));
             }
             .progress-80 {
                 @include draw-progress(80, color(primary));
@@ -617,14 +609,15 @@ body {
 
                        a {
                             text-decoration: none;
-                            color: color(gray);
+                            color: color(white);
                             font-size: 70%;
                             font-weight: 300;
                             letter-spacing: 1px;
                             transition: color $transitionDelay;
+                            font-style: normal;
 
                             &:hover {
-                                color: color(white);
+                                color: color(primary);
                             }
                        }
     
@@ -658,6 +651,7 @@ body {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+
                 @include respond-to(big-tablet) {
                     width: 100%;
                     order: 0;
@@ -696,18 +690,15 @@ body {
                     .send {
                         margin-top: 1em;
                         background: color(secondary);
-                        color: color(white);
-                        border-radius: 10px;
-                        padding: 1em 0;
-                        text-transform: uppercase;
                         font-size: 90%;
+                        padding: 1em 0;
                         letter-spacing: 1.1px;
-                        transition: all $transitionDelay;
+                        transition: background $transitionDelay;
                     }
     
-                    .send.success {background-color: color(success);text-transform: none;}
-                    .send.error {background-color: color(secondary);text-transform: none;}
-                    .send.warning {background-color: color(warning);text-transform: none;}
+                    .send.success {background: color(success);text-transform: none;}
+                    .send.error {background: color(secondary);text-transform: none;}
+                    .send.warning {background: color(warning);text-transform: none;}
                 }
             }
         }

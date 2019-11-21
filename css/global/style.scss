@@ -393,7 +393,8 @@ textarea {
 }
 
 .space-around {
-    justify-content: space-around !important;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .f-wrap {

@@ -245,8 +245,11 @@ textarea {
 }
 
 .space-around {
-  -ms-flex-pack: distribute !important;
-      justify-content: space-around !important;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .f-wrap {
@@ -954,37 +957,57 @@ body #overview .container {
 }
 
 @media only screen and (max-width: 1146px) {
-  body #overview .content {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+  body #overview .container .content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
-body #overview .content .card {
+body #overview .container .content .card {
   margin: 2em;
   padding: 1em;
-}
-
-body #overview .content .card img {
-  height: 150px;
-  width: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: auto;
+  width: 33%;
 }
 
 @media only screen and (max-width: 1146px) {
-  body #overview .content .card img {
-    height: 200px;
-    width: auto;
+  body #overview .container .content .card {
+    height: auto;
+    width: 60%;
   }
 }
 
-@media only screen and (max-width: 500px) {
-  body #overview .content .card img {
-    height: 100px;
-    width: auto;
+@media only screen and (max-width: 600px) {
+  body #overview .container .content .card {
+    height: auto;
+    width: 100%;
   }
 }
 
-body #overview .content .card p {
+body #overview .container .content .card img {
+  height: 200px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  body #overview .container .content .card img {
+    height: 150px;
+    width: 100%;
+  }
+}
+
+body #overview .container .content .card p {
   text-align: center;
   color: #fff;
   font-weight: 300;

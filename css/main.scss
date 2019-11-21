@@ -473,34 +473,45 @@ body {
 
         .container {
             transform: skewY($skewDeg);
-        }
 
-        .content {
-            @include respond-to(big-tablet) {
-                flex-wrap: wrap;
-            };
-            .card {
-                margin: 2em;
-                padding: 1em;
+            .content {
+                @include respond-to(big-tablet) {
+                   flex-direction: column;
+                   justify-content: center;
+                   align-items: center;
+                };
 
-                img {
-                   @include size(auto, 150px);
-                   @include respond-to(big-tablet) {
-                        @include size(auto, 200px);
-                    };
-                    @include respond-to(phone) {
-                        @include size(auto, 100px);
-                    };
-                }
+                .card {
+                    margin: 2em;
+                    padding: 1em;
+                    align-items: center;
+                    @include size(33%, auto);
 
-                p {
-                    text-align: center;
-                    color: color(white);
-                    font-weight: 300;
-                    margin-top: 2em;
+                    @include respond-to(big-tablet){
+                        @include size(60%, auto);
+                    }
+                    @include respond-to(small-tablet){
+                        @include size(100%, auto);
+                    }
+    
+                    img {
+                        @include size(100%, 200px);
+
+                        @include respond-to(small-tablet){
+                            @include size(100%, 150px);
+                        }
+                    }
+    
+                    p {
+                        text-align: center;
+                        color: color(white);
+                        font-weight: 300;
+                        margin-top: 2em;
+                    }
                 }
             }
         }
+
     }
 
     #projects {

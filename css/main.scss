@@ -185,6 +185,7 @@ body {
             justify-content: space-between;
             align-items: center;
             position: relative;
+
             @include respond-to(tablet){
                 justify-content: center;
             }
@@ -240,6 +241,23 @@ body {
                 img {
                     width: 100%;
                     height: auto;
+                }
+            }
+            
+            .scroll-button {
+                position: absolute;
+                bottom: 3em;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: jump 1s infinite alternate;
+
+                @keyframes jump {
+                    from {transform: translateY(0);}
+                    to {transform: translateY(40px);}
+                  }
+
+                img {
+                    @include size(auto, 60px)
                 }
             }
         }

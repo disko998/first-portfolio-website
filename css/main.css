@@ -572,6 +572,43 @@ body header .content .developer img {
   height: auto;
 }
 
+body header .content .scroll-button {
+  position: absolute;
+  bottom: 3em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-animation: jump 1s infinite alternate;
+          animation: jump 1s infinite alternate;
+}
+
+@-webkit-keyframes jump {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+}
+
+@keyframes jump {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(40px);
+            transform: translateY(40px);
+  }
+}
+
+body header .content .scroll-button img {
+  height: 60px;
+  width: auto;
+}
+
 body #summary {
   background: #E9E8E8;
 }

@@ -198,6 +198,7 @@ body {
 
                     @include respond-to(tablet){
                         font-size: 9vw;
+                        font-weight: 300;
                     }
                     @include respond-to(desktop) {
                         font-size: 400%;
@@ -206,6 +207,10 @@ body {
                     .name {
                         font-size: 110%;
                         font-weight: 100;
+
+                        @include respond-to(tablet){
+                            font-weight: 300;
+                        }
                     }
                 }
           
@@ -219,10 +224,12 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    text-align: center;
 
-                    @include respond-to(phone) {
+                    @include respond-to(tablet) {
                         width: 50%;
                         height: 50px;
+                        font-size: 50%;
                     }
                 }
 

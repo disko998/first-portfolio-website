@@ -513,6 +513,7 @@ body header .content .dev-info .title {
 @media only screen and (max-width: 847px) {
   body header .content .dev-info .title {
     font-size: 9vw;
+    font-weight: 300;
   }
 }
 
@@ -525,6 +526,12 @@ body header .content .dev-info .title {
 body header .content .dev-info .title .name {
   font-size: 110%;
   font-weight: 100;
+}
+
+@media only screen and (max-width: 847px) {
+  body header .content .dev-info .title .name {
+    font-weight: 300;
+  }
 }
 
 body header .content .dev-info .button-ripple {
@@ -543,12 +550,14 @@ body header .content .dev-info .button-ripple {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 847px) {
   body header .content .dev-info .button-ripple {
     width: 50%;
     height: 50px;
+    font-size: 50%;
   }
 }
 

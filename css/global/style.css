@@ -8,7 +8,7 @@
 }
 
 .i-3 {
-  border: 1px solid #B42B42 !important;
+  border: 1px solid #b42b42 !important;
 }
 
 .b {
@@ -16,22 +16,23 @@
 }
 
 .b-2 {
-  background: #2867B2 !important;
+  background: #2867b2 !important;
 }
 
 .b-3 {
-  background: #C8C8C8 !important;
+  background: #c8c8c8 !important;
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1600px;
   height: 100%;
   margin: 0 auto 0 auto;
   padding: 0 24px;
   overflow: hidden;
 }
 
-section, footer {
+section,
+footer {
   padding: 8em 0 !important;
 }
 
@@ -56,7 +57,7 @@ h1 {
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
-  color: #333;
+  color: #263238;
   margin-bottom: 2em;
 }
 
@@ -65,7 +66,7 @@ h1::before {
   display: block;
   width: 60px;
   height: 5px;
-  background: #B42B42;
+  background: #b42b42;
   margin: auto;
   border-radius: 40px;
   margin-bottom: 20px;
@@ -99,13 +100,22 @@ h1::before {
   transition: background 0s;
 }
 
+.ripple:hover {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  -webkit-transition: background 0s;
+  transition: background 0s;
+}
+
 /* Button style */
 .button-ripple {
   border: none;
   border-radius: 2px;
-  padding: 12px 18px;
+  padding: 1.2em 3em;
   font-size: 16px;
   text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
   color: #fff;
   -webkit-box-shadow: 0 0 4px #707070;
@@ -113,7 +123,8 @@ h1::before {
   outline: none;
 }
 
-input, textarea {
+input,
+textarea {
   background: transparent;
   border: none;
   border-bottom: 2px solid #707070;
@@ -147,7 +158,7 @@ textarea {
 .pie-wrapper .pie .half-circle {
   height: 100%;
   width: 100%;
-  border: 0.8em solid #19B2F6;
+  border: 0.8em solid #19b2f6;
   border-radius: 50%;
   clip: rect(0, 4em, 8em, 0);
   left: 0;
@@ -178,13 +189,13 @@ textarea {
 .pie-wrapper .pie-label .value {
   font-size: 2em;
   font-weight: 300;
-  color: #333;
+  color: #263238;
   text-align: center;
 }
 
 .pie-wrapper .pie-label .smaller {
-  color: #333;
-  font-size: .45em;
+  color: #263238;
+  font-size: 0.45em;
   padding-bottom: 20px;
   vertical-align: super;
 }
@@ -194,12 +205,12 @@ textarea {
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 0.8em solid #C8C8C8;
+  border: 0.8em solid #c8c8c8;
   border-radius: 50%;
 }
 
 .progress-bar {
-  background: #C8C8C8;
+  background: #c8c8c8;
   border-radius: 40px;
   position: relative;
 }
@@ -208,13 +219,13 @@ textarea {
   position: absolute;
   right: 5px;
   font-weight: 300;
-  color: #333;
+  color: #263238;
 }
 
 .progress {
   border-radius: 40px;
   width: 85%;
-  background: #19B2F6;
+  background: #19b2f6;
   height: 100%;
   position: absolute;
 }

@@ -24,7 +24,7 @@ $angleSize: 60px;
 // sizes
 $iconSize: 150%;
 $project-size: 250px;
-$container-max-width: 1600px;
+$container-max-width: 1140px;
 $progress-bar-min-width: 400px;
 $progress-bar-max-width: 700px;
 $defaultPieSize: 8em;
@@ -32,129 +32,135 @@ $pieFontSize: $defaultPieSize / 4;
 
 // **** Colors ****
 $colors: (
-  darkPrimary: #2196f3,
-  lightPrimary: #6eb9f7,
-  primary: #19b2f6,
-  secondary: #b42b42,
-  dark: #263238,
-  lightGray: #e9e8e8,
-  gray: #c8c8c8,
-  darkGray: #707070,
-  black: #000000,
-  white: #fff,
-  linkedin: #2867b2,
-  stackOverflow: #f48024,
-  inspect: rgb(0, 255, 255),
-  bg: rgb(199, 20, 124),
-  warning: #ff9800,
-  success: #4caf50
+    lightPrimary: #19b2f6,
+    primary: #0083c3,
+    secondary: #8c1ccc,
+    dark: #333,
+    dusk: #05364d,
+    lightGray: #ebebeb,
+    gray: #d2d2d2,
+    darkGray: #9a9a9a,
+    black: #000000,
+    white: #fff,
+    linkedin: #2867b2,
+    facebook: #4267b2,
+    inspect: rgb(0, 255, 255),
+    bg: rgb(199, 20, 124),
+    warning: #ff9800,
+    success: #4caf50
 );
 
 // **** Functions ****
 @function color($color-name) {
-  @return map-get($colors, $color-name);
+    @return map-get($colors, $color-name);
 }
 
 @function rgbaColor($color-name, $opacity) {
-  @if $color-name == primary {
-    @return rgba(25, 178, 246, $opacity);
-  } @else if $color-name == dark {
-    @return rgba(51, 51, 51, $opacity);
-  }
+    @if $color-name == primary {
+        @return rgba(25, 178, 246, $opacity);
+    } @else if $color-name == dark {
+        @return rgba(51, 51, 51, $opacity);
+    }
 }
 
 @function transition($properties...) {
-  @each $prop in $properties {
-    @return $prop $transitionDelay;
-  }
+    @each $prop in $properties {
+        @return $prop $transitionDelay;
+    }
 }
 
 // **** Mixin ****
 @mixin rippleEffect($color) {
-  background: color($color)
-    radial-gradient(circle, transparent 1%, color($color) 1%) center/15000%;
+    background: color($color)
+        radial-gradient(circle, transparent 1%, color($color) 1%) center/15000%;
 }
 
 @mixin size($width, $height) {
-  height: $height;
-  width: $width;
+    height: $height;
+    width: $width;
 }
 
 @mixin transition($property) {
-  transition: $property $transitionDelay ease-in-out;
+    transition: $property $transitionDelay ease-in-out;
 }
 
 @mixin draw-progress($progress, $color) {
-  .pie {
-    .half-circle {
-      border-color: $color;
-    }
+    .pie {
+        .half-circle {
+            border-color: $color;
+        }
 
-    .left-side {
-      transform: rotate($progress * 3.6deg);
-    }
+        .left-side {
+            transform: rotate($progress * 3.6deg);
+        }
 
-    @if $progress <= 50 {
-      .right-side {
-        display: none;
-      }
-    } @else {
-      clip: rect(auto, auto, auto, auto);
+        @if $progress <= 50 {
+            .right-side {
+                display: none;
+            }
+        } @else {
+            clip: rect(auto, auto, auto, auto);
 
-      .right-side {
-        transform: rotate(180deg);
-      }
+            .right-side {
+                transform: rotate(180deg);
+            }
+        }
     }
-  }
 }
 
 @mixin respond-to($media) {
-  @if $media == phone {
-    @media only screen and (max-width: $break-phone) {
-      @content;
+    @if $media == phone {
+        @media only screen and (max-width: $break-phone) {
+            @content;
+        }
+    } @else if $media == small-phone {
+        @media only screen and (max-width: $break-small-phone) {
+            @content;
+        }
+    } @else if $media == small-tablet {
+        @media only screen and (max-width: $break-small) {
+            @content;
+        }
+    } @else if $media == tablet {
+        @media only screen and (max-width: $break-medium) {
+            @content;
+        }
+    } @else if $media == big-tablet {
+        @media only screen and (max-width: $break-large) {
+            @content;
+        }
+    } @else if $media == desktop {
+        @media only screen and (min-width: $min-desktop) {
+            @content;
+        }
     }
-  } @else if $media == small-phone {
-    @media only screen and (max-width: $break-small-phone) {
-      @content;
-    }
-  } @else if $media == small-tablet {
-    @media only screen and (max-width: $break-small) {
-      @content;
-    }
-  } @else if $media == tablet {
-    @media only screen and (max-width: $break-medium) {
-      @content;
-    }
-  } @else if $media == big-tablet {
-    @media only screen and (max-width: $break-large) {
-      @content;
-    }
-  } @else if $media == desktop {
-    @media only screen and (min-width: $min-desktop) {
-      @content;
-    }
-  }
 }
 
 @mixin create-list($type) {
-  @if $type == col {
-    ul {
-      list-style-type: none;
-      display: flex;
-      flex-flow: column nowrap;
-      width: fit-content;
-      overflow: hidden;
-      @content;
+    @if $type == col {
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-flow: column nowrap;
+            width: fit-content;
+            overflow: hidden;
+            @content;
+        }
+    } @else if $type == row {
+        ul {
+            list-style-type: none;
+            display: flex;
+            overflow: hidden;
+            flex-flow: row nowrap;
+            @content;
+        }
     }
-  } @else if $type == row {
-    ul {
-      list-style-type: none;
-      display: flex;
-      overflow: hidden;
-      flex-flow: row nowrap;
-      @content;
-    }
-  }
+}
+
+@mixin mobile-navbar {
+    background: color(white);
+    padding: 0.7em 0;
+    box-shadow: 0px 5px 5px -5px color(darkgray);
 }
 
 // ___________________________ CONSTANTS __________________________________
@@ -162,262 +168,278 @@ $colors: (
 // **** Styles ****
 // ########## Inspect #########
 .i {
-  border: 1px solid color(inspect) !important;
+    border: 1px solid color(inspect) !important;
 }
 
 .i-2 {
-  border: 1px solid color(black) !important;
+    border: 1px solid color(black) !important;
 }
 
 .i-3 {
-  border: 1px solid color(secondary) !important;
+    border: 1px solid color(secondary) !important;
 }
 
 .b {
-  background: color(bg) !important;
+    background: color(bg) !important;
 }
 
 .b-2 {
-  background: color(linkedin) !important;
+    background: color(linkedin) !important;
 }
 
 .b-3 {
-  background: color(gray) !important;
+    background: color(gray) !important;
 }
 
 // ########## Containers #########
 .container {
-  max-width: $container-max-width;
-  height: 100%;
-  margin: 0 auto 0 auto;
-  padding: 0 24px;
-  overflow: hidden;
+    max-width: $container-max-width;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    overflow: hidden;
 }
 
 section,
 footer {
-  padding: 8em 0 !important;
+    padding: 8em 0 !important;
 }
 
 // ########## Text #########
 .text-light {
-  font-weight: 100 !important;
+    font-weight: 100 !important;
 }
 
 .text-bold {
-  font-weight: 500 !important;
+    font-weight: 500 !important;
 }
 
 .text-up {
-  text-transform: uppercase !important;
+    text-transform: uppercase !important;
 }
 
 .text-cap {
-  text-transform: capitalize !important;
+    text-transform: capitalize !important;
 }
 
 h1 {
-  font-size: 200%;
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
-  color: color(dark);
-  margin-bottom: 2em;
+    font-size: 200%;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    color: color(dark);
+    margin-bottom: 2em;
 
-  &::before {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 5px;
-    background: color(secondary);
-    margin: auto;
-    border-radius: $strong-border-radius;
-    margin-bottom: 20px;
-  }
+    &::before {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 5px;
+        background: color(secondary);
+        margin: auto;
+        border-radius: $strong-border-radius;
+        margin-bottom: 20px;
+    }
 }
 
 // ########## Inputs #########
 .btn {
-  padding: 10px 20px;
-  border: none;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
+    padding: 10px 20px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
 }
 
 .btn-border {
-  background: transparent !important;
-  border: 1px solid !important;
+    background: transparent !important;
+    border: 1px solid !important;
 }
 
 /* Ripple effect */
 .ripple {
-  background-position: center;
-  transition: background 0.8s;
-  background: color(darkPrimary)
-    radial-gradient(circle, transparent 1%, color(darkPrimary) 1%) center/15000%;
+    background-position: center;
+    transition: background 0.8s;
+    background: color(primary)
+        radial-gradient(circle, transparent 1%, color(primary) 1%) center/15000%;
 }
 
 .ripple:active {
-  background-color: color(lightPrimary);
-  background-size: 100%;
-  transition: background 0s;
+    background-color: color(lightPrimary);
+    background-size: 100%;
+    transition: background 0s;
 }
 .ripple:hover {
-  background-color: color(lightPrimary);
-  background-size: 100%;
-  transition: background 0s;
+    background-color: color(lightPrimary);
+    background-size: 100%;
+    transition: background 0s;
 }
 /* Button style */
 .button-ripple {
-  border: none;
-  border-radius: $lightBorder;
-  padding: 1.2em 3em;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  color: color(white);
-  box-shadow: 0 0 4px color(darkGray);
-  outline: none;
+    border: none;
+    border-radius: $lightBorder;
+    padding: 1.2em 3em;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: color(white);
+    box-shadow: 0 0 4px color(darkGray);
+    outline: none;
+}
+
+.button-primary {
+    border: none;
+    border-radius: $lightBorder;
+    padding: 0 30px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: color(white);
+    box-shadow: 0 0 4px color(darkGray);
+    outline: none;
+    background: color(primary);
+    line-height: 50px;
 }
 
 input,
 textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid color(darkGray);
-  height: 50px;
-  outline: none;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid color(darkGray);
+    height: 50px;
+    outline: none;
 }
 
 textarea {
-  resize: none;
-  overflow: hidden;
-  height: auto;
+    resize: none;
+    overflow: hidden;
+    height: auto;
 }
 
 // ########## Graphs #########
 .pie-wrapper {
-  @include size($defaultPieSize, $defaultPieSize);
-  margin: 15px;
-  position: relative;
+    @include size($defaultPieSize, $defaultPieSize);
+    margin: 15px;
+    position: relative;
 
-  .pie {
-    @include size(100%, 100%);
-    clip: rect(0, $defaultPieSize, $defaultPieSize, $defaultPieSize / 2);
-    left: 0;
-    position: absolute;
-    top: 0;
-    z-index: 10;
+    .pie {
+        @include size(100%, 100%);
+        clip: rect(0, $defaultPieSize, $defaultPieSize, $defaultPieSize / 2);
+        left: 0;
+        position: absolute;
+        top: 0;
+        z-index: 10;
 
-    .half-circle {
-      @include size(100%, 100%);
-      border: ($defaultPieSize / 10) solid color(primary);
-      border-radius: 50%;
-      clip: rect(0, $defaultPieSize / 2, $defaultPieSize, 0);
-      left: 0;
-      position: absolute;
-      top: 0;
+        .half-circle {
+            @include size(100%, 100%);
+            border: ($defaultPieSize / 10) solid color(primary);
+            border-radius: 50%;
+            clip: rect(0, $defaultPieSize / 2, $defaultPieSize, 0);
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
     }
-  }
 
-  .pie-label {
-    background: color(white);
-    border-radius: 50%;
-    display: flex;
-    position: absolute;
-    text-align: center;
-    bottom: 0;
-    top: 0;
-    right: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
+    .pie-label {
+        background: color(white);
+        border-radius: 50%;
+        display: flex;
+        position: absolute;
+        text-align: center;
+        bottom: 0;
+        top: 0;
+        right: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
 
-    .value {
-      font-size: $pieFontSize;
-      font-weight: 300;
-      color: color(dark);
-      text-align: center;
+        .value {
+            font-size: $pieFontSize;
+            font-weight: 300;
+            color: color(dark);
+            text-align: center;
+        }
+        .smaller {
+            color: color(dark);
+            font-size: 0.45em;
+            padding-bottom: 20px;
+            vertical-align: super;
+        }
     }
-    .smaller {
-      color: color(dark);
-      font-size: 0.45em;
-      padding-bottom: 20px;
-      vertical-align: super;
-    }
-  }
 
-  .shadow {
-    z-index: 1;
-    position: absolute;
-    @include size(100%, 100%);
-    border: ($defaultPieSize / 10) solid color(gray);
-    border-radius: 50%;
-  }
+    .shadow {
+        z-index: 1;
+        position: absolute;
+        @include size(100%, 100%);
+        border: ($defaultPieSize / 10) solid color(gray);
+        border-radius: 50%;
+    }
 }
 
 .progress-bar {
-  background: color(gray);
-  border-radius: $strong-border-radius;
-  position: relative;
+    background: color(gray);
+    border-radius: $strong-border-radius;
+    position: relative;
 
-  .value {
-    position: absolute;
-    right: 5px;
-    font-weight: 300;
-    color: color(dark);
-  }
+    .value {
+        position: absolute;
+        right: 5px;
+        font-weight: 300;
+        color: color(dark);
+    }
 }
 
 .progress {
-  border-radius: $strong-border-radius;
-  width: 85%;
-  background: color(primary);
-  height: 100%;
-  position: absolute;
+    border-radius: $strong-border-radius;
+    width: 85%;
+    background: color(primary);
+    height: 100%;
+    position: absolute;
 }
 
 // ########## Utilities #########
 .round {
-  border-radius: $strong-border-radius;
+    border-radius: $strong-border-radius;
 }
 
 // Flex
 .f-row {
-  display: flex !important;
-  flex-flow: row nowrap;
+    display: flex !important;
+    flex-flow: row nowrap;
 }
 
 .f-col {
-  display: flex !important;
-  flex-flow: column nowrap;
+    display: flex !important;
+    flex-flow: column nowrap;
 }
 
 .space-around {
-  justify-content: space-around;
-  align-items: center;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .f-wrap {
-  flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
 }
 
 .f-center {
-  justify-content: center !important;
-  align-items: center !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .center {
-  align-self: center !important;
+    align-self: center !important;
 }
 
 .grow {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .d-flex {
-  display: flex !important;
+    display: flex !important;
 }

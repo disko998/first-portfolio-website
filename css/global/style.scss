@@ -8,9 +8,9 @@
 $break-small-phone: 350px;
 $break-phone: 500px;
 $break-small: 600px;
-$break-medium: 847px;
+$break-medium: 1000px;
 $break-large: 1146px;
-$min-desktop: 1300px;
+$min-desktop: 1350px;
 
 // utilities
 $strong-border-radius: 40px;
@@ -24,7 +24,7 @@ $angleSize: 60px;
 // sizes
 $iconSize: 150%;
 $project-size: 250px;
-$container-max-width: 1140px;
+$container-max-width: 1440px;
 $progress-bar-min-width: 400px;
 $progress-bar-max-width: 700px;
 $defaultPieSize: 8em;
@@ -47,7 +47,8 @@ $colors: (
     inspect: rgb(0, 255, 255),
     bg: rgb(199, 20, 124),
     warning: #ff9800,
-    success: #4caf50
+    success: #22bb33,
+    danger: #bb2124
 );
 
 // **** Functions ****
@@ -159,8 +160,14 @@ $colors: (
 
 @mixin mobile-navbar {
     background: color(white);
-    padding: 0.7em 0;
+    padding: 0.8em 0;
     box-shadow: 0px 5px 5px -5px color(darkgray);
+}
+
+@mixin shrinkLabel {
+    top: 10px;
+    font-size: 12px;
+    color: color(darkgray);
 }
 
 // ___________________________ CONSTANTS __________________________________
@@ -202,7 +209,7 @@ $colors: (
 
 section,
 footer {
-    padding: 8em 0 !important;
+    padding: 5em 0 !important;
 }
 
 // ########## Text #########
@@ -222,23 +229,44 @@ footer {
     text-transform: capitalize !important;
 }
 
-h1 {
-    font-size: 200%;
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    color: color(dark);
+.title-wrapper {
     margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
-    &::before {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 5px;
-        background: color(secondary);
-        margin: auto;
-        border-radius: $strong-border-radius;
-        margin-bottom: 20px;
+    h1 {
+        font-size: 50px;
+        font-weight: 500;
+        text-align: center;
+        text-transform: uppercase;
+        color: color(dusk);
+
+        @include respond-to(desktop) {
+            font-size: 60px;
+        }
+
+        @include respond-to(phone) {
+            font-size: 10vw;
+        }
+    }
+
+    h2 {
+        font-size: 70px;
+        font-weight: 500;
+        margin-left: 1em;
+        text-align: center;
+        text-transform: uppercase;
+        color: color(gray);
+
+        @include respond-to(desktop) {
+            font-size: 80px;
+        }
+
+        @include respond-to(phone) {
+            font-size: 14vw;
+        }
     }
 }
 
@@ -305,19 +333,45 @@ h1 {
     line-height: 50px;
 }
 
-input,
-textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid color(darkGray);
-    height: 50px;
-    outline: none;
-}
+.group {
+    position: relative;
 
-textarea {
-    resize: none;
-    overflow: hidden;
-    height: auto;
+    .form-input {
+        background: none;
+        background-color: color(white);
+        color: color(dark);
+        font-size: 18px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid color(dark);
+        margin: 1em 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus ~ .form-input-label {
+            @include shrinkLabel();
+        }
+    }
+
+    .form-input-label {
+        color: color(dark);
+        font-size: 16px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 30px;
+        transition: 300ms ease all;
+
+        &.shrink {
+            @include shrinkLabel();
+        }
+    }
 }
 
 // ########## Graphs #########

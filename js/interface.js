@@ -7,7 +7,7 @@ $(document).ready(function() {
     })
 
     window.addEventListener('resize', function(size) {
-        if (window.innerWidth > 847) {
+        if (window.innerWidth > 1000) {
             $('.links').css('display', 'flex')
         } else {
             $('.links').css('display', 'none')

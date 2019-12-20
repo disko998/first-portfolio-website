@@ -47,7 +47,7 @@ body {
 
                     .greeting {
                         font-size: 20px;
-                        color: color(darkgray);
+                        color: color(gray);
                     }
 
                     .name {
@@ -217,7 +217,7 @@ body {
             .summary {
                 font-weight: 300;
                 font-size: 25px;
-                color: color(darkgray);
+                color: color(gray);
                 line-height: 1.7;
 
                 @include respond-to(tablet) {
@@ -443,7 +443,7 @@ body {
 
             .project {
                 @include size($project-size, $project-size);
-                border: 1px solid color(gray);
+                border: 1px solid color(lightGray);
                 border-radius: $softBorderRadius;
                 overflow: hidden;
                 position: relative;
@@ -459,7 +459,7 @@ body {
 
                 &:hover {
                     transform: scale(1.1);
-                    box-shadow: 0px 10px 10px 1px color(gray);
+                    box-shadow: 0px 10px 10px 1px color(lightGray);
 
                     .overlay {
                         display: flex !important;
@@ -519,27 +519,53 @@ body {
                 width: 100%;
                 max-width: 500px;
 
-                .send {
-                    margin-top: 2em;
+                .group {
+                    textarea {
+                        resize: none;
+
+                        &::-webkit-scrollbar {
+                            width: 5px;
+                        }
+
+                        /* Track */
+                        &::-webkit-scrollbar-track {
+                            background: color(white);
+                        }
+
+                        /* Handle */
+                        &::-webkit-scrollbar-thumb {
+                            background: color(darkGray);
+                        }
+
+                        /* Handle on hover */
+                        &::-webkit-scrollbar-thumb:hover {
+                            background: #555;
+                        }
+                    }
+
+                    label {
+                        &.error {
+                            color: color(danger);
+                        }
+                    }
                 }
 
-                .error {
-                    &::placeholder {
-                        color: color(danger);
-                    }
+                .send {
+                    margin-top: 1em;
+                    transition: background 1s;
                 }
 
                 .send.success {
                     background: color(success);
-                    text-transform: none;
+                    text-transform: capitalize;
                 }
                 .send.error {
-                    background: color(secondary);
-                    text-transform: none;
+                    background: color(danger);
+                    text-transform: capitalize;
                 }
                 .send.warning {
                     background: color(warning);
-                    text-transform: none;
+                    text-transform: capitalize;
                 }
             }
         }
@@ -547,10 +573,10 @@ body {
         .mail-image {
             width: 50%;
             order: 0;
+            margin: auto;
 
             img {
-                @include size(400px, 400px);
-                margin: auto;
+                @include size(100%, auto);
             }
         }
     }

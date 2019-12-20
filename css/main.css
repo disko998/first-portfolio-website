@@ -5,7 +5,7 @@
 }
 
 .i-2 {
-  border: 1px solid #000000 !important;
+  border: 1px solid #000 !important;
 }
 
 .i-3 {
@@ -202,7 +202,7 @@ footer {
 }
 
 .group .form-input:focus ~ .form-input-label {
-  top: 10px;
+  top: 7px;
   font-size: 12px;
   color: #9a9a9a;
 }
@@ -220,7 +220,7 @@ footer {
 }
 
 .group .form-input-label.shrink {
-  top: 10px;
+  top: 7px;
   font-size: 12px;
   color: #9a9a9a;
 }
@@ -1164,39 +1164,52 @@ body #contact .contact-form form {
   max-width: 500px;
 }
 
+body #contact .contact-form form .group textarea {
+  resize: none;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+body #contact .contact-form form .group textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+body #contact .contact-form form .group textarea::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+body #contact .contact-form form .group textarea::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+body #contact .contact-form form .group textarea::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body #contact .contact-form form .group label.error {
+  color: #bb2124;
+}
+
 body #contact .contact-form form .send {
-  margin-top: 2em;
-}
-
-body #contact .contact-form form .error::-webkit-input-placeholder {
-  color: #bb2124;
-}
-
-body #contact .contact-form form .error:-ms-input-placeholder {
-  color: #bb2124;
-}
-
-body #contact .contact-form form .error::-ms-input-placeholder {
-  color: #bb2124;
-}
-
-body #contact .contact-form form .error::placeholder {
-  color: #bb2124;
+  margin-top: 1em;
+  -webkit-transition: background 1s;
+  transition: background 1s;
 }
 
 body #contact .contact-form form .send.success {
   background: #22bb33;
-  text-transform: none;
+  text-transform: capitalize;
 }
 
 body #contact .contact-form form .send.error {
-  background: #8c1ccc;
-  text-transform: none;
+  background: #bb2124;
+  text-transform: capitalize;
 }
 
 body #contact .contact-form form .send.warning {
   background: #ff9800;
-  text-transform: none;
+  text-transform: capitalize;
 }
 
 body #contact .mail-image {
@@ -1204,11 +1217,11 @@ body #contact .mail-image {
   -webkit-box-ordinal-group: 1;
       -ms-flex-order: 0;
           order: 0;
+  margin: auto;
 }
 
 body #contact .mail-image img {
-  height: 400px;
-  width: 400px;
-  margin: auto;
+  height: auto;
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

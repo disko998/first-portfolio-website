@@ -157,6 +157,11 @@ body {
                             font-weight: normal;
                             letter-spacing: 2px;
                             font-size: 90%;
+                            transition: color 0.2;
+
+                            &:hover {
+                                color: color(dark);
+                            }
                         }
                     }
                 }
@@ -167,6 +172,11 @@ body {
                     transition: opacity $transitionDelay;
                     color: color(dusk);
                     font-size: $iconSize;
+                    transition: color 0.2;
+
+                    &:hover {
+                        color: color(dark);
+                    }
 
                     @include respond-to(tablet) {
                         display: flex;
@@ -433,6 +443,11 @@ body {
 
         .title-wrapper {
             align-items: flex-end;
+
+            h2 {
+                margin-left: 0;
+                margin-right: 1em;
+            }
         }
 
         a {
@@ -504,6 +519,8 @@ body {
     }
 
     #contact {
+        padding-top: 0 !important;
+
         .contact-form {
             width: 50%;
 

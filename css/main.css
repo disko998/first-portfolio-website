@@ -124,44 +124,6 @@ footer {
   border: 1px solid !important;
 }
 
-/* Ripple effect */
-.ripple {
-  background-position: center;
-  -webkit-transition: background 0.8s;
-  transition: background 0.8s;
-  background: #0083c3 radial-gradient(circle, transparent 1%, #0083c3 1%) center/15000%;
-}
-
-.ripple:active {
-  background-color: #19b2f6;
-  background-size: 100%;
-  -webkit-transition: background 0s;
-  transition: background 0s;
-}
-
-.ripple:hover {
-  background-color: #19b2f6;
-  background-size: 100%;
-  -webkit-transition: background 0s;
-  transition: background 0s;
-}
-
-/* Button style */
-.button-ripple {
-  border: none;
-  border-radius: 2px;
-  padding: 1.2em 3em;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  color: #fff;
-  -webkit-box-shadow: 0 0 4px #9a9a9a;
-          box-shadow: 0 0 4px #9a9a9a;
-  outline: none;
-}
-
 .button-primary {
   border: none;
   border-radius: 2px;
@@ -175,8 +137,83 @@ footer {
   -webkit-box-shadow: 0 0 4px #9a9a9a;
           box-shadow: 0 0 4px #9a9a9a;
   outline: none;
-  background: #0083c3;
   line-height: 50px;
+  overflow: visible;
+  background: #0083c3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.button-primary:hover, .button-primary:focus {
+  background: #0072aa;
+}
+
+.button-primary:not(:disabled) {
+  cursor: pointer;
+}
+
+.c-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.c-ripple__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.c-ripple.is-active .c-ripple__circle {
+  -webkit-animation: a-ripple 0.4s ease-in;
+          animation: a-ripple 0.4s ease-in;
+}
+
+/**
+   * Animation: Ripple
+   * --------------------------------------------------
+   */
+@-webkit-keyframes a-ripple {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+@keyframes a-ripple {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
 }
 
 .group {
@@ -594,6 +631,12 @@ body header nav .navbar .links li a {
   font-weight: normal;
   letter-spacing: 2px;
   font-size: 90%;
+  -webkit-transition: color 0.2;
+  transition: color 0.2;
+}
+
+body header nav .navbar .links li a:hover {
+  color: #333;
 }
 
 body header nav .navbar .menu-button {
@@ -603,6 +646,12 @@ body header nav .navbar .menu-button {
   transition: opacity 0.5s;
   color: #05364d;
   font-size: 150%;
+  -webkit-transition: color 0.2;
+  transition: color 0.2;
+}
+
+body header nav .navbar .menu-button:hover {
+  color: #333;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -1043,6 +1092,11 @@ body #projects .title-wrapper {
           align-items: flex-end;
 }
 
+body #projects .title-wrapper h2 {
+  margin-left: 0;
+  margin-right: 1em;
+}
+
 body #projects a {
   margin: 2em 1em;
 }
@@ -1136,6 +1190,10 @@ body #projects a .project .overlay p {
 
 body #projects a .project img {
   width: 100%;
+}
+
+body #contact {
+  padding-top: 0 !important;
 }
 
 body #contact .contact-form {

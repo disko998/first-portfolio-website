@@ -23,17 +23,3 @@ $(window).on('scroll', function() {
         $('nav').removeClass('scroll')
     }
 })
-
-function shrinkLabels() {
-    const contactInputs = $('#contact-form .form-input')
-    for (let input of contactInputs) {
-        input.addEventListener('change', function() {
-            const label = this.nextSibling.nextSibling
-            if (this.value.length) {
-                label.classList.add('shrink')
-            } else {
-                label.classList.remove('shrink')
-            }
-        })
-    }
-}

@@ -61,6 +61,8 @@ $colors: (
         @return rgba(25, 178, 246, $opacity);
     } @else if $color-name == dark {
         @return rgba(51, 51, 51, $opacity);
+    } @else if $color-name == secondary {
+        @return rgba(140, 28, 204, $opacity);
     }
 }
 
@@ -168,6 +170,15 @@ $colors: (
     top: 7px;
     font-size: 12px;
     color: color(gray);
+}
+
+@mixin button-modifier($color, $class) {
+    .c-button--#{$class} {
+        background: $color;
+        &:hover {
+            background: darken($color, 5%);
+        }
+    }
 }
 
 // ___________________________ CONSTANTS __________________________________
@@ -284,38 +295,38 @@ footer {
     border: 1px solid !important;
 }
 
-/* Ripple effect */
-.ripple {
-    background-position: center;
-    transition: background 0.8s;
-    background: color(primary)
-        radial-gradient(circle, transparent 1%, color(primary) 1%) center/15000%;
-}
+// /* Ripple effect */
+// .ripple {
+//     background-position: center;
+//     transition: background 0.8s;
+//     background: color(primary)
+//         radial-gradient(circle, transparent 1%, color(primary) 1%) center/15000%;
+// }
 
-.ripple:active {
-    background-color: color(lightPrimary);
-    background-size: 100%;
-    transition: background 0s;
-}
-.ripple:hover {
-    background-color: color(lightPrimary);
-    background-size: 100%;
-    transition: background 0s;
-}
-/* Button style */
-.button-ripple {
-    border: none;
-    border-radius: $lightBorder;
-    padding: 1.2em 3em;
-    font-size: 16px;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    color: color(white);
-    box-shadow: 0 0 4px color(gray);
-    outline: none;
-}
+// .ripple:active {
+//     background-color: color(lightPrimary);
+//     background-size: 100%;
+//     transition: background 0s;
+// }
+// .ripple:hover {
+//     background-color: color(lightPrimary);
+//     background-size: 100%;
+//     transition: background 0s;
+// }
+// /* Button style */
+// .button-ripple {
+//     border: none;
+//     border-radius: $lightBorder;
+//     padding: 1.2em 3em;
+//     font-size: 16px;
+//     text-transform: uppercase;
+//     text-decoration: none;
+//     text-align: center;
+//     cursor: pointer;
+//     color: color(white);
+//     box-shadow: 0 0 4px color(gray);
+//     outline: none;
+// }
 
 .button-primary {
     border: none;
@@ -329,8 +340,65 @@ footer {
     color: color(white);
     box-shadow: 0 0 4px color(gray);
     outline: none;
-    background: color(primary);
     line-height: 50px;
+    overflow: visible;
+    background: color(primary);
+    user-select: none;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &:hover,
+    &:focus {
+        background: darken(color(primary), 5%);
+    }
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+.c-ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+}
+
+.c-ripple__circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba($color: #fff, $alpha: 0.5);
+    .c-ripple.is-active & {
+        animation: a-ripple 0.4s ease-in;
+    }
+}
+
+/**
+   * Animation: Ripple
+   * --------------------------------------------------
+   */
+
+@keyframes a-ripple {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        width: 200%;
+        padding-bottom: 200%;
+        opacity: 0;
+    }
 }
 
 .group {

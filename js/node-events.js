@@ -1,4 +1,3 @@
-// toggle class
 $(document).ready(function() {
     $('.menu-button').on('click', function() {
         $('.links').slideToggle('medium', function() {
@@ -13,9 +12,10 @@ $(document).ready(function() {
             $('.links').css('display', 'none')
         }
     })
+
+    shrinkLabels()
 })
 
-// on scroll
 $(window).on('scroll', function() {
     if ($(window).scrollTop()) {
         $('nav').addClass('scroll')
@@ -23,3 +23,17 @@ $(window).on('scroll', function() {
         $('nav').removeClass('scroll')
     }
 })
+
+function shrinkLabels() {
+    const contactInputs = $('#contact-form .form-input')
+    for (let input of contactInputs) {
+        input.addEventListener('change', function() {
+            const label = this.nextSibling.nextSibling
+            if (this.value.length) {
+                label.classList.add('shrink')
+            } else {
+                label.classList.remove('shrink')
+            }
+        })
+    }
+}

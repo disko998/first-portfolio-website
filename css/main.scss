@@ -33,8 +33,7 @@ body {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-
-            @include respond-to(tablet) {
+            pos @include respond-to(tablet) {
                 margin-top: 5em;
                 justify-content: center;
             }
@@ -306,7 +305,7 @@ body {
                     p {
                         text-align: center;
                         color: color(white);
-                        font-weight: 300;
+                        font-weight: 400;
                         margin-top: 2em;
                     }
                 }
@@ -315,132 +314,35 @@ body {
     }
 
     #skills {
-        h3 {
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 150%;
-            text-align: center;
-            margin-bottom: 2em;
-        }
-
-        .top-skills {
-            .progress-100 {
-                @include draw-progress(100, color(primary));
-            }
-            .progress-90 {
-                @include draw-progress(90, color(primary));
-            }
-            .progress-75 {
-                @include draw-progress(75, color(primary));
-            }
-            .progress-85 {
-                @include draw-progress(85, color(primary));
-            }
-            .progress-80 {
-                @include draw-progress(80, color(primary));
-            }
-            .progress-60 {
-                @include draw-progress(60, color(primary));
-            }
-
-            .label {
-                color: color(dark);
-                text-transform: capitalize;
-                font-weight: bold;
-                font-size: $pieFontSize / 2;
-                display: block;
-                text-align: center;
-            }
-        }
-
-        .other-skills {
-            margin-top: 5em;
-
-            .content {
-                width: 100%;
-                justify-content: space-around;
-                .skills-container {
-                    min-width: $progress-bar-min-width;
-                    max-width: $progress-bar-max-width;
-                    flex-grow: 1;
-                    justify-content: flex-start;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    padding: 1em;
-
-                    @include respond-to(phone) {
-                        min-width: 100%;
-                    }
-
-                    .item {
-                        margin: 0.7em 0;
-                        width: 100%;
-                        @include respond-to(phone) {
-                            flex-wrap: wrap;
-                        }
-                    }
-
-                    .label {
-                        font-weight: normal;
-                        text-transform: capitalize;
-                        color: color(dark);
-                        margin-right: 0.5em;
-                        min-width: 100px;
-                        text-align: left;
-                        overflow: hidden;
-
-                        @include respond-to(phone) {
-                            margin-right: 0;
-                            margin-bottom: 0.5em;
-                        }
-                    }
-
-                    .progress-bar {
-                        width: 100%;
-                        display: flex;
-                        align-items: center;
-                        @include respond-to(phone) {
-                            height: 20px;
-                        }
-                    }
-                }
-            }
-
-            .progress-100 {
-                width: 100%;
-            }
-            .progress-80 {
-                width: 80%;
-            }
-            .progress-90 {
-                width: 90%;
-            }
-            .progress-70 {
-                width: 70%;
-            }
-            .progress-60 {
-                width: 60%;
-            }
-            .progress-50 {
-                width: 50%;
-            }
-            .progress-40 {
-                width: 40%;
-            }
-            .progress-30 {
-                width: 30%;
-            }
-            .progress-20 {
-                width: 20%;
-            }
-        }
-    }
-
-    #projects {
         position: relative;
         margin-top: -2%;
         background: color(white);
 
+        #skills-wrapper {
+            .skill-card {
+                margin: 1em;
+                transform: scale(1);
+                transition: transition(transform);
+                text-align: center;
+
+                &:hover {
+                    z-index: 999;
+                    transform: scale(1.5);
+                }
+
+                img {
+                    height: 150px;
+                    width: 150px;
+                }
+            }
+        }
+
+        .container {
+            overflow: visible;
+        }
+    }
+
+    #projects {
         .title-wrapper {
             align-items: flex-end;
 

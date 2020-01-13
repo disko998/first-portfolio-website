@@ -384,7 +384,7 @@ body {
                 text-align: center;
 
                 &:hover {
-                    z-index: 999;
+                    z-index: 99;
                     transform: scale(1.5);
                 }
 
@@ -424,6 +424,7 @@ body {
                 position: relative;
                 transform: scale(1);
                 box-shadow: none;
+                padding: 1em;
                 transition: transition(transform), transition(box-shadow);
                 @include respond-to(tablet) {
                     @include size($project-size - 100, $project-size - 100);

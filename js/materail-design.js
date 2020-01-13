@@ -19,15 +19,11 @@
         $this.addClass('is-active')
     })
 
-    $ripple.on(
-        'animationend webkitAnimationEnd oanimationend MSAnimationEnd',
-        function(e) {
-            $(this).removeClass('is-active')
-        }
-    )
+    $ripple.on('animationend webkitAnimationEnd oanimationend MSAnimationEnd', function(e) {
+        $(this).removeClass('is-active')
+    })
 })(jQuery, window, document)
-
-function shrinkLabels() {
+;(function shrinkLabels() {
     const contactInputs = $('#contact-form .form-input')
     for (let input of contactInputs) {
         input.addEventListener('change', function() {
@@ -39,4 +35,4 @@ function shrinkLabels() {
             }
         })
     }
-}
+})()

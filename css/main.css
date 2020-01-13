@@ -506,6 +506,13 @@ body header .content-wrapper .header-content .social-links {
 
 body header .content-wrapper .header-content .social-links .icon {
   margin-right: 1em;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+body header .content-wrapper .header-content .social-links .icon:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
 }
 
 body header .content-wrapper .header-content .social-links .icon span {
@@ -1114,7 +1121,7 @@ body #contact .contact-form form .group textarea::-webkit-scrollbar-thumb {
 }
 
 body #contact .contact-form form .group textarea::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #333;
 }
 
 body #contact .contact-form form .group label.error {
@@ -1140,6 +1147,36 @@ body #contact .contact-form form .send.error {
 body #contact .contact-form form .send.warning {
   background: #ff9800;
   text-transform: capitalize;
+}
+
+body #contact .contact-form .contact-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 1em;
+  list-style-type: none;
+}
+
+body #contact .contact-form .contact-info li {
+  margin: 0 1em;
+}
+
+body #contact .contact-form .contact-info li a {
+  text-decoration: none;
+  font-size: medium;
+  color: #0083c3;
+}
+
+body #contact .contact-form .contact-info li a:hover {
+  color: #0072aa;
 }
 
 body #contact .mail-image {

@@ -74,8 +74,8 @@ $colors: (
 
 // **** Mixin ****
 @mixin rippleEffect($color) {
-    background: color($color)
-        radial-gradient(circle, transparent 1%, color($color) 1%) center/15000%;
+    background: color($color) radial-gradient(circle, transparent 1%, color($color) 1%)
+        center/15000%;
 }
 
 @mixin size($width, $height) {
@@ -294,39 +294,6 @@ footer {
     background: transparent !important;
     border: 1px solid !important;
 }
-
-// /* Ripple effect */
-// .ripple {
-//     background-position: center;
-//     transition: background 0.8s;
-//     background: color(primary)
-//         radial-gradient(circle, transparent 1%, color(primary) 1%) center/15000%;
-// }
-
-// .ripple:active {
-//     background-color: color(lightPrimary);
-//     background-size: 100%;
-//     transition: background 0s;
-// }
-// .ripple:hover {
-//     background-color: color(lightPrimary);
-//     background-size: 100%;
-//     transition: background 0s;
-// }
-// /* Button style */
-// .button-ripple {
-//     border: none;
-//     border-radius: $lightBorder;
-//     padding: 1.2em 3em;
-//     font-size: 16px;
-//     text-transform: uppercase;
-//     text-decoration: none;
-//     text-align: center;
-//     cursor: pointer;
-//     color: color(white);
-//     box-shadow: 0 0 4px color(gray);
-//     outline: none;
-// }
 
 .button-primary {
     border: none;

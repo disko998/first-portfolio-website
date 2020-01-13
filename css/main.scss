@@ -70,6 +70,11 @@ body {
 
                     .icon {
                         margin-right: 1em;
+                        transition: all $transitionDelay;
+
+                        &:hover {
+                            transform: translateY(-10px);
+                        }
 
                         span {
                             font-size: 35px;
@@ -511,7 +516,7 @@ body {
 
                         /* Handle on hover */
                         &::-webkit-scrollbar-thumb:hover {
-                            background: #555;
+                            background: color(dark);
                         }
                     }
 
@@ -538,6 +543,28 @@ body {
                 .send.warning {
                     background: color(warning);
                     text-transform: capitalize;
+                }
+            }
+
+            .contact-info {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                margin: 1em;
+                list-style-type: none;
+
+                li {
+                    margin: 0 1em;
+                    a {
+                        text-decoration: none;
+                        font-size: medium;
+                        color: color(primary);
+
+                        &:hover {
+                            color: darken(color(primary), 5%);
+                        }
+                    }
                 }
             }
         }

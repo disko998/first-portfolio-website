@@ -33,7 +33,9 @@ body {
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            pos @include respond-to(tablet) {
+            position: relative;
+
+            @include respond-to(tablet) {
                 margin-top: 5em;
                 justify-content: center;
             }
@@ -91,6 +93,57 @@ body {
 
                     @include respond-to(tablet) {
                         justify-content: center;
+                    }
+                }
+            }
+
+            .scroll-indicator {
+                position: absolute;
+                bottom: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 50px;
+                width: 20px;
+                border: 2px solid color(primary);
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                padding: 5px 0;
+                overflow: hidden;
+
+                &:hover {
+                    border-color: color(primary);
+                }
+
+                animation: jump-box 1s infinite alternate;
+
+                @keyframes jump-box {
+                    from {
+                        transform: translateY(0);
+                    }
+                    to {
+                        transform: translateY(25px);
+                    }
+                }
+
+                .circle {
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+                    background: color(primary);
+                    opacity: 1;
+
+                    animation: jump-circle 1s infinite alternate;
+
+                    @keyframes jump-circle {
+                        from {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                        to {
+                            opacity: 0;
+                            transform: translateY(25px);
+                        }
                     }
                 }
             }

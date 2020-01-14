@@ -568,6 +568,12 @@ body header .content-wrapper .scroll-indicator {
           animation: jump-box 1s infinite alternate;
 }
 
+@media only screen and (max-width: 1000px) {
+  body header .content-wrapper .scroll-indicator {
+    display: none;
+  }
+}
+
 body header .content-wrapper .scroll-indicator:hover {
   border-color: #0083c3;
 }

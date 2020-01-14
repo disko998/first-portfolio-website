@@ -116,6 +116,10 @@ body {
                 padding: 5px 0;
                 overflow: hidden;
 
+                @include respond-to(tablet) {
+                    display: none;
+                }
+
                 &:hover {
                     border-color: color(primary);
                 }

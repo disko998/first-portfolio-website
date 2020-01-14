@@ -8,19 +8,18 @@
 $break-small-phone: 350px;
 $break-phone: 500px;
 $break-small: 600px;
-$break-medium: 847px;
+$break-medium: 1000px;
 $break-large: 1146px;
-$min-desktop: 1300px;
+$min-desktop: 1350px;
 
 // utilities
 $strong-border-radius: 40px;
 $softBorderRadius: 10px;
 $lightBorder: 2px;
-$transitionDelay: .5s;
+$transitionDelay: 0.5s;
 $transition-delay-long: 1s;
 $skewDeg: 2deg;
 $angleSize: 60px;
-
 
 // sizes
 $iconSize: 150%;
@@ -32,60 +31,61 @@ $defaultPieSize: 8em;
 $pieFontSize: $defaultPieSize / 4;
 
 // **** Colors ****
-$colors : (
-    darkPrimary: #2196f3,
-    lightPrimary: #6eb9f7,
-    primary: #19B2F6,
-    secondary: #B42B42,
+$colors: (
+    lightPrimary: #19b2f6,
+    primary: #0083c3,
+    secondary: #8c1ccc,
     dark: #333,
-    lightGray: #E9E8E8,
-    gray: #C8C8C8,
-    darkGray: #707070,
-    black: #000000,
+    dusk: #05364d,
+    lightGray: #d2d2d2,
+    gray: #9a9a9a,
+    darkGray: #888,
+    black: #000,
     white: #fff,
-    linkedin: #2867B2,
-    stackOverflow: #f48024,
+    linkedin: #2867b2,
+    facebook: #4267b2,
     inspect: rgb(0, 255, 255),
     bg: rgb(199, 20, 124),
     warning: #ff9800,
-    success: #4CAF50,
+    success: #22bb33,
+    danger: #bb2124,
 );
-
 
 // **** Functions ****
 @function color($color-name) {
-    @return map-get($colors, $color-name)
-};
+    @return map-get($colors, $color-name);
+}
 
 @function rgbaColor($color-name, $opacity) {
     @if $color-name == primary {
-        @return rgba(25, 178, 246, $opacity)
+        @return rgba(25, 178, 246, $opacity);
+    } @else if $color-name == dark {
+        @return rgba(51, 51, 51, $opacity);
+    } @else if $color-name == secondary {
+        @return rgba(140, 28, 204, $opacity);
     }
-    
-    @else if $color-name == dark {
-        @return rgba(51, 51, 51, $opacity)
-    }
-};
+}
 
 @function transition($properties...) {
     @each $prop in $properties {
-      @return $prop $transitionDelay;
+        @return $prop $transitionDelay;
     }
-  }
+}
 
 // **** Mixin ****
 @mixin rippleEffect($color) {
-    background: color($color) radial-gradient(circle, transparent 1%, color($color) 1%) center/15000%;
+    background: color($color) radial-gradient(circle, transparent 1%, color($color) 1%)
+        center/15000%;
 }
 
 @mixin size($width, $height) {
     height: $height;
     width: $width;
-};
+}
 
 @mixin transition($property) {
     transition: $property $transitionDelay ease-in-out;
-};
+}
 
 @mixin draw-progress($progress, $color) {
     .pie {
@@ -99,13 +99,13 @@ $colors : (
 
         @if $progress <= 50 {
             .right-side {
-            display: none;
+                display: none;
             }
         } @else {
             clip: rect(auto, auto, auto, auto);
 
             .right-side {
-            transform: rotate(180deg);
+                transform: rotate(180deg);
             }
         }
     }
@@ -113,27 +113,29 @@ $colors : (
 
 @mixin respond-to($media) {
     @if $media == phone {
-        @media only screen and (max-width: $break-phone) {@content;}
-    }
-
-    @else if $media == small-phone {
-        @media only screen and (max-width: $break-small-phone) {@content;}
-    }
-
-    @else if $media == small-tablet {
-        @media only screen and (max-width: $break-small) {@content;}
-    }
-
-    @else if $media == tablet {
-        @media only screen and (max-width: $break-medium) {@content;}
-    }
-
-    @else if $media == big-tablet {
-        @media only screen and (max-width: $break-large) {@content;}
-    }
-
-    @else if $media == desktop {
-        @media only screen and (min-width: $min-desktop) {@content;}
+        @media only screen and (max-width: $break-phone) {
+            @content;
+        }
+    } @else if $media == small-phone {
+        @media only screen and (max-width: $break-small-phone) {
+            @content;
+        }
+    } @else if $media == small-tablet {
+        @media only screen and (max-width: $break-small) {
+            @content;
+        }
+    } @else if $media == tablet {
+        @media only screen and (max-width: $break-medium) {
+            @content;
+        }
+    } @else if $media == big-tablet {
+        @media only screen and (max-width: $break-large) {
+            @content;
+        }
+    } @else if $media == desktop {
+        @media only screen and (min-width: $min-desktop) {
+            @content;
+        }
     }
 }
 
@@ -143,13 +145,11 @@ $colors : (
             list-style-type: none;
             display: flex;
             flex-flow: column nowrap;
-            width: fit-content;;
+            width: fit-content;
             overflow: hidden;
             @content;
         }
-    }
-
-    @else if $type == row {
+    } @else if $type == row {
         ul {
             list-style-type: none;
             display: flex;
@@ -160,10 +160,28 @@ $colors : (
     }
 }
 
+@mixin mobile-navbar {
+    background: color(white);
+    padding: 0.8em 0;
+    box-shadow: 0px 5px 5px -5px color(gray);
+}
+
+@mixin shrinkLabel {
+    top: 7px;
+    font-size: 12px;
+    color: color(gray);
+}
+
+@mixin button-modifier($color, $class) {
+    .c-button--#{$class} {
+        background: $color;
+        &:hover {
+            background: darken($color, 5%);
+        }
+    }
+}
+
 // ___________________________ CONSTANTS __________________________________
-
-
-
 
 // **** Styles ****
 // ########## Inspect #########
@@ -188,20 +206,21 @@ $colors : (
 }
 
 .b-3 {
-    background: color(gray) !important;
+    background: color(lightGray) !important;
 }
 
 // ########## Containers #########
 .container {
     max-width: $container-max-width;
     height: 100%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     padding: 0 24px;
     overflow: hidden;
 }
 
-section, footer {
-    padding: 8em 0 !important; 
+section,
+footer {
+    padding: 5em 0 !important;
 }
 
 // ########## Text #########
@@ -221,23 +240,44 @@ section, footer {
     text-transform: capitalize !important;
 }
 
-h1 {
-    font-size: 200%;
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    color: color(dark);
+.title-wrapper {
     margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
-    &::before {
-        content: '';
-        display: block;
-        width: 60px;
-        height: 5px;
-        background: color(secondary);
-        margin: auto;
-        border-radius: $strong-border-radius;
-        margin-bottom: 20px;
+    h1 {
+        font-size: 50px;
+        font-weight: 500;
+        text-align: center;
+        text-transform: uppercase;
+        color: color(dusk);
+
+        @include respond-to(desktop) {
+            font-size: 60px;
+        }
+
+        @include respond-to(phone) {
+            font-size: 10vw;
+        }
+    }
+
+    h2 {
+        font-size: 70px;
+        font-weight: 500;
+        margin-left: 1em;
+        text-align: center;
+        text-transform: uppercase;
+        color: color(lightGray);
+
+        @include respond-to(desktop) {
+            font-size: 80px;
+        }
+
+        @include respond-to(phone) {
+            font-size: 14vw;
+        }
     }
 }
 
@@ -250,48 +290,123 @@ h1 {
     outline: none;
 }
 
-.btn-border{
+.btn-border {
     background: transparent !important;
     border: 1px solid !important;
 }
 
-/* Ripple effect */
-.ripple {
-    background-position: center;
-    transition: background 0.8s;
-    background: color(darkPrimary) radial-gradient(circle, transparent 1%, color(darkPrimary) 1%) center/15000%;
-  }
-
-  .ripple:active {
-    background-color: color(lightPrimary);
-    background-size: 100%;
-    transition: background 0s;
-  }
-  /* Button style */
- .button-ripple {
+.button-primary {
     border: none;
     border-radius: $lightBorder;
-    padding: 12px 18px;
+    padding: 0 30px;
     font-size: 16px;
     text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
     cursor: pointer;
     color: color(white);
-    box-shadow: 0 0 4px color(darkGray);
+    box-shadow: 0 0 4px color(gray);
     outline: none;
-  }
+    line-height: 50px;
+    overflow: visible;
+    background: color(primary);
+    user-select: none;
+    transition: all 0.2s ease;
+    position: relative;
 
-input, textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 2px solid color(darkGray);
-    height: 50px;
-    outline: none;
+    &:hover,
+    &:focus {
+        background: darken(color(primary), 5%);
+    }
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
 }
 
-textarea {
-    resize: none;
+.c-ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    height: auto;
+    background: transparent;
+}
+
+.c-ripple__circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba($color: #fff, $alpha: 0.5);
+    .c-ripple.is-active & {
+        animation: a-ripple 0.4s ease-in;
+    }
+}
+
+/**
+   * Animation: Ripple
+   * --------------------------------------------------
+   */
+
+@keyframes a-ripple {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        width: 200%;
+        padding-bottom: 200%;
+        opacity: 0;
+    }
+}
+
+.group {
+    position: relative;
+
+    .form-input {
+        background: none;
+        background-color: color(white);
+        color: color(dark);
+        font-size: 18px;
+        padding: 10px 10px 10px 5px;
+        display: block;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid color(dark);
+        margin: 1em 0;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:focus ~ .form-input-label {
+            @include shrinkLabel();
+        }
+    }
+
+    .form-input-label {
+        color: color(dark);
+        font-size: 16px;
+        font-weight: normal;
+        position: absolute;
+        pointer-events: none;
+        left: 5px;
+        top: 30px;
+        transition: 300ms ease all;
+
+        &.shrink {
+            @include shrinkLabel();
+        }
+    }
 }
 
 // ########## Graphs #########
@@ -340,7 +455,7 @@ textarea {
         }
         .smaller {
             color: color(dark);
-            font-size: .45em;
+            font-size: 0.45em;
             padding-bottom: 20px;
             vertical-align: super;
         }
@@ -350,13 +465,13 @@ textarea {
         z-index: 1;
         position: absolute;
         @include size(100%, 100%);
-        border: ($defaultPieSize / 10) solid color(gray);
+        border: ($defaultPieSize / 10) solid color(lightGray);
         border-radius: 50%;
-      }
+    }
 }
 
 .progress-bar {
-    background: color(gray);
+    background: color(lightGray);
     border-radius: $strong-border-radius;
     position: relative;
 

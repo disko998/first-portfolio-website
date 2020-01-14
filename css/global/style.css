@@ -4,11 +4,11 @@
 }
 
 .i-2 {
-  border: 1px solid #000000 !important;
+  border: 1px solid #000 !important;
 }
 
 .i-3 {
-  border: 1px solid #B42B42 !important;
+  border: 1px solid #8c1ccc !important;
 }
 
 .b {
@@ -16,23 +16,24 @@
 }
 
 .b-2 {
-  background: #2867B2 !important;
+  background: #2867b2 !important;
 }
 
 .b-3 {
-  background: #C8C8C8 !important;
+  background: #d2d2d2 !important;
 }
 
 .container {
   max-width: 1440px;
   height: 100%;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   padding: 0 24px;
   overflow: hidden;
 }
 
-section, footer {
-  padding: 8em 0 !important;
+section,
+footer {
+  padding: 5em 0 !important;
 }
 
 .text-light {
@@ -51,24 +52,62 @@ section, footer {
   text-transform: capitalize !important;
 }
 
-h1 {
-  font-size: 200%;
-  font-weight: 400;
-  text-align: center;
-  text-transform: uppercase;
-  color: #333;
+.title-wrapper {
   margin-bottom: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-h1::before {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 5px;
-  background: #B42B42;
-  margin: auto;
-  border-radius: 40px;
-  margin-bottom: 20px;
+.title-wrapper h1 {
+  font-size: 50px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  color: #05364d;
+}
+
+@media only screen and (min-width: 1350px) {
+  .title-wrapper h1 {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .title-wrapper h1 {
+    font-size: 10vw;
+  }
+}
+
+.title-wrapper h2 {
+  font-size: 70px;
+  font-weight: 500;
+  margin-left: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  color: #d2d2d2;
+}
+
+@media only screen and (min-width: 1350px) {
+  .title-wrapper h2 {
+    font-size: 80px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .title-wrapper h2 {
+    font-size: 14vw;
+  }
 }
 
 .btn {
@@ -84,47 +123,142 @@ h1::before {
   border: 1px solid !important;
 }
 
-/* Ripple effect */
-.ripple {
-  background-position: center;
-  -webkit-transition: background 0.8s;
-  transition: background 0.8s;
-  background: #2196f3 radial-gradient(circle, transparent 1%, #2196f3 1%) center/15000%;
-}
-
-.ripple:active {
-  background-color: #6eb9f7;
-  background-size: 100%;
-  -webkit-transition: background 0s;
-  transition: background 0s;
-}
-
-/* Button style */
-.button-ripple {
+.button-primary {
   border: none;
   border-radius: 2px;
-  padding: 12px 18px;
+  padding: 0 30px;
   font-size: 16px;
   text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
   color: #fff;
-  -webkit-box-shadow: 0 0 4px #707070;
-          box-shadow: 0 0 4px #707070;
+  -webkit-box-shadow: 0 0 4px #9a9a9a;
+          box-shadow: 0 0 4px #9a9a9a;
   outline: none;
+  line-height: 50px;
+  overflow: visible;
+  background: #0083c3;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
 }
 
-input, textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #707070;
-  height: 50px;
-  outline: none;
+.button-primary:hover, .button-primary:focus {
+  background: #0072aa;
 }
 
-textarea {
-  resize: none;
+.button-primary:not(:disabled) {
+  cursor: pointer;
+}
+
+.c-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  height: auto;
+  background: transparent;
+}
+
+.c-ripple__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.c-ripple.is-active .c-ripple__circle {
+  -webkit-animation: a-ripple 0.4s ease-in;
+          animation: a-ripple 0.4s ease-in;
+}
+
+/**
+   * Animation: Ripple
+   * --------------------------------------------------
+   */
+@-webkit-keyframes a-ripple {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+@keyframes a-ripple {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 200%;
+    padding-bottom: 200%;
+    opacity: 0;
+  }
+}
+
+.group {
+  position: relative;
+}
+
+.group .form-input {
+  background: none;
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #333;
+  margin: 1em 0;
+}
+
+.group .form-input:focus {
+  outline: none;
+}
+
+.group .form-input:focus ~ .form-input-label {
+  top: 7px;
+  font-size: 12px;
+  color: #9a9a9a;
+}
+
+.group .form-input-label {
+  color: #333;
+  font-size: 16px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 30px;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.group .form-input-label.shrink {
+  top: 7px;
+  font-size: 12px;
+  color: #9a9a9a;
 }
 
 .pie-wrapper {
@@ -147,7 +281,7 @@ textarea {
 .pie-wrapper .pie .half-circle {
   height: 100%;
   width: 100%;
-  border: 0.8em solid #19B2F6;
+  border: 0.8em solid #0083c3;
   border-radius: 50%;
   clip: rect(0, 4em, 8em, 0);
   left: 0;
@@ -184,7 +318,7 @@ textarea {
 
 .pie-wrapper .pie-label .smaller {
   color: #333;
-  font-size: .45em;
+  font-size: 0.45em;
   padding-bottom: 20px;
   vertical-align: super;
 }
@@ -194,12 +328,12 @@ textarea {
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 0.8em solid #C8C8C8;
+  border: 0.8em solid #d2d2d2;
   border-radius: 50%;
 }
 
 .progress-bar {
-  background: #C8C8C8;
+  background: #d2d2d2;
   border-radius: 40px;
   position: relative;
 }
@@ -214,7 +348,7 @@ textarea {
 .progress {
   border-radius: 40px;
   width: 85%;
-  background: #19B2F6;
+  background: #0083c3;
   height: 100%;
   position: absolute;
 }

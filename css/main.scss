@@ -1,450 +1,308 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,700&display=swap');
 @import 'global/style';
 
-html, * {
+html,
+* {
     scroll-behavior: smooth;
+    box-sizing: border-box !important;
+    margin: 0px;
+    padding: 0px;
+
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
     font-size: 20px;
+    line-height: 1.2;
     text-rendering: optimizeLegibility !important;
-    box-sizing: border-box !important;
-
-    margin: 0px;
-    padding: 0px;
 }
 
 body {
     header {
         height: 100vh;
         position: relative;
-        background: color(white);
-        
-        nav {
+        background: url('../assets/bg.png') no-repeat right;
+        background-size: contain;
+
+        @include respond-to(tablet) {
+            background: color(white);
+            height: auto;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
             align-items: center;
+            justify-content: flex-start;
+            position: relative;
+
+            @include respond-to(tablet) {
+                margin-top: 5em;
+                justify-content: center;
+            }
+
+            .header-content {
+                .header-title {
+                    text-transform: uppercase;
+                    color: color(dusk);
+                    line-height: 1.2;
+
+                    .greeting {
+                        font-size: 20px;
+                        color: color(gray);
+                    }
+
+                    .name {
+                        font-size: 60px;
+                        font-weight: 500;
+                    }
+
+                    .title {
+                        font-size: 30px;
+                        font-weight: 300;
+                    }
+                }
+
+                .social-links {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin-top: 0.5em;
+
+                    .icon {
+                        margin-right: 1em;
+                        transition: all $transitionDelay;
+
+                        &:hover {
+                            transform: translateY(-10px);
+                        }
+
+                        span {
+                            font-size: 35px;
+
+                            &.fa-linkedin {
+                                color: color(linkedin);
+                            }
+                            &.fa-github {
+                                color: color(dark);
+                            }
+                            &.fa-facebook {
+                                color: color(facebook);
+                            }
+                        }
+                    }
+                }
+
+                .header-buttons {
+                    display: flex;
+                    margin-top: 2em;
+
+                    @include respond-to(tablet) {
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .scroll-indicator {
+                position: absolute;
+                bottom: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 50px;
+                width: 20px;
+                border: 2px solid color(primary);
+                border-radius: 30px;
+                display: flex;
+                justify-content: center;
+                padding: 5px 0;
+                overflow: hidden;
+
+                &:hover {
+                    border-color: color(primary);
+                }
+
+                animation: jump-box 1s infinite alternate;
+
+                @keyframes jump-box {
+                    from {
+                        transform: translateY(0);
+                    }
+                    to {
+                        transform: translateY(25px);
+                    }
+                }
+
+                .circle {
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50%;
+                    background: color(primary);
+                    opacity: 1;
+
+                    animation: jump-circle 1s infinite alternate;
+
+                    @keyframes jump-circle {
+                        from {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                        to {
+                            opacity: 0.4;
+                            transform: translateY(25px);
+                        }
+                    }
+                }
+            }
+        }
+
+        nav {
             position: fixed;
             width: 100%;
             overflow: hidden;
             z-index: 100;
             padding: 2em 0;
-            background: color(white);
-            transition: background $transitionDelay, padding $transitionDelay ease-in;
 
-            .menu-icon {
-                float: right;
-                cursor: pointer;
-                display: none;
-                opacity: 1;
-                transition: opacity $transitionDelay;
+            background: transparent;
+            box-shadow: none;
+            transition: background $transitionDelay, padding $transitionDelay,
+                box-shadow $transitionDelay ease-in;
 
-                &:hover {
-                    opacity: .5;
-                }
-
-                @include respond-to(tablet) {
-                    display: block;              
-                }
-    
-                i {
-                    color: color(dark);
-                    font-size: $iconSize;
-                }           
+            @include respond-to(tablet) {
+                @include mobile-navbar;
             }
 
-            .nav-links {
-                float: right;
+            .navbar {
                 display: flex;
                 flex-flow: row nowrap;
-                justify-content: flex-start;
                 align-items: center;
-                list-style: none;
 
                 @include respond-to(tablet) {
                     flex-direction: column;
-                    width: 100%;
-                    padding-top: 1em;
-                    display: none;
-        
-                    li {
-                        width: 100%;
-                        margin: 0;
-                        padding: 0;
-    
-                        a {
-                            padding: 1em .5em;
-                            display: block;
-                            width: 100%;
-                            text-align: justify;
-                        }
-                    } 
-                } 
-
-                li {
-                    padding: .2em .7em;
-
-                    a {
-                        text-transform: uppercase;
-                        text-decoration: none;
-                        color: color(dark);
-                        font-weight: 300;
-                        letter-spacing: 2px;
-                        font-size: 90%;
-                        opacity: 1;
-                        transition: opacity $transitionDelay;
-
-                        &:hover {
-                            opacity: .5;
-                        }
-                    }  
                 }
-            }
-     
-            .socials {
-                float: left;
 
-                ul {
-                    z-index: 999;
-                    list-style-type: none;
+                .links {
                     display: flex;
                     flex-flow: row nowrap;
-                    align-self: center;
+                    align-items: center;
+                    list-style: none;
+
+                    @include respond-to(tablet) {
+                        flex-direction: column;
+                        width: 100%;
+                        display: none;
+
+                        li {
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+
+                            a {
+                                padding: 1em 0.5em;
+                                display: block;
+                                width: 100%;
+                                text-align: justify;
+                            }
+                        }
+                    }
 
                     li {
-                        margin: 0 .8em;
-                        @include respond-to(small-phone) {
-                            margin: 0 .5em;
-                        }
+                        margin: 0 1em;
 
                         a {
-                            color: color(dark);
-                            opacity: 1;
-                            transition: opacity $transitionDelay;
+                            text-transform: uppercase;
+                            text-decoration: none;
+                            color: color(dusk);
+                            font-weight: normal;
+                            letter-spacing: 2px;
+                            font-size: 90%;
+                            transition: color 0.2;
 
                             &:hover {
-                                opacity: .5;
-                            }
-                            
-                            &.github {
                                 color: color(dark);
                             }
-
-                            &.linkedin {
-                                color: color(linkedin);
-                            }
-
-                            &.stack-overflow {
-                                color: color(stackOverflow);
-                            }
-
-                            i {
-                                font-size: 150%;
-                            }
                         }
                     }
                 }
-            }
-        }
 
-        nav.scroll{
-            background: rgbaColor(dark, 1);
-            padding: .8em 0;
-
-            .nav-links {
-                a {
-                    color: color(white)
-                }
-            }
-
-            .menu-icon {
-               i {
-                    @include respond-to(tablet) {
-                        color: color(white);
-                    }
-               }
-            }
-
-            .socials {
-                li {
-                    .github {
-                        color: color(white);
-                    }
-                    .linkedin {
-                        color: color(white)
-                    }
-                    .stack-overflow {
-                        color: color(white)
-                    }
-                }
-            }
-        }
-
-        .content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-
-            @include respond-to(tablet){
-                justify-content: center;
-            }
-
-            .dev-info {
-                .title {
-                    font-size: 6vw;
-                    color: color(dark);
-                    font-weight: 100;
-
-                    @include respond-to(tablet){
-                        font-size: 9vw;
-                        font-weight: 300;
-                    }
-                    @include respond-to(desktop) {
-                        font-size: 400%;
-                    }
-
-                    .name {
-                        font-size: 110%;
-                        font-weight: 100;
-
-                        @include respond-to(tablet){
-                            font-weight: 300;
-                        }
-                    }
-                }
-          
-                .button-ripple {
-                    text-decoration: none;
-                    width: 40%;
-                    max-width: 200px;
-                    min-width: 50px;
-                    height: 70px;
-                    margin: 1em 2em 1em 0;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
-
-                    @include respond-to(tablet) {
-                        width: 50%;
-                        height: 50px;
-                        font-size: 50%;
-                    }
-                }
-
-                .btn-border {
-                    border-color: color(primary);
-                    color: color(primary);
-                }     
-            }
-
-            .developer {
-                max-width: 40%;
-                @include respond-to(tablet) {
+                .menu-button {
+                    cursor: pointer;
                     display: none;
-                }
-
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-            }
-            
-            .scroll-button {
-                position: absolute;
-                bottom: 3em;
-                left: 50%;
-                transform: translateX(-50%);
-                animation: jump 1s infinite alternate;
-
-                @keyframes jump {
-                    from {transform: translateY(0);}
-                    to {transform: translateY(40px);}
-                  }
-
-                img {
-                    @include size(auto, 60px)
-                }
-            }
-        }
-    }
-
-    #summary {
-        background: color(lightGray);
-
-        .summary {
-            align-items: center;
-            width: fit-content;
-            padding: 2em;
-            background: color(white);
-            border-radius: $softBorderRadius;
-            box-shadow: 0px 0px 2px 1px color(gray);
-            overflow: visible;
-            margin: 1em auto;
-            @include respond-to(tablet){
-                flex-wrap: wrap;
-                padding: 1em;
-            }
-
-            .avatar {
-                border-radius: 50%;
-                height: 120px;
-                width: 120px;
-                display: inline-block;
-                box-shadow: 0px 0px 20px 5px color(lightGray);
-            }
-
-            p {
-                font-weight: 300;
-                font-style: italic;
-                color: color(darkgray);
-                font-size: 90%;
-                line-height: 1.5;
-                letter-spacing: 1px;
-                display: inline-block;
-                max-width: 1024px;
-                text-align: left;
-
-                a {
-                    text-decoration: none;
-                    color: color(primary);
-                    font-style: normal;
-                    font-weight: 300;
+                    transition: opacity $transitionDelay;
+                    color: color(dusk);
+                    font-size: $iconSize;
+                    transition: color 0.2;
 
                     &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
-    }
-
-    #skills {
-        h3 {
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 150%;
-            text-align: center;
-            margin-bottom: 2em;
-        }
-
-        .top-skills {
-            .progress-100 {
-                @include draw-progress(100, color(primary));
-            }
-            .progress-90 {
-                @include draw-progress(90, color(primary));
-            }
-            .progress-75 {
-                @include draw-progress(75, color(primary));
-            }
-            .progress-85 {
-                @include draw-progress(85, color(primary));
-            }
-            .progress-80 {
-                @include draw-progress(80, color(primary));
-            }
-            .progress-60 {
-                @include draw-progress(60, color(primary));
-            }
-
-            .label {
-                color: color(dark);
-                text-transform: capitalize;
-                font-weight: bold;
-                font-size: $pieFontSize / 2;
-                display: block;
-                text-align: center;
-            }
-        }
-
-        .other-skills {
-            margin-top: 5em;
-
-            .content {
-                width: 100%;
-                justify-content: space-around;
-                .skills-container {
-                    min-width: $progress-bar-min-width;
-                    max-width: $progress-bar-max-width;
-                    flex-grow: 1;
-                    justify-content: flex-start;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    padding: 1em;
-
-                    @include respond-to(phone){
-                        min-width: 100%;
-                    }
-        
-                    .item {
-                        margin: .7em 0;
-                        width: 100%;
-                        @include respond-to(phone){
-                           flex-wrap: wrap;
-                        }
-                    }
-        
-                    .label {
-                        font-weight: normal;
-                        text-transform: capitalize;
                         color: color(dark);
-                        margin-right: .5em;
-                        min-width: 100px;
-                        text-align: left;
-                        overflow: hidden;
-
-                        @include respond-to(phone){
-                            margin-right: 0;
-                            margin-bottom: .5em;
-                         }
                     }
 
-                    .progress-bar {
-                        width: 100%;
+                    @include respond-to(tablet) {
                         display: flex;
-                        align-items: center;
-                        @include respond-to(phone){
-                            height: 20px;
-                         }
+                        width: fit-content;
+                        align-self: flex-end;
                     }
                 }
             }
 
-            .progress-100 {
-                width: 100%;
+            &.scroll {
+                @include mobile-navbar;
             }
-            .progress-80 {
-                width: 80%;
-            }
-            .progress-90 {
-                width: 90%;
-            }
-            .progress-70 {
-                width: 70%;
-            }
-            .progress-60 {
-                width: 60%;
-            }
-            .progress-50 {
-                width: 50%;
-            }
-            .progress-40 {
-                width: 40%;
-            }
-            .progress-30 {
-                width: 30%;
-            }
-            .progress-20 {
-                width: 20%;
-            }
-
         }
     }
 
-    #overview {
-        background: linear-gradient(to right,rgbaColor(primary, .6), color(primary));
+    #about {
+        .col {
+            width: 50%;
+            @include respond-to(tablet) {
+                width: 100%;
+            }
+        }
+
+        .about-image {
+            img {
+                @include size(100%, auto);
+            }
+        }
+        .about-content {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2em;
+
+            @include respond-to(phone) {
+                padding: 2em 0em;
+            }
+
+            @include respond-to(desktop) {
+                padding: 5em;
+            }
+
+            .title-wrapper {
+                margin-bottom: 10px;
+            }
+
+            .summary {
+                font-weight: 300;
+                font-size: 25px;
+                color: color(gray);
+                line-height: 1.7;
+
+                @include respond-to(tablet) {
+                    text-align: center;
+                }
+            }
+
+            .button-primary {
+                margin-top: 2em;
+                @include respond-to(tablet) {
+                    align-self: center;
+                }
+            }
+        }
+    }
+
+    #service {
+        background: linear-gradient(to right, color(secondary), color(primary));
         border-top-left-radius: $strong-border-radius;
         transform: skewY(-$skewDeg);
 
@@ -476,10 +334,10 @@ body {
 
             .content {
                 @include respond-to(big-tablet) {
-                   flex-direction: column;
-                   justify-content: center;
-                   align-items: center;
-                };
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
 
                 .card {
                     margin: 2em;
@@ -487,37 +345,70 @@ body {
                     align-items: center;
                     @include size(33%, auto);
 
-                    @include respond-to(big-tablet){
+                    @include respond-to(big-tablet) {
                         @include size(60%, auto);
                     }
-                    @include respond-to(small-tablet){
+                    @include respond-to(small-tablet) {
                         @include size(100%, auto);
                     }
-    
-                    img {
-                        @include size(100%, 200px);
 
-                        @include respond-to(small-tablet){
+                    img {
+                        @include size(100%, 150px);
+
+                        @include respond-to(small-tablet) {
                             @include size(100%, 150px);
                         }
                     }
-    
+
                     p {
                         text-align: center;
                         color: color(white);
-                        font-weight: 300;
+                        font-weight: 400;
                         margin-top: 2em;
                     }
                 }
             }
         }
-
     }
 
-    #projects {
+    #skills {
         position: relative;
         margin-top: -2%;
         background: color(white);
+
+        #skills-wrapper {
+            .skill-card {
+                margin: 1em;
+                transform: scale(1);
+                transition: transition(transform);
+                text-align: center;
+
+                &:hover {
+                    z-index: 99;
+                    transform: scale(1.5);
+                }
+
+                img {
+                    height: 150px;
+                    width: 150px;
+                }
+            }
+        }
+
+        .container {
+            overflow: visible;
+        }
+    }
+
+    #projects {
+        .title-wrapper {
+            align-items: flex-end;
+
+            h2 {
+                margin-left: 0;
+                margin-right: 1em;
+            }
+        }
 
         a {
             margin: 2em 1em;
@@ -527,12 +418,13 @@ body {
 
             .project {
                 @include size($project-size, $project-size);
-                border: 1px solid color(gray);
+                border: 1px solid color(lightGray);
                 border-radius: $softBorderRadius;
                 overflow: hidden;
                 position: relative;
                 transform: scale(1);
                 box-shadow: none;
+                padding: 1em;
                 transition: transition(transform), transition(box-shadow);
                 @include respond-to(tablet) {
                     @include size($project-size - 100, $project-size - 100);
@@ -543,8 +435,8 @@ body {
 
                 &:hover {
                     transform: scale(1.1);
-                    box-shadow: 0px 10px 10px 1px color(gray);
-    
+                    box-shadow: 0px 10px 10px 1px color(lightGray);
+
                     .overlay {
                         display: flex !important;
                         height: 100%;
@@ -562,10 +454,10 @@ body {
                     position: absolute;
                     z-index: 10;
                     width: 100%;
-                    background: rgbaColor(primary, .5);
+                    background: rgbaColor(primary, 0.5);
                     height: 0%;
                     @include transition(height);
-    
+
                     p {
                         font-size: 120%;
                         color: color(white);
@@ -579,163 +471,112 @@ body {
                         }
                     }
                 }
-    
+
                 img {
                     width: 100%;
                 }
-    
+            }
+        }
+    }
+
+    #contact {
+        padding-top: 0 !important;
+
+        .contact-form {
+            width: 50%;
+
+            @include respond-to(tablet) {
+                width: 100%;
+                order: 1;
+                margin-top: 2em;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 500px;
+
+                .group {
+                    textarea {
+                        resize: none;
+
+                        &::-webkit-scrollbar {
+                            width: 5px;
+                        }
+
+                        /* Track */
+                        &::-webkit-scrollbar-track {
+                            background: color(white);
+                        }
+
+                        /* Handle */
+                        &::-webkit-scrollbar-thumb {
+                            background: color(darkGray);
+                        }
+
+                        /* Handle on hover */
+                        &::-webkit-scrollbar-thumb:hover {
+                            background: color(dark);
+                        }
+                    }
+
+                    label {
+                        &.error {
+                            color: color(danger);
+                        }
+                    }
+                }
+
+                .send {
+                    margin-top: 1em;
+                    transition: background 1s;
+                }
+
+                .send.success {
+                    background: color(success);
+                    text-transform: capitalize;
+                }
+                .send.error {
+                    background: color(danger);
+                    text-transform: capitalize;
+                }
+                .send.warning {
+                    background: color(warning);
+                    text-transform: capitalize;
+                }
+            }
+
+            .contact-info {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                margin: 1em;
+                list-style-type: none;
+
+                li {
+                    margin: 0 1em;
+                    a {
+                        text-decoration: none;
+                        font-size: medium;
+                        color: color(primary);
+
+                        &:hover {
+                            color: darken(color(primary), 5%);
+                        }
+                    }
+                }
             }
         }
 
-    }
+        .mail-image {
+            width: 50%;
+            order: 0;
+            margin: auto;
 
-    #footer { 
-        width: 100%;
-        padding: 0 !important;
-
-        .content {
-            footer {
-                height: 100%;
-                padding-right: 24px !important;
-                padding-left: 24px !important;
-                width: 50%;
-                background: color(dark);
-                color: color(gray);
-                display: flex;
-                flex-flow: column wrap;
-                justify-content: center;
-                align-items: center; 
-
-                @include respond-to(big-tablet) {
-                    width: 100%;
-                    order: 1;
-    
-                    ul {
-                        margin-top: 0 !important;
-                    }
-                }
-                @include respond-to(phone) {
-                    flex-flow: column nowrap
-                }
-    
-               h2 {
-                   text-transform: uppercase;
-                   font-size: 200%;
-                   text-align: center;
-                   font-weight: bold;
-    
-                   @include respond-to(big-tablet) {
-                        display: none;
-                    }
-               }
-    
-               @include create-list(col) {
-                   justify-content: center;
-                   align-items: flex-start;
-                   margin: auto;
-                   margin: 5em 0;
-                   padding: 1em;
-    
-                   li {
-                       display: flex;
-                       flex-flow: row nowrap;
-                       align-items: center;
-                       justify-content: center;
-                       margin: .3em 0;
-
-                       a {
-                            text-decoration: none;
-                            color: color(white);
-                            font-size: 70%;
-                            font-weight: 300;
-                            letter-spacing: 1px;
-                            transition: color $transitionDelay;
-                            font-style: normal;
-
-                            &:hover {
-                                color: color(primary);
-                            }
-                       }
-    
-                       i {
-                           min-width: 30px;
-                           text-align: center;
-                           margin-right: .5em;
-                       }
-                   }
-               }
-    
-               p {
-                font-size: 70%;
-                font-weight: 300;
-                letter-spacing: 1px;
-                }
-    
-                .copy-rights {
-                    @include respond-to(phone){
-                        margin-top: 5em;
-                    }
-                }
-            }
-    
-            #contact {
-                padding-right: 24px !important;
-                padding-left: 24px !important;
-                background: color(lightGray);
-                width: 50%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                @include respond-to(big-tablet) {
-                    width: 100%;
-                    order: 0;
-                }
-    
-                h1 {
-                    color: color(dark);
-                    display: none;
-    
-                    @include respond-to(big-tablet) {
-                        display: block;
-                    }
-                }
-                
-                form {
-                    display: flex;
-                    flex-direction: column;
-                    max-width: 500px;
-                    width: 70%;
-    
-                    @include respond-to(small-tablet) {
-                        width: 90%;
-                    }
-    
-                    input, textarea {
-                        width: 100%;
-                        margin: 1em 0;
-                    }
-    
-                    .error {
-                        &::placeholder {
-                            color: color(secondary);
-                        }
-                    }
-                
-                    .send {
-                        margin-top: 1em;
-                        background: color(secondary);
-                        font-size: 90%;
-                        padding: 1em 0;
-                        letter-spacing: 1.1px;
-                        transition: background $transitionDelay;
-                    }
-    
-                    .send.success {background: color(success);text-transform: none;}
-                    .send.error {background: color(secondary);text-transform: none;}
-                    .send.warning {background: color(warning);text-transform: none;}
-                }
+            img {
+                @include size(100%, auto);
             }
         }
     }

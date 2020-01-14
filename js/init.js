@@ -28,7 +28,7 @@ $(document).ready(function() {
 function displaySkillsList() {
     $.each(SKILLS, function(key, skill) {
         $('#skills-wrapper').append(
-            `<div class='${skill.category} skill-card'><img src="${skill.logo}" alt="test" /><h1>${skill.name}</h1></div>`,
+            `<div class='${skill.category} skill-card'><img src="${skill.logo}" alt="${skill.name} logo" /><h1>${skill.name}</h1></div>`,
         )
     })
 }

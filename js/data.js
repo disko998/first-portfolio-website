@@ -1,0 +1,85 @@
+const PROJECTS = [
+    {
+        name: 'Convose',
+        src: '../assets/portfolio/convose.png',
+        category: 'mobile',
+        github: '#',
+        link: 'https://play.google.com/store/apps/details?id=com.convose.convose',
+        technologies: [
+            'React Native',
+            'Expo',
+            'TypeScript',
+            'Redux',
+            'Observables',
+            'Styled Components',
+        ],
+    },
+    {
+        name: 'Protected',
+        src: '../assets/portfolio/std.png',
+        category: 'mobile',
+        github: '#',
+        link: 'https://play.google.com/store/apps/details?id=com.stdnative',
+        technologies: ['React Native', 'Material design'],
+    },
+    {
+        name: 'Crown Clothing',
+        src: '../assets/portfolio/disko-zimnica.png',
+        category: 'web',
+        github: 'https://github.com/disko998/crown-clothing',
+        link: 'https://cr-live.herokuapp.com/',
+        technologies: [
+            'React',
+            'Redux',
+            'Redux Saga',
+            'Firebase',
+            'Styled Components',
+            'Stripe Payments',
+        ],
+    },
+    {
+        name: 'Portfolio',
+        src: '../assets/Logo@2x.png',
+        category: 'web',
+        github: '#',
+        link: '#',
+        technologies: ['HTML', 'Sass', 'JQuery'],
+    },
+    {
+        name: 'Imperial Monogram Travel',
+        src: '../assets/portfolio/imt.png',
+        category: 'web',
+        github: '#',
+        link: 'http://test.renato.co.rs/',
+        technologies: ['Wordpress', 'Divi', 'Elementor'],
+    },
+]
+
+const SKILLS = [
+    { name: 'HTML', category: 'frontend', logo: '../assets/skills/html5.svg' },
+    { name: 'CSS', category: 'frontend', logo: '../assets/skills/css-5.svg' },
+    { name: 'React', category: 'frontend', logo: '../assets/skills/react.svg' },
+    { name: 'TypeScript', category: 'frontend', logo: '../assets/skills/typescript.svg' },
+    { name: 'Redux', category: 'frontend', logo: '../assets/skills/redux.svg' },
+    { name: 'Redux Saga', category: 'frontend', logo: '../assets/skills/redux-saga.svg' },
+    { name: 'Rxjs', category: 'frontend', logo: '../assets/skills/rxjs-1.svg' },
+    { name: 'JQuery', category: 'frontend', logo: '../assets/skills/jquery.svg' },
+    { name: 'Android', category: 'frontend', logo: '../assets/skills/android.svg' },
+    { name: 'iOS', category: 'frontend', logo: '../assets/skills/apple-black.svg' },
+
+    { name: 'Firebase', category: 'backend', logo: '../assets/skills/firebase-1.svg' },
+
+    { name: 'Sass', category: 'ui', logo: '../assets/skills/sass-1.svg' },
+    { name: 'Bootstrap', category: 'ui', logo: '../assets/skills/bootstrap.svg' },
+    { name: 'Materialize', category: 'ui', logo: '../assets/skills/material-ui.svg' },
+    { name: 'Storybook', category: 'ui', logo: '../assets/skills/storybook-1.svg' },
+    { name: 'Adobe XD', category: 'ui', logo: '../assets/skills/xd.svg' },
+    { name: 'Figma', category: 'ui', logo: '../assets/skills/figma-1.svg' },
+
+    {
+        name: 'Wordpress',
+        category: 'other',
+        logo: '../assets/skills/wordpress-blue.svg',
+    },
+    { name: 'Git', category: 'other', logo: '../assets/skills/git-icon.svg' },
+]

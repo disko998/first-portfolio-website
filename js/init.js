@@ -26,19 +26,16 @@ $(document).ready(function() {
 })
 
 function displaySkillsList() {
-    $.getJSON('../skills.json', function(data) {
-        $.each(data, function(key, skill) {
-            $('#skills-wrapper').append(
-                `<div class='${skill.category} skill-card'><img src="${skill.logo}" alt="test" /><h1>${skill.name}</h1></div>`,
-            )
-        })
+    $.each(SKILLS, function(key, skill) {
+        $('#skills-wrapper').append(
+            `<div class='${skill.category} skill-card'><img src="${skill.logo}" alt="test" /><h1>${skill.name}</h1></div>`,
+        )
     })
 }
 
 function displayProjectsList() {
-    $.getJSON('../projects.json', function(data) {
-        $.each(data, function(key, project) {
-            $('#projects-wrapper').append(`
+    $.each(PROJECTS, function(key, project) {
+        $('#projects-wrapper').append(`
                 <a class="${project.category}" href="${project.link}" target="_blank">
                     <div class="project d-flex f-center">
                         <div class="overlay f-center">
@@ -48,6 +45,5 @@ function displayProjectsList() {
                     </div>
                 </a>
             `)
-        })
     })
 }

@@ -1,4 +1,4 @@
-const PROJECTS = [
+var PROJECTS = [
     {
         name: 'Convose',
         src: '../assets/portfolio/convose.png',
@@ -55,7 +55,7 @@ const PROJECTS = [
     },
 ]
 
-const SKILLS = [
+var SKILLS = [
     { name: 'HTML', category: 'frontend', logo: '../assets/skills/html5.svg' },
     { name: 'CSS', category: 'frontend', logo: '../assets/skills/css-5.svg' },
     { name: 'React', category: 'frontend', logo: '../assets/skills/react.svg' },

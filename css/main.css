@@ -611,7 +611,7 @@ body header .content-wrapper .scroll-indicator .circle {
     opacity: 1;
   }
   to {
-    opacity: 0;
+    opacity: 0.4;
     -webkit-transform: translateY(25px);
             transform: translateY(25px);
   }
@@ -624,7 +624,7 @@ body header .content-wrapper .scroll-indicator .circle {
     opacity: 1;
   }
   to {
-    opacity: 0;
+    opacity: 0.4;
     -webkit-transform: translateY(25px);
             transform: translateY(25px);
   }

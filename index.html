@@ -17,12 +17,13 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="./css/global/style.css" />
         <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="icon" href="assets/Logo@2x.png" type="image/x-icon" />
         <title>Stefan Diskic | Frontend Developer</title>
     </head>
     <body>
         <header>
-            <nav>
+            <nav data-aos="fade-down">
                 <div class="container">
                     <div class="navbar">
                         <span class="menu-button fas fa-bars"></span>
@@ -38,7 +39,7 @@
 
             <div class="container">
                 <div class="content-wrapper">
-                    <div class="header-content">
+                    <div data-aos="fade-right" class="header-content">
                         <div class="header-title">
                             <span class="greeting">hi there, i'm</span><br />
                             <span class="name">Stefan Diskic</span><br />
@@ -90,10 +91,10 @@
         <section id="about">
             <div class="container">
                 <div class="f-row f-wrap f-center">
-                    <div class="about-image col">
+                    <div data-aos="fade-up" class="about-image col">
                         <img src="./assets/anonymous.png" alt="anonymous" />
                     </div>
-                    <div class="about-content col">
+                    <div data-aos="fade-up" class="about-content col">
                         <div class="title-wrapper">
                             <h1>About me</h1>
                             <h2>Who am i</h2>
@@ -118,7 +119,7 @@
         <section id="service">
             <div class="container">
                 <div class="f-row content">
-                    <div class="f-col grow card">
+                    <div data-aos="fade-up" class="f-col grow card">
                         <img
                             src="./assets/illustration/responsive-black.svg"
                             alt="Responsive Design"
@@ -128,7 +129,7 @@
                             friendly
                         </p>
                     </div>
-                    <div class="f-col grow card">
+                    <div data-aos="fade-up" data-aos-delay="200" class="f-col grow card">
                         <img
                             src="./assets/illustration/mobile-black.svg"
                             alt="Phone Applications"
@@ -137,7 +138,7 @@
                             Android and iOS mobile applications with one code source
                         </p>
                     </div>
-                    <div class="f-col grow card">
+                    <div data-aos="fade-up" data-aos-delay="300" class="f-col grow card">
                         <img src="./assets/illustration/design.svg" alt="Design UI" />
                         <p>Design web or mobile applications UI from scratch</p>
                     </div>
@@ -147,33 +148,33 @@
 
         <section id="skills">
             <div class="container">
-                <div class="title-wrapper">
+                <div data-aos="fade-down" class="title-wrapper">
                     <h1>Technology stack</h1>
                     <h2>Skills</h2>
                 </div>
-                <div id="skills-wrapper" class="f-row f-wrap f-center"></div>
+                <div data-aos="zoom-in" id="skills-wrapper" class="f-row f-wrap f-center"></div>
             </div>
         </section>
 
         <section id="projects">
             <div class="container">
-                <div class="title-wrapper">
+                <div data-aos="fade-down" class="title-wrapper">
                     <h1>Check some of my work</h1>
                     <h2>Portfolio</h2>
                 </div>
 
-                <div id="projects-wrapper" class="f-row f-center f-wrap"></div>
+                <div data-aos="zoom-in" id="projects-wrapper" class="f-row f-center f-wrap"></div>
             </div>
         </section>
 
         <section id="contact">
             <div class="container">
-                <div class="title-wrapper">
+                <div data-aos="fade-down" class="title-wrapper">
                     <h1>get in touch</h1>
                     <h2>let's talk</h2>
                 </div>
                 <div class="f-row f-wrap">
-                    <div class="contact-form f-col f-center">
+                    <div data-aos="fade-up" class="contact-form f-col f-center">
                         <form action="#" method="POST" id="contact-form">
                             <div class="group">
                                 <input
@@ -225,7 +226,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="mail-image">
+                    <div data-aos="fade-up" class="mail-image">
                         <img src="./assets/illustration/mail-box.svg" alt="Mail box" />
                     </div>
                 </div>
@@ -242,6 +243,10 @@
         <!--Custom js-->
         <script src="./js/init.js"></script>
         <script src="./js/materail-design.js"></script>
+
+        <!--AOS-->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="./js/aoe.js"></script>
 
         <!--Email js-->
         <script

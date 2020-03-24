@@ -1,6 +1,6 @@
-# Personal portfolio website
+# Portfolio website
 Check it out [here](https://disko998.github.io/Portfolio/)
 
-* html
-* sass
-* jquery
+* Html
+* Sass
+* Jquery

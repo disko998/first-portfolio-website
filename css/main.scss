@@ -416,12 +416,8 @@ body {
 
         a {
             margin: 2em 1em;
-            @include respond-to(small-tablet) {
-                @include size(100%, auto);
-            }
 
             .project {
-                @include size($project-size, $project-size);
                 border: 1px solid color(lightGray);
                 border-radius: $softBorderRadius;
                 overflow: hidden;
@@ -430,12 +426,8 @@ body {
                 box-shadow: none;
                 padding: 1em;
                 transition: transition(transform), transition(box-shadow);
-                @include respond-to(tablet) {
-                    @include size($project-size - 100, $project-size - 100);
-                }
-                @include respond-to(small-tablet) {
-                    @include size(100%, auto);
-                }
+                height: 300px;
+                width: 300px;
 
                 &:hover {
                     transform: scale(1.1);

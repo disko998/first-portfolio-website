@@ -4,7 +4,7 @@ var PROJECTS = [
         src: './assets/portfolio/convose.png',
         category: 'mobile',
         github: '#',
-        link: 'https://play.google.com/store/apps/details?id=com.convose.convose',
+        link: 'convose.com',
         technologies: [
             'React Native',
             'Expo',
@@ -13,22 +13,6 @@ var PROJECTS = [
             'Observables',
             'Styled Components',
         ],
-    },
-    {
-        name: 'Protected',
-        src: './assets/portfolio/std.png',
-        category: 'mobile',
-        github: '#',
-        link: 'https://play.google.com/store/apps/details?id=com.stdnative',
-        technologies: ['React Native', 'Material design'],
-    },
-    {
-        name: 'Wallty',
-        src: './assets/portfolio/wallty.svg',
-        category: 'mobile',
-        github: '#',
-        link: 'https://play.google.com/store/apps/details?id=com.wallty.wallty',
-        technologies: ['React Native', 'Context API', 'Hooks'],
     },
     {
         name: 'Crown Clothing',
@@ -51,7 +35,13 @@ var PROJECTS = [
         category: 'web',
         github: 'https://github.com/disko998/mp3-jokes',
         link: 'https://mp3-jokes.firebaseapp.com',
-        technologies: ['React', 'Redux', 'Redux-saga', 'Firebase', 'Material UI'],
+        technologies: [
+            'React',
+            'Redux',
+            'Redux-saga',
+            'Firebase',
+            'Material UI',
+        ],
     },
     {
         name: 'Just Todos',
@@ -61,39 +51,79 @@ var PROJECTS = [
         link: 'https://just-todos.netlify.com',
         technologies: ['React', 'Redux', 'Material UI'],
     },
-    {
-        name: 'Imperial Monogram Travel',
-        src: './assets/portfolio/imt.png',
-        category: 'web',
-        github: '#',
-        link: 'https://imperialmonogramtravel.rs/',
-        technologies: ['Wordpress', 'Divi', 'Elementor'],
-    },
 ]
 
 var SKILLS = [
     { name: 'HTML', category: 'frontend', logo: './assets/skills/html5.svg' },
     { name: 'CSS', category: 'frontend', logo: './assets/skills/css-5.svg' },
-    { name: 'TypeScript', category: 'frontend', logo: './assets/skills/typescript.svg' },
+    {
+        name: 'TypeScript',
+        category: 'frontend',
+        logo: './assets/skills/typescript.svg',
+    },
     { name: 'React', category: 'frontend', logo: './assets/skills/react.svg' },
     { name: 'Redux', category: 'frontend', logo: './assets/skills/redux.svg' },
-    { name: 'Redux Saga', category: 'frontend', logo: './assets/skills/redux-saga.svg' },
+    {
+        name: 'Redux Saga',
+        category: 'frontend',
+        logo: './assets/skills/redux-saga.svg',
+    },
     { name: 'Rxjs', category: 'frontend', logo: './assets/skills/rxjs-1.svg' },
-    { name: 'JQuery', category: 'frontend', logo: './assets/skills/jquery.svg' },
-    { name: 'Android', category: 'frontend', logo: './assets/skills/android.svg' },
-    { name: 'iOS', category: 'frontend', logo: './assets/skills/apple-black.svg' },
+    {
+        name: 'JQuery',
+        category: 'frontend',
+        logo: './assets/skills/jquery.svg',
+    },
+    {
+        name: 'Android',
+        category: 'frontend',
+        logo: './assets/skills/android.svg',
+    },
+    {
+        name: 'iOS',
+        category: 'frontend',
+        logo: './assets/skills/apple-black.svg',
+    },
     { name: 'Expo', category: 'frontend', logo: './assets/skills/expo.png' },
 
-    { name: 'Express', category: 'backend', logo: './assets/skills/express.svg' },
-    { name: 'Firebase', category: 'backend', logo: './assets/skills/firebase-1.svg' },
-    { name: 'MongoDB', category: 'backend', logo: './assets/skills/mongodb.svg' },
+    {
+        name: 'Express',
+        category: 'backend',
+        logo: './assets/skills/express.svg',
+    },
+    {
+        name: 'Firebase',
+        category: 'backend',
+        logo: './assets/skills/firebase-1.svg',
+    },
+    {
+        name: 'MongoDB',
+        category: 'backend',
+        logo: './assets/skills/mongodb.svg',
+    },
     { name: 'MySQL', category: 'backend', logo: './assets/skills/mysql.svg' },
 
-    { name: 'Styled components', category: 'frontend', logo: './assets/skills/sc.png' },
+    {
+        name: 'Styled components',
+        category: 'frontend',
+        logo: './assets/skills/sc.png',
+    },
     { name: 'Sass', category: 'ui', logo: './assets/skills/sass-1.svg' },
-    { name: 'Bootstrap', category: 'ui', logo: './assets/skills/bootstrap.svg' },
-    { name: 'Materialize', category: 'ui', logo: './assets/skills/material-ui.svg' },
-    { name: 'Storybook', category: 'ui', logo: './assets/skills/storybook-1.svg' },
+    {
+        name: 'Bootstrap',
+        category: 'ui',
+        logo: './assets/skills/bootstrap.svg',
+    },
+    {
+        name: 'Materialize',
+        category: 'ui',
+        logo: './assets/skills/material-ui.svg',
+    },
+    {
+        name: 'Storybook',
+        category: 'ui',
+        logo: './assets/skills/storybook-1.svg',
+    },
     { name: 'Adobe XD', category: 'ui', logo: './assets/skills/xd.svg' },
     { name: 'Figma', category: 'ui', logo: './assets/skills/figma-1.svg' },
 
